@@ -41584,7 +41584,7 @@
 													"left": 202,
 													"top": 140,
 													"width": 1,
-													"height": 501,
+													"height": 493,
 													"autoResize": false
 												}
 											],
@@ -41600,7 +41600,7 @@
 											"left": 120,
 											"top": 100,
 											"width": 163,
-											"height": 541,
+											"height": 533,
 											"autoResize": false,
 											"stereotypeDisplay": "label",
 											"showVisibility": true,
@@ -41782,7 +41782,7 @@
 													"left": 351,
 													"top": 204,
 													"width": 1,
-													"height": 453,
+													"height": 429,
 													"autoResize": false
 												}
 											],
@@ -41798,7 +41798,7 @@
 											"left": 272,
 											"top": 164,
 											"width": 158,
-											"height": 493,
+											"height": 469,
 											"autoResize": false,
 											"stereotypeDisplay": "label",
 											"showVisibility": true,
