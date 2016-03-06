@@ -814,9 +814,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 287,
+									"left": 283,
 									"top": 376,
-									"width": 212.4052734375,
+									"width": 221.0888671875,
 									"height": 13,
 									"autoResize": false,
 									"alpha": -1.9465083747709087,
@@ -826,7 +826,7 @@
 									},
 									"edgePosition": 1,
 									"underline": false,
-									"text": "PortalWall.setState(PORTAL_BLUE)",
+									"text": "PortalWall.setState(PortalState.BLUE)",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5
 								},
@@ -955,9 +955,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 383,
+									"left": 377,
 									"top": 336,
-									"width": 232.62890625,
+									"width": 244.92431640625,
 									"height": 13,
 									"autoResize": false,
 									"alpha": -3.2354320669320975,
@@ -967,7 +967,7 @@
 									},
 									"edgePosition": 1,
 									"underline": false,
-									"text": "PortalWall.setState(PORTAL_YELLOW)",
+									"text": "PortalWall.setState(PortalState.YELLOW )",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5
 								},
@@ -1096,9 +1096,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 191,
+									"left": 185,
 									"top": 176,
-									"width": 232.62890625,
+									"width": 244.92431640625,
 									"height": 13,
 									"autoResize": false,
 									"alpha": 0.4279250516424722,
@@ -1108,7 +1108,7 @@
 									},
 									"edgePosition": 1,
 									"underline": false,
-									"text": "PortalWall.setState(PORTAL_YELLOW)",
+									"text": "PortalWall.setState(PortalState.YELLOW )",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5
 								},
@@ -1237,9 +1237,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 264,
+									"left": 259,
 									"top": 270,
-									"width": 231.9052734375,
+									"width": 240.5888671875,
 									"height": 13,
 									"autoResize": false,
 									"alpha": -1.0309666137182876,
@@ -1249,7 +1249,7 @@
 									},
 									"edgePosition": 1,
 									"underline": false,
-									"text": "PortalWall.setState(PORTAL_CLOSED)",
+									"text": "PortalWall.setState(PortalState.CLOSED)",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5
 								},
@@ -1378,9 +1378,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 567,
+									"left": 563,
 									"top": 288,
-									"width": 212.4052734375,
+									"width": 221.0888671875,
 									"height": 13,
 									"autoResize": false,
 									"alpha": 2.4756230904258123,
@@ -1390,7 +1390,7 @@
 									},
 									"edgePosition": 1,
 									"underline": false,
-									"text": "PortalWall.setState(PORTAL_BLUE)",
+									"text": "PortalWall.setState(PortalState.BLUE)",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5
 								},
@@ -1519,9 +1519,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 192,
+									"left": 187,
 									"top": 448,
-									"width": 231.9052734375,
+									"width": 240.5888671875,
 									"height": 13,
 									"autoResize": false,
 									"alpha": 0.8248089989121428,
@@ -1531,7 +1531,7 @@
 									},
 									"edgePosition": 1,
 									"underline": false,
-									"text": "PortalWall.setState(PORTAL_CLOSED)",
+									"text": "PortalWall.setState(PortalState.CLOSED)",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5
 								},
@@ -1838,7 +1838,7 @@
 									"containerExtending": false,
 									"left": 348,
 									"top": 212,
-									"width": 54.17724609375,
+									"width": 55,
 									"height": 13,
 									"autoResize": false,
 									"alpha": 1.5707963267948966,
@@ -2483,7 +2483,7 @@
 									"containerExtending": false,
 									"left": 344,
 									"top": 387,
-									"width": 57.078125,
+									"width": 56,
 									"height": 13,
 									"autoResize": false,
 									"alpha": 1.5707963267948966,
@@ -3872,9 +3872,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 338,
+									"left": 341,
 									"top": 139,
-									"width": 84.55078125,
+									"width": 78,
 									"height": 13,
 									"autoResize": false,
 									"alpha": 1.5707963267948966,
@@ -4013,9 +4013,9 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 337,
+									"left": 340,
 									"top": 321,
-									"width": 84.55078125,
+									"width": 78,
 									"height": 13,
 									"autoResize": false,
 									"alpha": 1.5707963267948966,
@@ -4236,11 +4236,11 @@
 							"triggers": [
 								{
 									"_type": "UMLEvent",
-									"_id": "AAAAAAFTST8kC8uUA10=",
+									"_id": "AAAAAAFTTHa/DaN6qQA=",
 									"_parent": {
 										"$ref": "AAAAAAFTSTK4jsqt2kk="
 									},
-									"name": "PortalWall.setState(PORTAL_BLUE)",
+									"name": "PortalWall.setState(PortalState.BLUE)",
 									"visibility": "public",
 									"kind": "anyReceive"
 								}
@@ -4263,11 +4263,11 @@
 							"triggers": [
 								{
 									"_type": "UMLEvent",
-									"_id": "AAAAAAFTST0x38uDRac=",
+									"_id": "AAAAAAFTTHXGc6Nw2/8=",
 									"_parent": {
 										"$ref": "AAAAAAFTSTLUTcq+PQ0="
 									},
-									"name": "PortalWall.setState(PORTAL_YELLOW)",
+									"name": "PortalWall.setState(PortalState.YELLOW )",
 									"visibility": "public",
 									"kind": "anyReceive"
 								}
@@ -4290,11 +4290,11 @@
 							"triggers": [
 								{
 									"_type": "UMLEvent",
-									"_id": "AAAAAAFTSTzJvst/FGw=",
+									"_id": "AAAAAAFTTHWNoaNrO1Y=",
 									"_parent": {
 										"$ref": "AAAAAAFTSTMgdsrojNs="
 									},
-									"name": "PortalWall.setState(PORTAL_YELLOW)",
+									"name": "PortalWall.setState(PortalState.YELLOW )",
 									"visibility": "public",
 									"kind": "anyReceive"
 								}
@@ -4317,11 +4317,11 @@
 							"triggers": [
 								{
 									"_type": "UMLEvent",
-									"_id": "AAAAAAFTST3cPsuH1k0=",
+									"_id": "AAAAAAFTTHdaIKODCxs=",
 									"_parent": {
 										"$ref": "AAAAAAFTSTOEHMsM0w4="
 									},
-									"name": "PortalWall.setState(PORTAL_CLOSED)",
+									"name": "PortalWall.setState(PortalState.CLOSED)",
 									"visibility": "public",
 									"kind": "anyReceive"
 								}
@@ -4344,11 +4344,11 @@
 							"triggers": [
 								{
 									"_type": "UMLEvent",
-									"_id": "AAAAAAFTST9WWsuXzqU=",
+									"_id": "AAAAAAFTTHZrEKN1HV8=",
 									"_parent": {
 										"$ref": "AAAAAAFTSTRfQssmHoU="
 									},
-									"name": "PortalWall.setState(PORTAL_BLUE)",
+									"name": "PortalWall.setState(PortalState.BLUE)",
 									"visibility": "public",
 									"kind": "anyReceive"
 								}
@@ -4371,11 +4371,11 @@
 							"triggers": [
 								{
 									"_type": "UMLEvent",
-									"_id": "AAAAAAFTST6AEMuOqXM=",
+									"_id": "AAAAAAFTTHePQKOIgUo=",
 									"_parent": {
 										"$ref": "AAAAAAFTSTUee8tCwgw="
 									},
-									"name": "PortalWall.setState(PORTAL_CLOSED)",
+									"name": "PortalWall.setState(PortalState.CLOSED)",
 									"visibility": "public",
 									"kind": "anyReceive"
 								}
