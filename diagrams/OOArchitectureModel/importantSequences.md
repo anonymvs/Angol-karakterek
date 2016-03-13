@@ -7,16 +7,50 @@ Creation:
  - Innentől bemenetre várunk.
 
 Movement: (ONeil, Missile mozgása)
- - User input/Timer trigger
- - ONeil/Missile megkérdezi az alatta lévő Floor példányt, hogy ki a xy szomszéd.
- - A szomszédra ráhív egy moovable() függvényt és csekkolja odamehet e.
- - Ha igen akkor beállítja az aktuális Floor példányának az ONeill/Missile referenciáját Null-ra és utána átadja magát a következő Floor típúsú objektumnak akit már korábban lekérdezett.
- - Lépés megtörtént.
- - Ha moovalbe() false-al tér vissza nem történik semmit, ONeill/Missile marad ahol van.
+-f = ONeil.floor.getNeighbour(dir)
+--f.moveAction(this)
+---Ha floor
+----oneill = parameter
+----zpm stuff
+----parameter.setFloor(this)
+----return true
+---Ha wall return false
+---Ha chasm return true
+-Ha return==true, floor.setOneill(null)
 
 Box situations: (Doboz felvétele, elengedése)
+-f = ONeil.floor.getNeighbour(dir)
+--f.boxAction(box)
+---Ha box == null -> box felvétele
+---Ha box != null -> box lerakása
+---Box lerakása
+----Ha chasm return true
+----Ha wall return false
+----Ha floor
+-----Ha placed != null
+------placed.boxAction(parameter)
+-------Ha Box return false
+-------Ha Door return false
+-----placed = box
 
-Missile: (Amikor a Missile falt ér)
+Missile: mozgás
+-entity = tile.getNeighbour(dir)
+-entity.missileAction(this)
+--Ha floor vagy chasm
+---missile = parameter
+--Ha wall -> portál?
+---Create Portal, set portal reference
+----Set static bluePortal, yellowPortal, wall reference
+----Set direction
+----Megvizsgálja a régi ugyanolyan színű portált, arra close()
+-----Visszaállítja a szomszédot
+----Beállítja a floor szomszédját (saját magát) a társportál directionje alapján
+-tile.setMissile(null)
+-Ha missileAction(this) == true
+-tile = entity
+-Ha misisleAction(this) == false
+-Megsemmisül a missile
+
 
 Portal: (Portálon való áthaladás, portál check, wall check)
  - Áthaladás:
