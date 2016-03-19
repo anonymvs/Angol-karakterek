@@ -4,68 +4,65 @@ import java.util.*;
 /**
  * 
  */
-public class Floor extends LevelEntity {
+public final class Floor extends LevelEntity {
 
-    /**
-     * Default constructor
-     */
-    public Floor() {
-    }
-
-    /**
-     * 
-     */
-    private ONeill floor;
-
-
-
-
-    /**
-     * @param Level
-     */
-    public void Floor(void Level) {
-        // TODO implement here
+	private ONeill oneill;
+    private Placeable placed;
+	
+	public Floor(Level l) {
     }
 
     /**
      * @param ONeill
      */
-    public void setONeill(void ONeill) {
-        // TODO implement here
+    public void setONeill( ONeill on ) {
+        oneill = on;
     }
 
     /**
      * @param Placaeble
      */
-    public void setPlaced(void Placaeble) {
-        // TODO implement here
+    public void setPlaced( Placeable place ) {
+        placed = place;
     }
 
     /**
      * @return
      */
     public Placeable getPlaceable() {
-        // TODO implement here
-        return null;
+        return placed;
     }
 
     /**
      * @param ONeill 
      * @return
      */
-    public abstract bool moveAction(void ONeill);
+    public final boolean moveAction( ONeill on ){
+    	oneill = on;
+    	
+    	if( placed != null ){
+    		placed.moveEvent( on );
+    	}
+    	
+    	return true;
+    };
 
     /**
      * @param ONeill 
      * @param Box 
      * @return
      */
-    public abstract bool boxAction(void ONeill, void Box);
+    public final boolean boxAction( ONeill on, Box b){
+    	on.setBox(b);
+    	return true;
+    };
 
     /**
      * @param Missile 
      * @return
      */
-    public abstract bool missileAction(void Missile);
+    public final boolean missileAction( Missile mis ){
+    	return true;
+    };
 
 }

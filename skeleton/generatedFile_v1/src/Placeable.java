@@ -17,11 +17,11 @@ public abstract class Placeable {
      * @param Box 
      * @return
      */
-    public abstract bool boxEvent(void ONeill, void Box);
+    public abstract boolean boxEvent(ONeill o, Box b);
 
     /**
      * @param ONeill
      */
-    public abstract void moveEvent(void ONeill);
+    public abstract void moveEvent(ONeill o);
 
 }

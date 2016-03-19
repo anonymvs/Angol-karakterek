@@ -4,24 +4,19 @@ import java.util.*;
 /**
  * 
  */
-public class Door extends Placeable {
+public final class Door extends Placeable {
 
-    /**
-     * Default constructor
-     */
-    public Door() {
-    }
-
-    /**
-     * 
-     */
-    private bool opened;
+    private boolean opened = false;
 
     /**
      * @param bool
      */
-    public void open(void bool) {
-        // TODO implement here
+    public void open( boolean op ) {
+        opened = op;
+    }
+    
+    public boolean isOpened(){
+    	return opened;
     }
 
     /**
@@ -29,11 +24,13 @@ public class Door extends Placeable {
      * @param Box 
      * @return
      */
-    public abstract bool boxEvent(void ONeill, void Box);
+    public final boolean boxEvent( ONeill on, Box b ){
+    	return false; /* nem engedjük?*/
+    };
 
     /**
      * @param ONeill
      */
-    public abstract void moveEvent(void ONeill);
+    public final void moveEvent( ONeill on ){ };
 
 }

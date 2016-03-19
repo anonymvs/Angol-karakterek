@@ -16,6 +16,7 @@ public class ONeill {
      * 
      */
     private Direction dir;
+    private Box box;
 
     /**
      * 
@@ -40,8 +41,8 @@ public class ONeill {
     /**
      * @param Box
      */
-    public void setBox(void Box) {
-        // TODO implement here
+    public void setBox( Box b ) {
+        box = b;
     }
 
     /**
