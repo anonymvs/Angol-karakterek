@@ -1,0 +1,53 @@
+package generatedFile_v1;
+
+import java.util.*;
+
+/**
+ * 
+ */
+public class Portal {
+
+    /**
+     * 
+     */
+    private static Portal bluePortal;
+
+    /**
+     * 
+     */
+    private static Portal yellowPortal;
+
+    /**
+     * 
+     */
+    private Direction dir;
+
+    /**
+     * 
+     */
+    private Wall portal;
+
+    /**
+     * @param Missile 
+     * @param Wall
+     */
+    public Portal(Missile m, Wall w) {
+    	
+    }
+
+    /**
+     * 
+     */
+    public void close() {
+        // TODO implement here
+    }
+
+    /**
+     * @return
+     */
+    public Direction getDir() {
+        // TODO implement here
+        return null;
+    }
+
+}

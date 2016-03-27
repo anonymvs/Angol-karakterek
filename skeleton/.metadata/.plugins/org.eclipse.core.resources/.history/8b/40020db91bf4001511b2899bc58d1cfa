@@ -1,0 +1,78 @@
+package generatedFile_v1;
+
+import java.util.*;
+
+/**
+ * 
+ */
+public abstract class LevelEntity {
+
+    /**
+     * 
+     */
+    private LevelEntity north;
+    private LevelEntity south;
+    private LevelEntity west;
+    private LevelEntity east;
+
+    /**
+     * 
+     */
+    private Missile missile;
+
+    /**
+     * @param ONeill 
+     * @return
+     */
+    public abstract boolean moveAction(ONeill oneill);
+
+    /**
+     * @param ONeill 
+     * @param Box 
+     * @return
+     */
+    public abstract bool boxAction(void ONeill, void Box);
+
+    /**
+     * @param Missile 
+     * @return
+     */
+    public abstract bool missileAction(void Missile);
+
+    /**
+     * @param Direction 
+     * @return
+     */
+    public LevelEntity getNeighbour(Direction dir) {
+    	
+    	switch (dir)
+    	{
+    	case Right:
+    		return east;
+    	case Left:
+    		return west;
+    	case Top:
+    		return north;
+    	case Bottom:
+    		return south;
+    	}
+    	
+        return null;
+    }
+
+    /**
+     * @param Direction 
+     * @param LevelEntity
+     */
+    public void setNeighbour(Direction dir, LevelEntity entity) {
+        
+    }
+
+    /**
+     * @param Missile
+     */
+    public void setMissile(void Missile) {
+        // TODO implement here
+    }
+
+}

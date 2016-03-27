@@ -12,6 +12,12 @@ public class Level {
     public Level() {
     }
 
+
+    /**
+     * 
+     */
+    private Set<LevelEntity> map;
+
     /**
      * 
      */

@@ -1,0 +1,25 @@
+package generatedFile_v1;
+
+import java.util.*;
+
+/**
+ * 
+ */
+public final class Box extends Placeable {
+    /**
+     * @param ONeill 
+     * @param Box 
+     * @return
+     */
+    public final boolean boxEvent(ONeill on, Box b) {
+    	return false;
+    };
+
+    /**
+     * @param ONeill
+     */
+    public final boolean moveEvent(ONeill on) {
+    	
+    };
+
+}

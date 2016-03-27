@@ -1,0 +1,18 @@
+package generatedFile_v1;
+
+public enum Direction {
+	Right, Left, Top, Bottom
+	
+	public Inverz() {
+	case Right:
+		neighbourDir = Direction.Left;
+	case Left:
+		neighbourDir = Direction.Right;
+	case Top:
+		neighbourDir = Direction.Bottom;
+	case Bottom:
+		neighbourDir = Direction.Top;
+	default:
+		neighbourDir = null;
+	}
+}

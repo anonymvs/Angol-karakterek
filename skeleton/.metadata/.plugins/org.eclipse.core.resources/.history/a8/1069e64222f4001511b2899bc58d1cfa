@@ -1,0 +1,41 @@
+package generatedFile_v1;
+
+/**
+ * 
+ */
+public class Portal {
+
+    private static Portal bluePortal = null;
+    private static Portal yellowPortal = null;
+    private Direction dir;
+    private Wall portal;
+
+    /**
+     * @param Missile 
+     * @param Wall
+     */
+    public Portal(Missile m, Wall w) {
+    	switch (m.getDirection())
+    	{
+    	case Right:
+    		dir = Direction.Right;
+    	case Left:
+    		dir = Right;
+    	}
+    }
+
+    /**
+     * 
+     */
+    public void close() {
+    	
+    }
+
+    /**
+     * @return
+     */
+    public Direction getDir() {
+        return dir;
+    }
+
+}

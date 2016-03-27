@@ -1,0 +1,73 @@
+package generatedFile_v1;
+
+import java.util.*;
+
+/**
+ * 
+ */
+public final class Floor extends LevelEntity {
+
+	private ONeill oneill = null;
+    private Placeable placed = null;
+    private ZPM zpm = null;
+	
+	public Floor(Level l, boolean z) {
+		if (z) {
+			zpm = new ZPM(l);
+		}
+    }
+
+    /**
+     * @param ONeill
+     */
+    public void setONeill(ONeill o) {
+        oneill = o;
+    }
+
+    /**
+     * @param Placaeble
+     */
+    public void setPlaced(Placeable p) {
+        placed = p;
+    }
+
+    /**
+     * @return
+     */
+    public Placeable getPlaceable() {
+        return placed;
+    }
+
+    /**
+     * @param ONeill 
+     * @return
+     */
+    public final boolean moveAction(ONeill oneill){
+    	/*oneill = on;
+    	
+    	if( placed != null ){
+    		placed.moveEvent( on );
+    	}
+    	
+    	return true;*/
+    };
+
+    /**
+     * @param ONeill 
+     * @param Box 
+     * @return
+     */
+    public final boolean boxAction(ONeill oneill, Box b){
+    	//on.setBox(b);
+    	//return true;
+    };
+
+    /**
+     * @param Missile 
+     * @return
+     */
+    public final boolean missileAction( Missile mis ){
+    	return true;
+    };
+
+}

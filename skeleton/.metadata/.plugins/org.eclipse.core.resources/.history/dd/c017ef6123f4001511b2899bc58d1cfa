@@ -1,0 +1,75 @@
+package generatedFile_v1;
+
+import java.awt.Color;
+
+/**
+ * 
+ */
+public class Portal {
+
+    private static Portal bluePortal = null;
+    private static Portal yellowPortal = null;
+    private Direction dir;
+    private Wall portal;
+
+    /**
+     * @param Missile 
+     * @param Wall
+     */
+    public Portal(Missile m, Wall w) {
+    	switch (m.getDirection())
+    	{
+	    	case Right:
+	    		dir = Direction.Left;
+	    	case Left:
+	    		dir = Direction.Right;
+	    	case Top:
+	    		dir = Direction.Bottom;
+	    	case Bottom:
+	    		dir = Direction.Top;
+			default:
+				dir = null;
+    	}
+    	
+    	if(m.getColor() == Color.yellow) {
+    		if (yellowPortal != null) {
+    			yellowPortal.close();
+    		}
+			yellowPortal = this;
+    	}
+    	else {
+    		if (bluePortal != null) {
+    			bluePortal.close();
+    		}
+    		bluePortal = this;
+    	}
+    	
+    }
+
+    /**
+     * 
+     */
+    public void close() {
+    	switch (dir)
+    	{
+	    	case Right:
+	    		dir = Direction.Left;
+	    	case Left:
+	    		dir = Direction.Right;
+	    	case Top:
+	    		dir = Direction.Bottom;
+	    	case Bottom:
+	    		dir = Direction.Top;
+			default:
+				dir = null;
+    	}
+    }
+
+    /**
+     * @return
+     */
+    public Direction getDir() {
+        return dir;
+    }
+
+}

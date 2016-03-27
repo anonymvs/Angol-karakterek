@@ -1,0 +1,101 @@
+package generatedFile_v1;
+
+import java.util.*;
+
+/**
+ * 
+ */
+public final class Floor extends LevelEntity {
+
+	private ONeill oneill = null;
+    private Placeable placed = null;
+    private ZPM zpm = null;
+	
+	public Floor(Level l, boolean z) {
+		if (z) {
+			zpm = new ZPM(l);
+		}
+    }
+
+    /**
+     * @param ONeill
+     */
+    public void setONeill(ONeill o) {
+        oneill = o;
+    }
+
+    /**
+     * @param Placaeble
+     */
+    public void setPlaced(Placeable p) {
+        placed = p;
+    }
+
+    /**
+     * @return
+     */
+    public Placeable getPlaceable() {
+        return placed;
+    }
+
+    /**
+     * @param ONeill 
+     * @return
+     */
+    public final boolean moveAction(ONeill o){
+    	
+    	// If there nothing placed on the floor then ONeill can here
+    	if(placed == null)
+    		return true;
+    	
+    	boolean canMove = placed.moveEvent(o);
+    	
+    	if(canMove)
+    	{
+    		oneill = o;
+    		if(zpm != null) {
+    			
+    		}
+    	}
+    	
+    	return canMove;
+    	 
+    	/*oneill = on;
+    	
+    	if( placed != null ){
+    		placed.moveEvent( on );
+    	}
+    	
+    	return true;*/
+    };
+
+    /**
+     * @param ONeill 
+     * @param Box 
+     * @return
+     */
+    public final boolean boxAction(ONeill o, Box b){
+    	
+    	if(b == null)
+    	{
+    		placed = b;
+    		return true;
+    	}
+    	
+    	boolean canBox = b.boxEvent(o, b);
+    	
+    	return canBox;
+    	
+    	//on.setBox(b);
+    	//return true;
+    };
+
+    /**
+     * @param Missile 
+     * @return
+     */
+    public final boolean missileAction( Missile mis ){
+    	return true;
+    };
+
+}

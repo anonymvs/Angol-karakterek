@@ -1,0 +1,29 @@
+package generatedFile_v1;
+
+import java.awt.Color;
+import java.util.*;
+
+/**
+ * 
+ */
+public class Missile {
+	
+    private Direction dir;
+    private Timer timer;
+    private Color color;
+    private LevelEntity tile = null;
+
+    public void Missile(Color c, Direction d) {
+        dir = d;
+        color = c;
+    }
+
+    public void move() {
+        LevelEntity entity = tile.getNeighbour(dir);
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+}

@@ -1,0 +1,7 @@
+package generatedFile_v1;
+
+public enum Direction {
+	Right, Left, Top, Bottom
+	
+		
+}

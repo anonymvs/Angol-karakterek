@@ -1,0 +1,40 @@
+package generatedFile_v1;
+
+import java.util.*;
+
+/**
+ * 
+ */
+public class Wall extends LevelEntity {
+
+    private boolean portalable;
+    private Portal portal;
+
+    /**
+     * @param bool
+     */
+    public void Wall(boolean b) {
+        portalable = b;
+    }
+
+	@Override
+	public boolean moveAction(ONeill oneill) {
+		return false;
+	}
+
+	@Override
+	public boolean boxAction(ONeill oneill, Box box) {
+		return false;
+	}
+
+	@Override
+	public boolean missileAction(Missile missile) {
+		
+		if(portalable) {
+			
+		}
+		
+		return true;
+	}
+
+}

@@ -1,0 +1,28 @@
+package generatedFile_v1;
+
+import java.util.*;
+
+/**
+ * 
+ */
+public class Chasm extends LevelEntity {
+    
+
+	@Override
+	public boolean moveAction(ONeill oneill) {
+		oneill.kill();
+		return false;
+	}
+
+	@Override
+	public boolean boxAction(ONeill oneill, Box box) {
+		return true;
+	}
+
+	@Override
+	public boolean missileAction(Missile m) {
+		missile = m;
+		return true;
+	}
+
+}
