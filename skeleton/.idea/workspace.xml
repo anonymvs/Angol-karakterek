@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8860835-60e5-47b4-8251-5906d9ab231f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Box.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Box.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Chasm.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Chasm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Direction.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Direction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Door.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Door.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Floor.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Floor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Level.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Level.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/LevelEntity.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/LevelEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Main.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/ONeill.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/ONeill.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Opener.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Opener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Portal.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Portal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Wall.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Wall.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/ZPM.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/ZPM.java" />
-    </list>
+    <list default="true" id="e8860835-60e5-47b4-8251-5906d9ab231f" name="Default" comment="" />
     <ignored path="skeleton.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -76,8 +62,8 @@
       <file leaf-file-name="Portal.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Portal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1278">
-              <caret line="73" column="22" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+            <state relative-caret-position="396">
+              <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -581,7 +567,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="24" width="1920" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -591,7 +577,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22380468" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22380468" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1046,8 +1032,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Portal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1278">
-          <caret line="73" column="22" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+        <state relative-caret-position="396">
+          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
           <folding />
         </state>
       </provider>
