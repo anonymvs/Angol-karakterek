@@ -15,25 +15,29 @@ public class Door extends Placeable {
     /**
      * 
      */
-    private bool opened;
+    private boolean opened;
 
     /**
      * @param bool
      */
-    public void open(void bool) {
+    public void open(boolean bool) {
         // TODO implement here
     }
 
     /**
-     * @param ONeill 
-     * @param Box 
+     * @param oneill
+     * @param box
      * @return
      */
-    public abstract bool boxEvent(void ONeill, void Box);
+    public boolean boxEvent(ONeill oneill, Box box) {
+
+    }
 
     /**
-     * @param ONeill
+     * @param oneill
      */
-    public abstract void moveEvent(void ONeill);
+    public void moveEvent(ONeill oneill) {
+
+    }
 
 }

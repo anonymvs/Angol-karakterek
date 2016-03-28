@@ -19,45 +19,45 @@ public abstract class LevelEntity {
     private Missile missile;
 
     /**
-     * @param ONeill 
+     * @param oneill
      * @return
      */
-    public abstract bool moveAction(ONeill oneill);
+    public abstract boolean moveAction(ONeill oneill);
 
     /**
-     * @param ONeill 
-     * @param Box 
+     * @param oneill
+     * @param box
      * @return
      */
-    public abstract bool boxAction(ONeill oneill, Box box);
+    public abstract boolean boxAction(ONeill oneill, Box box);
 
     /**
-     * @param Missile 
+     * @param m
      * @return
      */
-    public abstract bool missileAction(void Missile);
+    public abstract boolean missileAction(Missile m);
 
     /**
-     * @param Direction 
+     * @param dir
      * @return
      */
-    public LevelEntity getNeighbour(void Direction) {
+    public LevelEntity getNeighbour(Direction dir) {
         // TODO implement here
         return null;
     }
 
     /**
-     * @param Direction 
-     * @param LevelEntity
+     * @param dir
+     * @param le
      */
-    public void setNeighbour(void Direction, void LevelEntity) {
+    public void setNeighbour(Direction dir, LevelEntity le) {
         // TODO implement here
     }
 
     /**
-     * @param Missile
+     * @param m
      */
-    public void setMissile(void Missile) {
+    public void setMissile(Missile m) {
         // TODO implement here
     }
 

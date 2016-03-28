@@ -42,7 +42,7 @@ public final class Floor extends LevelEntity {
      */
     public final boolean moveAction(ONeill o){
     	
-    	// If there nothing placed on the floor then ONeill can here
+    	// If there nothing placed on the floor then ONeill can move here
     	if(placed == null)
     		return true;
     	
