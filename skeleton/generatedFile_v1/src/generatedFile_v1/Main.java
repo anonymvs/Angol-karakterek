@@ -28,10 +28,18 @@ public class Main {
                     Floor f2 = new Floor(level, false);
                     f1.setNeighbour(Direction.Bottom, f2);
                     f2.setNeighbour(Direction.Top, f1);
-                    ONeill oneill = new ONeill(f1, Direction.Bottom);
-                    oneill.move();
+                    ONeill oneill1 = new ONeill(f1, Direction.Bottom);
+                    oneill1.move();
 	    		case 2:
-                    //oneill.boxing();
+                    Floor f3 = new Floor(level, false);
+                    Floor f4 = new Floor(level, false);
+                    Floor f5 = new Floor(level, false);
+                    Opener opener1 = new Opener();
+                    ONeill oneill2 = new ONeill(f3, Direction.Bottom);
+                    Box box1 = new Box();
+                    f4.setPlaced(box1);
+                    f5.setPlaced(opener1);
+                    oneill2.boxing();
                     break;
 	    		case 3:
 	    			Opener op = new Opener();
