@@ -38,10 +38,10 @@ public class Main {
 	    			Door d = new Door();
 	    			Box b = new Box();
 	    			op.setDoor(d);
-	    			
 	    			op.boxEvent(null, b);
                     break;
 	    		case 4:
+	    			System.out.println();
                     break;
 	    		case 5:
                     break;
@@ -51,6 +51,8 @@ public class Main {
                 default:
                     break;
         	}
+        	
+        	System.out.println();
         }
     }
 
