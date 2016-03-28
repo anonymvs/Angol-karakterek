@@ -53,7 +53,8 @@ public class ONeill {
      * 
      */
     public void boxing() {
-    	
+    	LevelEntity entity = floor.getNeighbour(dir);
+        entity.boxAction(this, null);
     }
 
     /**
