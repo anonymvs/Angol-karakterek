@@ -16,14 +16,14 @@ public final class Floor extends LevelEntity {
     }
 
     /**
-     * @param ONeill
+     * @param o - an instance of ONeill, that we use to set the Floor's reference
      */
     public void setONeill(ONeill o) {    		
         oneill = o;
     }
 
     /**
-     * @param Placaeble
+     * @param p - an instance of Placeable class, which can be put on the Floor
      */
     public void setPlaced(Placeable p) {
         placed = p;
@@ -37,7 +37,7 @@ public final class Floor extends LevelEntity {
     }
 
     /**
-     * @param ONeill 
+     * @param o - an instance of ONeill
      * @return
      */
     public final boolean moveAction(ONeill o){
@@ -62,8 +62,8 @@ public final class Floor extends LevelEntity {
     };
 
     /**
-     * @param ONeill 
-     * @param Box 
+     * @param o - an instance of ONeill
+     * @param b - an instance of a Box
      * @return
      */
     public final boolean boxAction(ONeill o, Box b){
@@ -91,7 +91,7 @@ public final class Floor extends LevelEntity {
     };
 
     /**
-     * @param Missile 
+     * @param mis - an instance of a Missile
      * @return
      */
     public final boolean missileAction( Missile mis ){

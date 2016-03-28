@@ -12,30 +12,26 @@ public abstract class LevelEntity {
     protected Missile missile = null;
 
     /**
-     * @param ONeill 
+     * @param oneill - an instance of ONeill
      * @return
-     * NAGYON OBJEKTUM ORIENTÁLT
      */
     public abstract boolean moveAction(ONeill oneill);
 
     /**
-     * @param ONeill 
-     * @param Box 
-     * NAGYON OBJEKTUM ORIENTÁLT
+     * @param oneill - an instance of ONeill
+     * @param box - an instance of a Box
      * @return
      */
     public abstract boolean boxAction(ONeill oneill, Box box);
 
     /**
-     * @param Missile 
-     * NAGYON OBJEKTUM ORIENTÁLT
+     * @param missile - an instance of a Missile
      * @return
      */
     public abstract boolean missileAction(Missile missile);
 
     /**
-     * @param Direction 
-     * NAGYON OBJEKTUM ORIENTÁLT
+     * @param dir - an instance of a Direction
      * @return
      */
     public LevelEntity getNeighbour(Direction dir) {
@@ -56,8 +52,8 @@ public abstract class LevelEntity {
     }
 
     /**
-     * @param Direction 
-     * @param LevelEntity
+     * @param dir
+     * @param entity
      */
     public void setNeighbour(Direction dir, LevelEntity entity) {
     	switch (dir)
@@ -74,7 +70,7 @@ public abstract class LevelEntity {
     }
 
     /**
-     * @param Missile
+     * @param m
      */
     public void setMissile(Missile m) {
         missile = m;

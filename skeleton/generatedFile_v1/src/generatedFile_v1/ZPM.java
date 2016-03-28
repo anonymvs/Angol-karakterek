@@ -12,7 +12,7 @@ public class ZPM {
 
 
     /**
-     * @param Level
+     * @param l
      */
     public ZPM(Level l) {
     	level = l;

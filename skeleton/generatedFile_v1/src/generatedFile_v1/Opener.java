@@ -17,8 +17,8 @@ public final class Opener extends Placeable {
     }
 
     /**
-     * @param ONeill 
-     * @param Box 
+     * @param o
+     * @param b
      * @return
      */
     public final boolean boxEvent(ONeill o, Box b) {
@@ -38,7 +38,7 @@ public final class Opener extends Placeable {
     };
 
     /**
-     * @param ONeill
+     * @param o
      */
     public final boolean moveEvent(ONeill o){
     	if( o != null ){

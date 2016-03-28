@@ -13,8 +13,8 @@ public class Portal {
     private Wall wall;
 
     /**
-     * @param Missile 
-     * @param Wall
+     * @param m
+     * @param w
      */
     public Portal(Missile m, Wall w) {
     	

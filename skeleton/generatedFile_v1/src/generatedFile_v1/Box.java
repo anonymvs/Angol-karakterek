@@ -5,8 +5,8 @@ package generatedFile_v1;
  */
 public final class Box extends Placeable {
     /**
-     * @param ONeill 
-     * @param Box 
+     * @param on - an instance of ONeill
+     * @param b - an instance of the Box class
      * @return
      */
     public final boolean boxEvent(ONeill on, Box b) {
@@ -16,7 +16,7 @@ public final class Box extends Placeable {
     };
 
     /**
-     * @param ONeill
+     * @param on - an instance of ONeill
      */
     public final boolean moveEvent(ONeill on) {
     	return true;

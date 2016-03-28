@@ -9,7 +9,7 @@ public class Wall extends LevelEntity {
     private Portal portal;
 
     /**
-     * @param bool
+     * @param b
      */
     public Wall(boolean b) {
         portalable = b;

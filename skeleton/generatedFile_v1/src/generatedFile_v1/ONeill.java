@@ -31,7 +31,7 @@ public class ONeill {
     }
 
     /**
-     * @param Box
+     * @param b
      */
     public void setBox( Box b ) {
         box = b;

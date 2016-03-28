@@ -9,14 +9,14 @@ public abstract class Placeable {
 
 
     /**
-     * @param ONeill 
-     * @param Box 
+     * @param o
+     * @param b
      * @return
      */
     public abstract boolean boxEvent(ONeill o, Box b);
 
     /**
-     * @param ONeill
+     * @param o
      */
     public abstract boolean moveEvent(ONeill o);
 

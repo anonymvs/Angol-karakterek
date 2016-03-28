@@ -10,7 +10,7 @@ public final class Door extends Placeable {
     private boolean opened = false;
 
     /**
-     * @param bool
+     * @param op - boolean used to open or close the door
      */
     public void open(boolean op) {
         opened = op;
@@ -21,16 +21,16 @@ public final class Door extends Placeable {
     }
 
     /**
-     * @param ONeill 
-     * @param Box 
+     * @param on - an instance of ONeill
+     * @param b - an instance of a Box
      * @return
      */
     public final boolean boxEvent(ONeill on, Box b) {
-    	return false; /* nem engedjük?*/
+    	return false; /* nem engedjÃ¼k?*/
     };
 
     /**
-     * @param ONeill
+     * @param on - an instance of ONeill
      */
     public final boolean moveEvent(ONeill on) {
     	return opened;
