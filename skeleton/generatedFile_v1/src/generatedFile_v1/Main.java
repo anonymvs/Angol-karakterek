@@ -47,6 +47,7 @@ public class Main {
                     System.out.println();
                     break;
 	    		case 6:
+                    System.out.println();
                     break;
 	    		case 0: System.exit(0);
                 default:
