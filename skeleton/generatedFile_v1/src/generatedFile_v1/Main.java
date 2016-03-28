@@ -7,6 +7,10 @@ public class Main {
 	
 	
     public static void main(String args[]) {
+    	
+        Level level = new Level();
+        level.load();
+        
     	char o;
         System.out.println("Please select an option!");
         System.out.println("[0]: Init sequence");
@@ -19,6 +23,7 @@ public class Main {
         System.out.println("[x]: exit");
         
         for(int i = 0; o != 'x'; i++){
+        	o = (char) System.in.read();
         	switch(o){
 	    		case '0': testInit();
 	    		case '1': testMove();
@@ -27,9 +32,9 @@ public class Main {
 	    		case '4': testMissile();
 	    		case '5': testReset();
 	    		case '6': testEndOfGame();
-	    		case 'x': System.exit(0);
-	    		
-    	}
-    }}
+	    		case 'x': System.exit(0);	
+        	}
+        }
     	
+    }
 }
