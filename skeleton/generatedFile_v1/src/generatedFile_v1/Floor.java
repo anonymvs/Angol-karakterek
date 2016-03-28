@@ -46,17 +46,21 @@ public final class Floor extends LevelEntity {
     public final boolean moveAction(ONeill o){
     	System.out.println("This Floor's move action has been called.");
     	// If there nothing placed on the floor then ONeill can move here
-    	if(placed == null)
-    		return true;
-    	
+    	if(placed == null) {
+            System.out.println("Yes, there is no object on this Floor.");
+            return true;
+        }
+        System.out.println("Something is on this Floor, better check that out.");
     	boolean canMove = placed.moveEvent(o);
     	
     	if(canMove)
     	{
-    		o.getFloor().setONeill(null);
+    		System.out.println("ONeill is free to move.");
+            o.getFloor().setONeill(null);
     		o.setFloor(this);
     		oneill = o;
     		if(zpm != null) {
+                System.out.println("There is a ZPM on this floor.");
     			zpm.collect();
     		}
     	}

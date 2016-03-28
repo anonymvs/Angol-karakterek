@@ -15,21 +15,11 @@ public class Main {
         Level level = new Level();
         System.out.println("Initialization sequence is done.\n");
 
-        System.out.println("Please select an option!");
-        //System.out.println("[0]: Init sequence");
-        System.out.println("[1]: Move sequence");
-        System.out.println("[2]: Box sequence");
-        System.out.println("[3]: Door sequence");
-        System.out.println("[4]: Missile sequence");
-        System.out.println("[5]: Reset sequence");
-        System.out.println("[6]: End of game sequence");
-        System.out.println("[0]: exit\n");
-
         int input = 10000;
         Scanner in = new Scanner(System.in);
 
         while (input != 0){
-
+            menu();
             input = in.nextInt();
 
         	switch(input) {
@@ -56,5 +46,16 @@ public class Main {
                     break;
         	}
         }
+    }
+
+    public static void menu() {
+        System.out.println("Please select an option!");
+        System.out.println("[1]: Move sequence");
+        System.out.println("[2]: Box sequence");
+        System.out.println("[3]: Door sequence");
+        System.out.println("[4]: Missile sequence");
+        System.out.println("[5]: Reset sequence");
+        System.out.println("[6]: End of game sequence");
+        System.out.println("[0]: exit\n");
     }
 }
