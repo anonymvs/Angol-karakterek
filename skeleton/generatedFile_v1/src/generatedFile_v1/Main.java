@@ -65,6 +65,5 @@ public class Main {
         System.out.println("[5]: Reset sequence");
         System.out.println("[6]: End of game sequence");
         System.out.println("[0]: exit\n");
-
     }
 }
