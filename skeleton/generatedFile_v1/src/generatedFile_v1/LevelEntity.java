@@ -35,7 +35,7 @@ public abstract class LevelEntity {
      * @return
      */
     public LevelEntity getNeighbour(Direction dir) {
-		System.out.println("This LevelEntity has been ask to return it's neighbour's reference.");
+    	
     	switch (dir)
     	{
 	    	case Right:
