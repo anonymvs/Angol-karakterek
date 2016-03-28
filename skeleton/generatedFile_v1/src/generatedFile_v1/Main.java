@@ -14,12 +14,9 @@ public class Main {
         System.out.println("Initialization sequence: ");
         Level level = new Level();
         System.out.println("Initialization sequence is done.\n");
-<<<<<<< HEAD
-=======
 
         int input = 10000;
         Scanner in = new Scanner(System.in);
->>>>>>> origin/master
 
         while (input != 0){
             menu();
@@ -60,40 +57,6 @@ public class Main {
         System.out.println("[5]: Reset sequence");
         System.out.println("[6]: End of game sequence");
         System.out.println("[0]: exit\n");
-<<<<<<< HEAD
 
-        int input = 10000;
-        Scanner in = new Scanner(System.in);
-
-        while (input != 0){
-
-            input = in.nextInt();
-
-        	switch(input) {
-	    		case 1:
-                    Floor f1 = new Floor(level, false);
-                    Floor f2 = new Floor(level, false);
-                    f1.setNeighbour(Direction.Bottom, f2);
-                    f2.setNeighbour(Direction.Top, f1);
-                    ONeill oneill = new ONeill(f1, Direction.Bottom);
-                    oneill.move();
-	    		case 2:
-                    //oneill.boxing();
-                    break;
-	    		case 3:
-                    break;
-	    		case 4:
-                    break;
-	    		case 5:
-                    break;
-	    		case 6:
-                    break;
-	    		case 0: System.exit(0);
-                default:
-                    break;
-        	}
-        }
-=======
->>>>>>> origin/master
     }
 }
