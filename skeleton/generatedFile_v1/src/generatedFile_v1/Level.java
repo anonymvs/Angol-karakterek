@@ -40,15 +40,16 @@ public class Level {
      */
     public void load() {
         System.out.println("Level's load function been called.");
-        Floor floor = new Floor(this, false);
+        LevelEntity floor = new Floor(this, false);
         ls.add(floor);
-        Floor floorWzpm = new Floor(this, true);
+        floor.setNeighbour(Direction.Bottom, new Floor(this, false));
+        LevelEntity floorWzpm = new Floor(this, true);
         ls.add(floorWzpm);
-        Wall wall = new Wall(false);
+        LevelEntity wall = new Wall(false);
         ls.add(wall);
-        Wall wallPortalable = new Wall(true);
+        LevelEntity wallPortalable = new Wall(true);
         ls.add(wallPortalable);
-        Chasm chasm = new Chasm();
+        LevelEntity chasm = new Chasm();
         ls.add(chasm);
         Placeable box = new Box();
         Placeable opener = new Opener();
