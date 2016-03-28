@@ -7,6 +7,10 @@ public final class Opener extends Placeable {
 
 	private Box box = null;
 	private Door door = null;
+
+	public Opener() {
+        System.out.println("An Opener has been constructed.");
+    }
     
 	public void setBox(Box b) {
         box = b;

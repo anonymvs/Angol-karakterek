@@ -4,6 +4,11 @@ package generatedFile_v1;
  * 
  */
 public final class Box extends Placeable {
+
+    public Box() {
+        System.out.println("A box has been constructed.");
+    }
+
     /**
      * @param on  an instance of ONeill
      * @param b   an instance of the Box class

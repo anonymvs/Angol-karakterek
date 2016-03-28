@@ -12,7 +12,14 @@ public class Wall extends LevelEntity {
      * @param b
      */
     public Wall(boolean b) {
-        portalable = b;
+
+		portalable = b;
+
+		if(b) {
+			System.out.println("A Wall has been constructed which is available for portals.");
+		} else {
+			System.out.println("A Wall has been constructed which is NOT available for portals.");
+		}
     }
 
 	@Override

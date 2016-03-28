@@ -5,6 +5,9 @@ package generatedFile_v1;
  */
 public class Chasm extends LevelEntity {
     
+	public Chasm() {
+		System.out.println("A Chasm has been constructed.");
+	}
 
 	@Override
 	public final boolean moveAction(ONeill oneill) {

@@ -9,6 +9,10 @@ public final class Door extends Placeable {
 
     private boolean opened = false;
 
+    public Door() {
+        System.out.println("A Door has been constructed.");
+    }
+
     /**
      * @param op - boolean used to open or close the door
      */

@@ -11,15 +11,18 @@ public final class Floor extends LevelEntity {
 	
 	public Floor(Level l, boolean z) {
 		if (z) {
+			System.out.println("Floor with ZPM constructed.");
 			zpm = new ZPM(l);
+		} else {
+			System.out.println("Floor without ZPM constructed");
 		}
     }
 
     /**
      * @param o - an instance of ONeill, that we use to set the Floor's reference
      */
-    public void setONeill(ONeill o) {    		
-        oneill = o;
+    public void setONeill(ONeill o) {
+		oneill = o;
     }
 
     /**
