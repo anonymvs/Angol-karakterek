@@ -33,7 +33,7 @@ public class Main {
 	    			doorSeq();
                     break;
 	    		case 4:
-	    			missileSeq();
+	    			missileSeq(level);
                     break;
 	    		case 5:
                     resetSeq();
@@ -70,7 +70,7 @@ public class Main {
         Box box1 = new Box();
         ONeill oneill2 = new ONeill(f3, Direction.Bottom);
         f4.setPlaced(box1);
-        f5.setPlaced(opener1);
+        //f5.setPlaced(opener1);
         oneill2.boxing();
         oneill2.setDir(Direction.Left);
         oneill2.boxing();
@@ -82,8 +82,17 @@ public class Main {
         op.setDoor(d);
         op.boxEvent(null, b);
     }
-    public static void missileSeq() {
+    public static void missileSeq(Level level) {
 
+        Floor f5 = new Floor(level, false);
+        Floor f6 = new Floor(level, false);
+        Wall wall = new Wall(true);
+        f5.setNeighbour(Direction.Bottom, f6);
+        f6.setNeighbour(Direction.Top, f5);
+        f6.setNeighbour(Direction.Bottom, wall);
+        wall.setNeighbour(Direction.Top, f6);
+        ONeill oneill3 = new ONeill(f5, Direction.Bottom);
+        oneill3.shoot();
     }
     public static void resetSeq() {
 

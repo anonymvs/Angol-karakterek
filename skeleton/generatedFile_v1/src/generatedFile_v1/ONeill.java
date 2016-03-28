@@ -1,5 +1,6 @@
 package generatedFile_v1;
 
+import java.awt.*;
 import java.util.*;
 
 /**
@@ -84,7 +85,7 @@ public class ONeill {
      * 
      */
     public void shoot() {
-    	
+    	Missile m = new Missile(Color.BLUE, dir);
     }
 
     public void setDir(Direction arg) {

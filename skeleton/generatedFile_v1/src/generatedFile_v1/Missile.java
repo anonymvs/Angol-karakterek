@@ -16,6 +16,7 @@ public class Missile {
     private LevelEntity tile = null;
 
     public Missile(Color c, Direction d) {
+        System.out.println("MISSILE: A Missile has been constructed.");
         dir = d;
         color = c;
         timer = new Timer();
