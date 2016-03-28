@@ -15,14 +15,16 @@ public class ZPM {
      * @param l
      */
     public ZPM(Level l) {
-    	level = l;
+    	System.out.println("A ZPM just occured on the map");
+        level = l;
     }
 
     /**
      * 
      */
     public void collect() {
-    	level.decreaseZPM();
+    	System.out.println("The count of the ZPM-s on this level has been decreased.");
+        level.decreaseZPM();
     }
 
 }

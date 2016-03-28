@@ -46,6 +46,7 @@ public class ONeill {
         System.out.println("A movement has been triggered.");
     	LevelEntity entity = floor.getNeighbour(dir);
     	entity.moveAction(this);
+        System.out.println("ONeill has moved.");
     }
 
     /**
