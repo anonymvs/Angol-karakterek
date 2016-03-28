@@ -3,7 +3,7 @@ package generatedFile_v1;
 public enum Direction {
 	Right, Left, Top, Bottom;
 	
-	public Direction inverz() {
+	public Direction inverse() {
 		switch (this)
 		{
 			case Right:

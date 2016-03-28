@@ -10,7 +10,7 @@ public final class Door extends Placeable {
     private boolean opened = false;
 
     public Door() {
-        System.out.println("A Door has been constructed.");
+        System.out.println("DOOR: A Door has been constructed.");
     }
 
     /**

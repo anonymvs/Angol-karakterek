@@ -45,7 +45,7 @@ public class Main {
                 default:
                     break;
         	}
-        	
+
         	System.out.println();
         }
     }
@@ -67,11 +67,12 @@ public class Main {
         f3.setNeighbour(Direction.Left, f5);
         f5.setNeighbour(Direction.Right, f3);
         Opener opener1 = new Opener();
-        ONeill oneill2 = new ONeill(f3, Direction.Bottom);
         Box box1 = new Box();
+        ONeill oneill2 = new ONeill(f3, Direction.Bottom);
         f4.setPlaced(box1);
         f5.setPlaced(opener1);
         oneill2.boxing();
+        oneill2.setDir(Direction.Left);
         oneill2.boxing();
     }
     public static void doorSeq() {

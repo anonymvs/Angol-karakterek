@@ -13,7 +13,7 @@ public class Level {
      * Default constructor
      */
     public Level() {
-        System.out.println("Level contstructor been called.");
+        System.out.println("LEVEL: Level contstructor been called.");
         load();
     }
 
@@ -39,7 +39,7 @@ public class Level {
      * 
      */
     public void load() {
-        System.out.println("Level's load function been called.");
+        System.out.println("LEVEL: Level's load function been called.");
         Floor floor = new Floor(this, false);
         ls.add(floor);
         Floor floorWzpm = new Floor(this, true);

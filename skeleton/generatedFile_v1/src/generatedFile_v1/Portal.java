@@ -20,7 +20,7 @@ public class Portal {
     	
     	wall = w;
     	
-    	dir = m.getDirection().inverz();
+    	dir = m.getDirection().inverse();
     	
     	// Open yellow portal
     	if(m.getColor() == Color.yellow) {
@@ -33,8 +33,8 @@ public class Portal {
 				LevelEntity myNeighbour = wall.getNeighbour(dir);
 				LevelEntity blueNeighbour = bluePortal.getWallNeighbour(bluePortal.getDirection());
 				
-				myNeighbour.setNeighbour(dir.inverz(), blueNeighbour);
-				blueNeighbour.setNeighbour(bluePortal.getDirection().inverz(), myNeighbour);
+				myNeighbour.setNeighbour(dir.inverse(), blueNeighbour);
+				blueNeighbour.setNeighbour(bluePortal.getDirection().inverse(), myNeighbour);
 			}
     	}
     	// Open blue portal
@@ -48,8 +48,8 @@ public class Portal {
 				LevelEntity myNeighbour = wall.getNeighbour(dir);
 				LevelEntity yellowNeighbour = yellowPortal.getWallNeighbour(yellowPortal.getDirection());
 				
-				myNeighbour.setNeighbour(dir.inverz(), yellowNeighbour);
-				yellowNeighbour.setNeighbour(yellowPortal.getDirection().inverz(), myNeighbour);
+				myNeighbour.setNeighbour(dir.inverse(), yellowNeighbour);
+				yellowNeighbour.setNeighbour(yellowPortal.getDirection().inverse(), myNeighbour);
 			}
     	}
     	
@@ -61,7 +61,7 @@ public class Portal {
     public void close() {
     	    	
     	LevelEntity e = wall.getNeighbour(dir);
-    	e.setNeighbour(dir.inverz(), wall);
+    	e.setNeighbour(dir.inverse(), wall);
     }
 
     /**

@@ -11,10 +11,10 @@ public final class Floor extends LevelEntity {
 	
 	public Floor(Level l, boolean z) {
 		if (z) {
-			System.out.println("Floor with ZPM constructed.");
+			System.out.println("FLOOR: Floor with ZPM constructed.");
 			zpm = new ZPM(l);
 		} else {
-			System.out.println("Floor without ZPM constructed");
+			System.out.println("FLOOR: Floor without ZPM constructed");
 		}
     }
 
@@ -44,23 +44,23 @@ public final class Floor extends LevelEntity {
      * @return
      */
     public final boolean moveAction(ONeill o){
-    	System.out.println("This Floor's move action has been called.");
+    	System.out.println("FLOOR: This Floor's move action has been called.");
     	// If there nothing placed on the floor then ONeill can move here
     	if(placed == null) {
-            System.out.println("Yes, there is no object on this Floor.");
+            System.out.println("FLOOR: Yes, there is no object on this Floor.");
             return true;
         }
-        System.out.println("Something is on this Floor, better check that out.");
+        System.out.println("FLOOR: Something is on this Floor, better check that out.");
     	boolean canMove = placed.moveEvent(o);
     	
     	if(canMove)
     	{
-    		System.out.println("ONeill is free to move.");
+    		System.out.println("FLOOR: ONeill is free to move.");
             o.getFloor().setONeill(null);
     		o.setFloor(this);
     		oneill = o;
     		if(zpm != null) {
-                System.out.println("There is a ZPM on this floor.");
+                System.out.println("FLOOR: There is a ZPM on this floor, better collect it :P");
     			zpm.collect();
     		}
     	}
@@ -74,10 +74,10 @@ public final class Floor extends LevelEntity {
      * @return
      */
     public final boolean boxAction(ONeill o, Box b){
-    	
+        System.out.println("FLOOR: This Floor's box action has been called.");
     	
     	if(b != null) {
-    		
+    		System.out.println("FLOOR: ONeil already has a box.");
     		if(placed == null)
         	{
         		placed = b;
@@ -90,7 +90,12 @@ public final class Floor extends LevelEntity {
     		
     	}
     	else {
-    		placed.boxEvent(o, b);
+            System.out.println("FLOOR: ONeil doesn't have a box yet.");
+    		boolean bool = placed.boxEvent(o, b);
+            if (bool) {
+                System.out.println("FLOOR: The Box isn't on the Floor anymore.");
+                placed = null;
+            }
     		return false;
     	}
     	

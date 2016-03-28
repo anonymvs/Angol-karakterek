@@ -20,7 +20,7 @@ public class ONeill {
      * @param dir
      */
     public ONeill(Floor f, Direction dir) {
-        System.out.printf("ONeill just came to life,");
+        System.out.printf("ONEILL: ONeill just came to life,");
         switch (dir) {
             case Left :
                 System.out.printf(" and is facing to the LEFT\n");
@@ -43,10 +43,10 @@ public class ONeill {
      * 
      */
     public void move() {
-        System.out.println("A movement has been triggered.");
+        System.out.println("ONEILL: A movement has been triggered.");
     	LevelEntity entity = floor.getNeighbour(dir);
     	entity.moveAction(this);
-        System.out.println("ONeill has moved.");
+        System.out.println("ONEILL: ONeill has moved.");
     }
 
     /**
@@ -85,6 +85,10 @@ public class ONeill {
      */
     public void shoot() {
     	
+    }
+
+    public void setDir(Direction arg) {
+        dir = arg;
     }
 
 }

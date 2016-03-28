@@ -16,9 +16,9 @@ public class Wall extends LevelEntity {
 		portalable = b;
 
 		if(b) {
-			System.out.println("A Wall has been constructed which is available for portals.");
+			System.out.println("WALL: A Wall has been constructed which is available for portals.");
 		} else {
-			System.out.println("A Wall has been constructed which is NOT available for portals.");
+			System.out.println("WALL: A Wall has been constructed which is NOT available for portals.");
 		}
     }
 
