@@ -18,6 +18,7 @@ public final class Door extends Placeable {
      */
     public void open(boolean op) {
         opened = op;
+        System.out.println("A Door has been opened.");
     }
     
     public boolean isOpened() {
@@ -30,7 +31,7 @@ public final class Door extends Placeable {
      * @return
      */
     public final boolean boxEvent(ONeill on, Box b) {
-    	return false; /* nem engedjük?*/
+    	return false;
     };
 
     /**
