@@ -34,6 +34,12 @@ public class Main {
                     //oneill.boxing();
                     break;
 	    		case 3:
+	    			Opener op = new Opener();
+	    			Door d = new Door();
+	    			Box b = new Box();
+	    			op.setDoor(d);
+	    			
+	    			op.boxEvent(null, b);
                     break;
 	    		case 4:
                     break;
