@@ -43,7 +43,7 @@ public final class Opener extends Placeable {
     	
     	// ONeill tries to put down a box
     	if (box == null) {
-			System.out.println("OPENER: ONeill tries to put down a Box to an Opener, that has no Box yet");
+			System.out.println("OPENER: ONeill tries to put down a Box to an Opener, that has no Box yet, and succeeds");
 			door.open( true );
 			box = b;
 			return true;
