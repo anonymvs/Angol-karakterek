@@ -56,7 +56,7 @@ public abstract class LevelEntity {
      * @param entity
      */
     public void setNeighbour(Direction dir, LevelEntity entity) {
-    	System.out.println("LEVELENTITY::setNeighbour");
+    	System.out.println("LEVELENTITY::setNeighbour:\t A LevelEntity's neighbour has been set.");
     	switch (dir)
     	{
 	    	case Right:

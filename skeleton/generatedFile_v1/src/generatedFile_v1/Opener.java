@@ -59,11 +59,13 @@ public final class Opener extends Placeable {
      * @param o
      */
     public final boolean moveEvent(ONeill o){
-    	System.out.println("OPENER::moveEvent");
+    	System.out.printf("OPENER::moveEvent: \t");
     	if( o != null ){
+            System.out.printf("ONeill moved to an Opener.\n");
     		door.open(true);
         	return true;
     	} else {
+            System.out.printf("ONeill has stepped off from an Opener\n");
     		door.open(false);
     		return false;
     	}    	

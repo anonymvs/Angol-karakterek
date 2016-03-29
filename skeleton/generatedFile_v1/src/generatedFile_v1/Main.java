@@ -85,7 +85,6 @@ public class Main {
         op.boxEvent(null, b);
     }
     public static void missileSeq(Level level) {
-
         Floor f5 = new Floor(level, false);
         Floor f6 = new Floor(level, false);
         Wall wall = new Wall(true);

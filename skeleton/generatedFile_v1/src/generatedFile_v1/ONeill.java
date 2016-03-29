@@ -21,19 +21,19 @@ public class ONeill {
      * @param dir
      */
     public ONeill(Floor f, Direction dir) {
-        System.out.printf("ONEILL::ONeill:\t ONeill just came to life, ...");
+        System.out.printf("ONEILL::ONeill:\t ONeill just came to life,");
         switch (dir) {
             case Left :
-                System.out.printf("ONEILL::ONeill:\t ... and is facing to the LEFT\n");
+                System.out.printf(" and is facing to the LEFT\n");
                 break;
             case Right :
-                System.out.printf("ONEILL::ONeill:\t ... and is facing to the RIGHT\n");
+                System.out.printf(" and is facing to the RIGHT\n");
                 break;
             case Top :
-                System.out.printf("ONEILL::ONeill:\t ... and is facing to the TOP\n");
+                System.out.printf(" and is facing to the TOP\n");
                 break;
             case Bottom :
-                System.out.printf("ONEILL::ONeill:\t ... and is facing to the BOTTOM\n");
+                System.out.printf(" and is facing to the BOTTOM\n");
                 break;
         }
         floor = f;
@@ -88,12 +88,12 @@ public class ONeill {
      * 
      */
     public void shoot() {
-    	System.out.println("ONEILL::shoot");
+    	System.out.println("ONEILL::shoot: \t A Missile has been shot.");
     	Missile m = new Missile(Color.BLUE, dir);
     }
 
     public void setDir(Direction arg) {
-    	System.out.println("ONEILL::setDir");
+    	System.out.println("ONEILL::setDir: ONeill's direction has changed.");
         dir = arg;
     }
 

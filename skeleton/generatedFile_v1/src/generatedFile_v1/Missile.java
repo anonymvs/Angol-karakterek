@@ -23,7 +23,7 @@ public class Missile {
     }
 
     public void move() {
-    	System.out.println("MISSILE::move");
+    	System.out.println("MISSILE::move:\t Missile's movement has been triggered.");
         LevelEntity entity = tile.getNeighbour(dir);
         
         if(entity.missileAction(this))
@@ -34,12 +34,12 @@ public class Missile {
     }
 
     public Color getColor() {
-    	System.out.println("MISSILE::getColor");
+    	System.out.println("MISSILE::getColor:\t Missile's Color has been asked.");
         return color;
     }
     
     public Direction getDirection() {
-    	System.out.println("MISSILE::getDirection");
+    	System.out.println("MISSILE::getDirection:\t Missile's Direction has been asked.");
     	return dir;
     }
 
