@@ -4,6 +4,7 @@ public enum Direction {
 	Right, Left, Top, Bottom;
 	
 	public Direction inverse() {
+		System.out.println("DIRECTION::inverse:\t invert direction.");
 		switch (this)
 		{
 			case Right:

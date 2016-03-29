@@ -16,13 +16,14 @@ public class Missile {
     private LevelEntity tile = null;
 
     public Missile(Color c, Direction d) {
-        System.out.println("MISSILE: A Missile has been constructed.");
+        System.out.println("MISSILE::Missile:\t A Missile has been constructed.");
         dir = d;
         color = c;
         timer = new Timer();
     }
 
     public void move() {
+    	System.out.println("MISSILE::move");
         LevelEntity entity = tile.getNeighbour(dir);
         
         if(entity.missileAction(this))
@@ -33,10 +34,12 @@ public class Missile {
     }
 
     public Color getColor() {
+    	System.out.println("MISSILE::getColor");
         return color;
     }
     
     public Direction getDirection() {
+    	System.out.println("MISSILE::getDirection");
     	return dir;
     }
 

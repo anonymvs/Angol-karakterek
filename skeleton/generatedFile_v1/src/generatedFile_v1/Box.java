@@ -6,7 +6,7 @@ package generatedFile_v1;
 public final class Box extends Placeable {
 
     public Box() {
-        System.out.println("BOX: A box has been constructed.");
+        System.out.println("BOX::Box:\t A box has been constructed.");
     }
 
     /**
@@ -15,13 +15,13 @@ public final class Box extends Placeable {
      * @return
      */
     public final boolean boxEvent(ONeill on, Box b) {
-        System.out.println("BOX: The Box's event has been triggered");
+        System.out.println("BOX::boxEvent:\t The Box's event has been triggered");
     	if(b == null) {
-            System.out.println("BOX: ONeil received the Box");
+            System.out.println("BOX::boxEvent:\t ONeil received the Box");
             on.setBox(this);
             return true;
         }
-        System.out.println("BOX: ONeil already has a box. Can't receive another one");
+        System.out.println("BOX::boxEvent:\t ONeil already has a box. Can't receive another one");
     	return false;
     };
 
@@ -29,6 +29,7 @@ public final class Box extends Placeable {
      * @param on - an instance of ONeill
      */
     public final boolean moveEvent(ONeill on) {
+    	System.out.println("BOX::moveEvent:\t " + true );
     	return true;
     };
 

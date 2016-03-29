@@ -13,7 +13,7 @@ public class Level {
      * Default constructor
      */
     public Level() {
-        System.out.println("LEVEL: Level contstructor been called.");
+        System.out.println("LEVEL::Level:\t Level contstructor been called.");
         load();
     }
 
@@ -29,17 +29,10 @@ public class Level {
 
 
     /**
-     *
-     */
-    public void Level() {
-        // TODO implement here
-    }
-
-    /**
      * 
      */
     public void load() {
-        System.out.println("LEVEL: Level's load function been called.");
+        System.out.println("LEVEL::load:\t Level's load function been called.");
         Floor floor = new Floor(this, false);
         ls.add(floor);
         Floor floorWzpm = new Floor(this, true);
@@ -68,6 +61,15 @@ public class Level {
      */
     public void decreaseZPM() {
         // TODO implement here
+    	
+    	if( --zpmCount == 0 ){
+    		
+    		System.out.println("Level::decreaseZPM:\t Collected all the ZPM-s.");
+    		endOfGame();
+    		
+    	} else {
+    		System.out.println("Level::decreaseZPM:\t ZPM decreased to " + zpmCount + ".");
+    	}
     }
 
     /**

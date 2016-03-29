@@ -15,7 +15,7 @@ public class ZPM {
      * @param l
      */
     public ZPM(Level l) {
-    	System.out.println("ZPM: A ZPM just occured on the map");
+    	System.out.println("ZPM::Zpm:\t A ZPM just occured on the map");
         level = l;
     }
 
@@ -23,7 +23,7 @@ public class ZPM {
      * 
      */
     public void collect() {
-    	System.out.println("ZPM: The count of the ZPM-s on this level has been decreased.");
+    	System.out.println("ZPM::collect:\t The count of the ZPM-s on this level has been decreased.");
         level.decreaseZPM();
     }
 
