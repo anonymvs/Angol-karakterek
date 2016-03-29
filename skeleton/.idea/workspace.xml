@@ -2,28 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8860835-60e5-47b4-8251-5906d9ab231f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Box.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Box.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Chasm.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Chasm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Direction$1.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Direction$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Direction.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Direction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Door.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Door.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Floor.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Floor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Level.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Level.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/LevelEntity.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/LevelEntity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Main.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Missile.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Missile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/ONeill.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/ONeill.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Opener.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Opener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Portal.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Portal.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Wall.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/Wall.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/ZPM.class" afterPath="$PROJECT_DIR$/out/production/generatedFile_v1/generatedFile_v1/ZPM.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Chasm.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Chasm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/LevelEntity.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/LevelEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Level.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Level.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Main.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Missile.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Missile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/ONeill.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/ONeill.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Opener.java" afterPath="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Opener.java" />
     </list>
     <ignored path="skeleton.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,14 +36,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-131">
-              <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
+            <state relative-caret-position="420">
+              <caret line="111" column="16" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Level.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Level.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="48" column="60" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -87,16 +78,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Missile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Missile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="41" column="88" selection-start-line="41" selection-start-column="88" selection-end-line="41" selection-end-column="88" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ONeill.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/ONeill.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -105,16 +86,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LevelEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/LevelEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="58" column="57" selection-start-line="58" selection-start-column="57" selection-end-line="58" selection-end-column="57" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -129,7 +100,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZPM.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ZPM.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/ZPM.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -139,11 +110,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Level.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Level.java">
+      <file leaf-file-name="Fedettség.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Fedettség.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-318">
-              <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+            <state relative-caret-position="636">
+              <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Timer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Timer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -178,16 +159,17 @@
         <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Box.java" />
         <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Door.java" />
         <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Direction.java" />
-        <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Level.java" />
         <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Wall.java" />
         <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/ZPM.java" />
         <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Portal.java" />
-        <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Main.java" />
         <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/ONeill.java" />
         <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Opener.java" />
         <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Chasm.java" />
         <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/LevelEntity.java" />
         <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Missile.java" />
+        <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Level.java" />
+        <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Main.java" />
+        <option value="$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Timer.java" />
       </list>
     </option>
   </component>
@@ -583,7 +565,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -593,7 +575,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.195231" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.195231" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -636,24 +618,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Missile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/ONeill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1422">
-          <caret line="87" column="49" selection-start-line="87" selection-start-column="49" selection-end-line="87" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Floor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1566">
@@ -958,29 +922,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Level.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-318">
-          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/LevelEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="58" column="57" selection-start-line="58" selection-start-column="57" selection-end-line="58" selection-end-column="57" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-131">
-          <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1039,6 +985,40 @@
         <state relative-caret-position="330">
           <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fedettség.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="48" column="60" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Timer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generatedFile_v1/src/generatedFile_v1/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="111" column="16" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

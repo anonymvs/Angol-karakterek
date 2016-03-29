@@ -39,7 +39,7 @@ public class Main {
                     resetSeq(level);
                     break;
 	    		case 6:
-                    endofgameSeq();
+                    endofgameSeq(level);
                     break;
 	    		case 0: System.exit(0);
                 default:
@@ -105,8 +105,11 @@ public class Main {
         oneill1.move();
 
     }
-    public static void endofgameSeq() {
-
+    public static void endofgameSeq(Level level) {
+        Floor f1 = new Floor(level, false);
+        ONeill oneill = new ONeill(f1, Direction.Bottom);
+        Timer t = new Timer(oneill);
+        t.run();
     }
 
     public static void menu() {
