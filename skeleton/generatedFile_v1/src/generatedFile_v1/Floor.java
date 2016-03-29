@@ -23,6 +23,10 @@ public final class Floor extends LevelEntity {
      */
     public void setONeill(ONeill o) {
     	System.out.println("FLOOR::setOneill");
+		if(placed != null) {
+			System.out.println("FLOOR::setOneill: There is something on the floor that is being left.");
+			placed.moveEvent(o);
+		}
     	oneill = o;
     }
 
@@ -51,6 +55,7 @@ public final class Floor extends LevelEntity {
     	// If there nothing placed on the floor then ONeill can move here
     	if(placed == null) {
             System.out.println("FLOOR::moveAction:\t Yes, there is no object on this Floor.");
+			o.getFloor().setONeill(null);
             return true;
         }
         System.out.println("FLOOR::moveAction:\t Something is on this Floor, better check that out.");

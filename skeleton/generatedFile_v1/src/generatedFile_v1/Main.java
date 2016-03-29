@@ -41,6 +41,9 @@ public class Main {
 	    		case 6:
                     endofgameSeq(level);
                     break;
+                case 7:
+                    notYetHaveShownSeq(level);
+                    break;
 	    		case 0: System.exit(0);
                 default:
                     break;
@@ -113,6 +116,31 @@ public class Main {
         t.run();
     }
 
+    private static void notYetHaveShownSeq(Level level) {
+        Floor mid = new Floor(level, false);
+        Floor left = new Floor(level, false);
+        Floor right = new Floor(level, false);
+        Wall bottom = new Wall(false);
+        mid.setNeighbour(Direction.Bottom, bottom);
+        mid.setNeighbour(Direction.Left, left);
+        mid.setNeighbour(Direction.Right, right);
+        right.setNeighbour(Direction.Left, mid);
+        left.setNeighbour(Direction.Right, mid);
+        ONeill oneill = new ONeill(mid, Direction.Bottom);
+        Opener op = new Opener();
+        Door door = new Door();
+        op.setDoor(door);
+        left.setPlaced(op);
+        right.setPlaced(door);
+        oneill.move();
+        oneill.setDir(Direction.Right);
+        oneill.move();
+        oneill.setDir(Direction.Left);
+        oneill.move();
+        oneill.setDir(Direction.Right);
+        oneill.move();
+    }
+
     public static void menu() {
         System.out.println("Please select an option!");
         System.out.println("[1]: Move sequence");
@@ -121,6 +149,7 @@ public class Main {
         System.out.println("[4]: Missile sequence");
         System.out.println("[5]: Reset sequence");
         System.out.println("[6]: End of game sequence");
+        System.out.println("[7]: Not yet have shown sequences");
         System.out.println("[0]: exit\n");
     }
 }

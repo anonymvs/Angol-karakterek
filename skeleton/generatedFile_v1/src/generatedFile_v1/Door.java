@@ -18,7 +18,7 @@ public final class Door extends Placeable {
      */
     public void open(boolean op) {
         opened = op;
-        System.out.println("DOOR::open:\t A Door opened has been set " + opened + ".");
+        System.out.println("DOOR::open:\t A Door's Opener has changed to " + opened + ".");
     }
     
     public boolean isOpened() {
