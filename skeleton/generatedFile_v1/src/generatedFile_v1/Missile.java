@@ -43,4 +43,7 @@ public class Missile {
     	return dir;
     }
 
+    public void setTile(LevelEntity t) {
+        tile = t;
+    }
 }

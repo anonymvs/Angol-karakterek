@@ -1,45 +1,177 @@
-BOX::Box:	 A box has been constructed.
-BOX::boxEvent:	 The Box's event has been triggered
-BOX::boxEvent:	 ONeil received the Box
-
-CHASM::LevelEntity:	 A Chasm has been constructed.
-CHASM::moveAction:	 oneill will die.
-
-DOOR::Door:	 A Door has been constructed.
-DOOR::open:	 A Door opened has been set true.
-
-FLOOR::Floor:	 Floor without ZPM constructed
-FLOOR::Floor:	 Floor with ZPM constructed.
-FLOOR::moveAction:	 This Floor's move action has been called.
-FLOOR::moveAction:	 Yes, there is no object on this Floor.
-FLOOR::setPlaced
-FLOOR::boxAction:	 This Floor's box action has been called.
-FLOOR::boxAction:	 ONeil is trying to pick up a box.
-FLOOR::boxAction:	 The Box isn't on the Floor anymore.
-
+Initialization sequence:
 LEVEL::Level:	 Level contstructor been called.
 LEVEL::load:	 Level's load function been called.
-
-LEVELENTITY::setNeighbour
-LEVELENTITY::getNeighbour:	 This LevelEntity has been ask to return it's neighbour's reference.
-
-MISSILE::Missile:	 A Missile has been constructed.
-
-ONEILL::ONeill:	 ONeill just came to life, ...ONEILL::ONeill:	 ... and is facing to the BOTTOM
-ONEILL::move:	 A movement has been triggered.
-ONEILL::move:	 ONeill has moved.
-ONEILL::kill:	 Game Over
-ONEILL::boxing
-ONEILL::setBox
-ONEILL::setDir
-ONEILL::shoot
-
+FLOOR::Floor:	 Floor without ZPM constructed
+FLOOR::Floor:	 Floor with ZPM constructed.
+ZPM::Zpm:	 A ZPM just occured on the map
+WALL::Wall:	 A Wall has been constructed which is NOT available for portals.
+WALL::Wall:	 A Wall has been constructed which is available for portals.
+CHASM::LevelEntity:	 A Chasm has been constructed.
+BOX::Box:	 A box has been constructed.
 OPENER::Opener:	 An Opener has been constructed.
+DOOR::Door:	 A Door has been constructed.
+ONEILL::ONeill:	 ONeill just came to life, and is facing to the BOTTOM
+Initialization sequence is done.
+
+Please select an option!
+[1]: Move sequence
+[2]: Box sequence
+[3]: Door sequence
+[4]: Missile sequence
+[5]: Reset sequence
+[6]: End of game sequence
+[0]: exit
+
+1
+FLOOR::Floor:	 Floor without ZPM constructed
+FLOOR::Floor:	 Floor without ZPM constructed
+LEVELENTITY::setNeighbour:	 A LevelEntity's neighbour has been set.
+LEVELENTITY::setNeighbour:	 A LevelEntity's neighbour has been set.
+ONEILL::ONeill:	 ONeill just came to life, and is facing to the BOTTOM
+ONEILL::move:	 A movement has been triggered.
+LEVELENTITY::getNeighbour:	 This LevelEntity has been ask to return it's neighbour's reference.
+FLOOR::moveAction:	 This Floor's move action has been called.
+FLOOR::moveAction:	 Yes, there is no object on this Floor.
+ONEILL::move:	 ONeill has moved.
+
+Please select an option!
+[1]: Move sequence
+[2]: Box sequence
+[3]: Door sequence
+[4]: Missile sequence
+[5]: Reset sequence
+[6]: End of game sequence
+[0]: exit
+
+2
+FLOOR::Floor:	 Floor without ZPM constructed
+FLOOR::Floor:	 Floor without ZPM constructed
+FLOOR::Floor:	 Floor without ZPM constructed
+DOOR::Door:	 A Door has been constructed.
+LEVELENTITY::setNeighbour:	 A LevelEntity's neighbour has been set.
+LEVELENTITY::setNeighbour:	 A LevelEntity's neighbour has been set.
+LEVELENTITY::setNeighbour:	 A LevelEntity's neighbour has been set.
+LEVELENTITY::setNeighbour:	 A LevelEntity's neighbour has been set.
+OPENER::Opener:	 An Opener has been constructed.
+OPENER::setDoor
+BOX::Box:	 A box has been constructed.
+ONEILL::ONeill:	 ONeill just came to life, and is facing to the BOTTOM
+FLOOR::setPlaced
+FLOOR::setPlaced
+ONEILL::boxing
+LEVELENTITY::getNeighbour:	 This LevelEntity has been ask to return it's neighbour's reference.
+FLOOR::boxAction:	 This Floor's box action has been called.
+FLOOR::boxAction:	 ONeil is trying to pick up a box.
+BOX::boxEvent:	 The Box's event has been triggered
+BOX::boxEvent:	 ONeil received the Box
+ONEILL::setBox
+FLOOR::boxAction:	 The Box isn't on the Floor anymore.
+ONEILL::setDir: ONeill's direction has changed.
+ONEILL::boxing
+LEVELENTITY::getNeighbour:	 This LevelEntity has been ask to return it's neighbour's reference.
+FLOOR::boxAction:	 This Floor's box action has been called.
+FLOOR::boxAction:	 ONeil is trying to drop down a box.
+OPENER::boxEvent:	 The Openers box event has been triggered
+OPENER::boxEvent:	 ONeill tries to put down a Box to an Opener, that has no Box yet, and succeeds
+DOOR::open:	 A Door opened has been set true.
+
+Please select an option!
+[1]: Move sequence
+[2]: Box sequence
+[3]: Door sequence
+[4]: Missile sequence
+[5]: Reset sequence
+[6]: End of game sequence
+[0]: exit
+
+3
+OPENER::Opener:	 An Opener has been constructed.
+DOOR::Door:	 A Door has been constructed.
+BOX::Box:	 A box has been constructed.
 OPENER::setDoor
 OPENER::boxEvent:	 The Openers box event has been triggered
 OPENER::boxEvent:	 ONeill tries to put down a Box to an Opener, that has no Box yet, and succeeds
+DOOR::open:	 A Door opened has been set true.
 
-WALL::Wall:	 A Wall has been constructed which is NOT available for portals.
+Please select an option!
+[1]: Move sequence
+[2]: Box sequence
+[3]: Door sequence
+[4]: Missile sequence
+[5]: Reset sequence
+[6]: End of game sequence
+[0]: exit
+
+4
+FLOOR::Floor:	 Floor without ZPM constructed
+FLOOR::Floor:	 Floor without ZPM constructed
 WALL::Wall:	 A Wall has been constructed which is available for portals.
+LEVELENTITY::setNeighbour:	 A LevelEntity's neighbour has been set.
+LEVELENTITY::setNeighbour:	 A LevelEntity's neighbour has been set.
+LEVELENTITY::setNeighbour:	 A LevelEntity's neighbour has been set.
+LEVELENTITY::setNeighbour:	 A LevelEntity's neighbour has been set.
+ONEILL::ONeill:	 ONeill just came to life, and is facing to the BOTTOM
+ONEILL::shoot: 	 A Missile has been shot.
+MISSILE::Missile:	 A Missile has been constructed.
+MISSILE::move:	 Missile's movement has been triggered.
+LEVELENTITY::getNeighbour:	 This LevelEntity has been ask to return it's neighbour's reference.
+FLOOR::missileAction:	 true.
+LEVELENTITY::setMissile
+MISSILE::move:	 Missile's movement has been triggered.
+LEVELENTITY::getNeighbour:	 This LevelEntity has been ask to return it's neighbour's reference.
+wall::missileAction:	 Portal got into portable
+PORTAL::Portal:	 Portal contstructor been called.
+MISSILE::getDirection:	 Missile's Direction has been asked.
+DIRECTION::inverse:	 invert direction.
+MISSILE::getColor:	 Missile's Color has been asked.
+PORTAL::Portal:	 Blue portal opened.
+LEVELENTITY::setMissile
 
-ZPM::Zpm:	 A ZPM just occured on the map
+Please select an option!
+[1]: Move sequence
+[2]: Box sequence
+[3]: Door sequence
+[4]: Missile sequence
+[5]: Reset sequence
+[6]: End of game sequence
+[0]: exit
+
+5
+FLOOR::Floor:	 Floor without ZPM constructed
+CHASM::LevelEntity:	 A Chasm has been constructed.
+LEVELENTITY::setNeighbour:	 A LevelEntity's neighbour has been set.
+LEVELENTITY::setNeighbour:	 A LevelEntity's neighbour has been set.
+ONEILL::ONeill:	 ONeill just came to life, and is facing to the BOTTOM
+ONEILL::move:	 A movement has been triggered.
+LEVELENTITY::getNeighbour:	 This LevelEntity has been ask to return it's neighbour's reference.
+CHASM::moveAction:	 Oneill will die.
+ONEILL::kill:	 Game Over
+ONEILL::move:	 ONeill has moved.
+
+Please select an option!
+[1]: Move sequence
+[2]: Box sequence
+[3]: Door sequence
+[4]: Missile sequence
+[5]: Reset sequence
+[6]: End of game sequence
+[0]: exit
+
+6
+FLOOR::Floor:	 Floor without ZPM constructed
+ONEILL::ONeill:	 ONeill just came to life, and is facing to the BOTTOM
+Timer::timeOut(): 	 ONeill your time is up.
+ONEILL::kill:	 Game Over
+
+Please select an option!
+[1]: Move sequence
+[2]: Box sequence
+[3]: Door sequence
+[4]: Missile sequence
+[5]: Reset sequence
+[6]: End of game sequence
+[0]: exit
+
+0
+
+Process finished with exit code 0

@@ -90,6 +90,9 @@ public class ONeill {
     public void shoot() {
     	System.out.println("ONEILL::shoot: \t A Missile has been shot.");
     	Missile m = new Missile(Color.BLUE, dir);
+        m.setTile(floor);
+        m.move();
+        m.move();
     }
 
     public void setDir(Direction arg) {

@@ -94,6 +94,7 @@ public class Main {
         wall.setNeighbour(Direction.Top, f6);
         ONeill oneill3 = new ONeill(f5, Direction.Bottom);
         oneill3.shoot();
+
     }
     public static void resetSeq(Level level) {
     	Floor f1 = new Floor(level, false);

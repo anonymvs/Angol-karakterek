@@ -47,6 +47,7 @@ public class Level {
         Placeable opener = new Opener();
         Placeable door = new Door();
         ONeill oneill = new ONeill(floor, Direction.Bottom);
+        floor.setONeill(oneill);
     }
 
     /**
@@ -54,6 +55,7 @@ public class Level {
      */
     public void reset() {
         // TODO implement here
+        System.out.println("LEVEL::reset:\t A reset has been asked. The level is going to be reloaded.");
     }
 
     /**
@@ -77,7 +79,8 @@ public class Level {
      */
     public void endOfGame() {
         // TODO implement here
-
+        System.out.println("LEVEL::level:\t The end of the game has been triggered.");
+        reset();
     }
 
 }
