@@ -1,0 +1,45 @@
+BOX::Box:	 A box has been constructed.
+BOX::boxEvent:	 The Box's event has been triggered
+BOX::boxEvent:	 ONeil received the Box
+
+CHASM::LevelEntity:	 A Chasm has been constructed.
+CHASM::moveAction:	 oneill will die.
+
+DOOR::Door:	 A Door has been constructed.
+DOOR::open:	 A Door opened has been set true.
+
+FLOOR::Floor:	 Floor without ZPM constructed
+FLOOR::Floor:	 Floor with ZPM constructed.
+FLOOR::moveAction:	 This Floor's move action has been called.
+FLOOR::moveAction:	 Yes, there is no object on this Floor.
+FLOOR::setPlaced
+FLOOR::boxAction:	 This Floor's box action has been called.
+FLOOR::boxAction:	 ONeil is trying to pick up a box.
+FLOOR::boxAction:	 The Box isn't on the Floor anymore.
+
+LEVEL::Level:	 Level contstructor been called.
+LEVEL::load:	 Level's load function been called.
+
+LEVELENTITY::setNeighbour
+LEVELENTITY::getNeighbour:	 This LevelEntity has been ask to return it's neighbour's reference.
+
+MISSILE::Missile:	 A Missile has been constructed.
+
+ONEILL::ONeill:	 ONeill just came to life, ...ONEILL::ONeill:	 ... and is facing to the BOTTOM
+ONEILL::move:	 A movement has been triggered.
+ONEILL::move:	 ONeill has moved.
+ONEILL::kill:	 Game Over
+ONEILL::boxing
+ONEILL::setBox
+ONEILL::setDir
+ONEILL::shoot
+
+OPENER::Opener:	 An Opener has been constructed.
+OPENER::setDoor
+OPENER::boxEvent:	 The Openers box event has been triggered
+OPENER::boxEvent:	 ONeill tries to put down a Box to an Opener, that has no Box yet, and succeeds
+
+WALL::Wall:	 A Wall has been constructed which is NOT available for portals.
+WALL::Wall:	 A Wall has been constructed which is available for portals.
+
+ZPM::Zpm:	 A ZPM just occured on the map
