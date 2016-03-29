@@ -71,8 +71,7 @@ public class ONeill {
      * 
      */
     public void kill() {
-    	while(1 > 0)
-    		System.out.println("ONEILL::kill:\t Game Over");
+    	System.out.println("ONEILL::kill:\t Game Over");
     }
     
     public Floor getFloor() {

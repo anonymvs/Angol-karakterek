@@ -36,7 +36,7 @@ public class Main {
 	    			missileSeq(level);
                     break;
 	    		case 5:
-                    resetSeq();
+                    resetSeq(level);
                     break;
 	    		case 6:
                     endofgameSeq();
@@ -96,7 +96,14 @@ public class Main {
         ONeill oneill3 = new ONeill(f5, Direction.Bottom);
         oneill3.shoot();
     }
-    public static void resetSeq() {
+    public static void resetSeq(Level level) {
+    	Floor f1 = new Floor(level, false);
+        Chasm c = new Chasm();
+        f1.setNeighbour(Direction.Bottom, c);
+        c.setNeighbour(Direction.Top, f1);
+
+        ONeill oneill1 = new ONeill(f1, Direction.Bottom);
+        oneill1.move();
 
     }
     public static void endofgameSeq() {
