@@ -17,7 +17,7 @@ public class Portal {
      * @param w
      */
     public Portal(Missile m, Wall w) {
-    	
+    	System.out.println("PORTAL::Portal:\t Portal contstructor been called.");
     	wall = w;
     	
     	dir = m.getDirection().inverse();
@@ -36,6 +36,7 @@ public class Portal {
 				myNeighbour.setNeighbour(dir.inverse(), blueNeighbour);
 				blueNeighbour.setNeighbour(bluePortal.getDirection().inverse(), myNeighbour);
 			}
+	    	System.out.println("PORTAL::Portal:\t Yellow portal opened.");
     	}
     	// Open blue portal
     	else {
@@ -51,6 +52,7 @@ public class Portal {
 				myNeighbour.setNeighbour(dir.inverse(), yellowNeighbour);
 				yellowNeighbour.setNeighbour(yellowPortal.getDirection().inverse(), myNeighbour);
 			}
+        	System.out.println("PORTAL::Portal:\t Blue portal opened.");
     	}
     	
     }
@@ -59,19 +61,21 @@ public class Portal {
      * 
      */
     public void close() {
-    	    	
     	LevelEntity e = wall.getNeighbour(dir);
     	e.setNeighbour(dir.inverse(), wall);
+    	System.out.println("PORTAL::close:\t Portal has been closed.");
     }
 
     /**
      * @return
      */
     public Direction getDirection() {
-        return dir;
+    	System.out.println("PORTAL::getDirection");
+    	return dir;
     }
     
     public LevelEntity getWallNeighbour(Direction d) {
+    	System.out.println("PORTAL::getWallNeighbour");
     	return wall.getNeighbour(d);
     }
 

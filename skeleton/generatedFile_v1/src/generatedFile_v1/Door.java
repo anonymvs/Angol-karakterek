@@ -10,7 +10,7 @@ public final class Door extends Placeable {
     private boolean opened = false;
 
     public Door() {
-        System.out.println("DOOR: A Door has been constructed.");
+        System.out.println("DOOR::Door:\t A Door has been constructed.");
     }
 
     /**
@@ -18,10 +18,11 @@ public final class Door extends Placeable {
      */
     public void open(boolean op) {
         opened = op;
-        System.out.println("A Door has been opened.");
+        System.out.println("DOOR::open:\t A Door opened has been set " + opened + ".");
     }
     
     public boolean isOpened() {
+    	System.out.println("DOOR::isOpened:\t Check whether a door is opened.");
     	return opened;
     }
 
@@ -31,6 +32,7 @@ public final class Door extends Placeable {
      * @return
      */
     public final boolean boxEvent(ONeill on, Box b) {
+    	System.out.println("DOOR::boxEvent:\t false");
     	return false;
     };
 
@@ -38,6 +40,7 @@ public final class Door extends Placeable {
      * @param on - an instance of ONeill
      */
     public final boolean moveEvent(ONeill on) {
+    	System.out.println("DOOR::moveEvent:\t " + opened + ".");
     	return opened;
     };
 

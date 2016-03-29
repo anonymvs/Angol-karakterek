@@ -35,7 +35,7 @@ public abstract class LevelEntity {
      * @return
      */
     public LevelEntity getNeighbour(Direction dir) {
-		System.out.println("LEVELENTITY: This LevelEntity has been ask to return it's neighbour's reference.");
+		System.out.println("LEVELENTITY::getNeighbour:\t This LevelEntity has been ask to return it's neighbour's reference.");
     	switch (dir)
     	{
 	    	case Right:
@@ -56,6 +56,7 @@ public abstract class LevelEntity {
      * @param entity
      */
     public void setNeighbour(Direction dir, LevelEntity entity) {
+    	System.out.println("LEVELENTITY::setNeighbour");
     	switch (dir)
     	{
 	    	case Right:
@@ -77,6 +78,7 @@ public abstract class LevelEntity {
      * @param m
      */
     public void setMissile(Missile m) {
+    	System.out.println("LEVELENTITY::setMissile");
         missile = m;
     }
 
