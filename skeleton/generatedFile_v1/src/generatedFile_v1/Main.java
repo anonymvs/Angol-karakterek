@@ -66,7 +66,7 @@ public class Main {
         f4.setNeighbour(Direction.Top, f3);
         f3.setNeighbour(Direction.Left, f5);
         f5.setNeighbour(Direction.Right, f3);
-        Opener opener1 = new Opener();
+        //Opener opener1 = new Opener();
         Box box1 = new Box();
         ONeill oneill2 = new ONeill(f3, Direction.Bottom);
         f4.setPlaced(box1);

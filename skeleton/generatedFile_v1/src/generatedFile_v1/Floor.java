@@ -77,9 +77,10 @@ public final class Floor extends LevelEntity {
         System.out.println("FLOOR: This Floor's box action has been called.");
     	
     	if(b != null) {
-    		System.out.println("FLOOR: ONeil already has a box.");
+    		System.out.println("FLOOR: ONeil is trying to drop down a box.");
     		if(placed == null)
         	{
+        		System.out.println("FLOOR: ONeil successfully put down the box.");
         		placed = b;
         		return true;
         	}
@@ -90,16 +91,20 @@ public final class Floor extends LevelEntity {
     		
     	}
     	else {
-            System.out.println("FLOOR: ONeil doesn't have a box yet.");
+            System.out.println("FLOOR: ONeil is trying to pick up a box.");
+            
+            if (placed == null) {
+            	System.out.println("FLOOR: There is no placed object, therefore can't pick up a box.");
+            	return false;
+            }
+            
     		boolean bool = placed.boxEvent(o, b);
             if (bool) {
                 System.out.println("FLOOR: The Box isn't on the Floor anymore.");
                 placed = null;
             }
     		return false;
-    	}
-    	
-    	
+    	}    	
     };
 
     /**

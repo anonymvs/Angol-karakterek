@@ -60,12 +60,16 @@ public abstract class LevelEntity {
     	{
 	    	case Right:
 	    		east = entity;
+	    		break;
 	    	case Left:
 	    		west = entity;
+	    		break;
 	    	case Top:
 	    		north = entity;
+	    		break;
 	    	case Bottom:
 	    		south = entity;
+	    		break;
     	}
     }
 
