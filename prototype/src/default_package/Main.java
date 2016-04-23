@@ -12,6 +12,8 @@ public class Main {
     private Player oneill = new Player();
     private Player jaffa = new Player();
     private Replicator rep = new Replicator();
+    private String commands = "";
+    private String[] test;
 
     public static void main(String args[]) throws IOException{
         new Main();
@@ -27,56 +29,11 @@ public class Main {
             String line = br.readLine();
             String[] strarray = line.split(" ");
 
-            switch(strarray[0]) {
-                case "help":
-                    help(strarray);
-                    break;
-                case "savetest":
-                    savetest(strarray);
-                    break;
-                case "loadtest":
-                    loadtest(strarray);
-                    break;
-                case "load":
-                    load(strarray);
-                    break;
-                case "reset":
-                    reset(strarray);
-                    break;
-                case "move":
-                    move(strarray);
-                    break;
-                case "movereplicator":
-                    movereplicator(strarray);
-                    break;
-                case "add":
-                    add(strarray);
-                    break;
-                case "remove":
-                    remove(strarray);
-                    break;
-                case "boxing":
-                    boxing(strarray);
-                    break;
-                case "shoot":
-                    shoot(strarray);
-                    break;
-                case "setpt":
-                    setpt(strarray);
-                    break;
-                case "exit":
-                    System.exit(0);
-                    break;
-                case "setreplmove":
-                    setreplmove(strarray);
-                    break;
-                default:
-                    break;
-            }
+            commandSwitch(strarray);
         }
     }
 
-    public static void help(String[] arg) throws IOException{
+    public void help(String[] arg) throws IOException{
         if(arg.length != 1) {
             System.out.println("\n --- Invalid input! ---\n");
             return;
@@ -94,14 +51,51 @@ public class Main {
                 System.out.println(line);
             }
         }
+
+        System.out.println();
+        commands = commands.concat(arg[0]);
+        commands = commands.concat("\n");
+        output();
     }
 
-    public static void savetest(String[] arg) {
+    public void savetest(String[] arg) throws IOException{
+        if(arg.length != 2) {
+            System.out.println("\n--- Invalid input! ---\n");
+            return;
+        }
 
+        PrintStream out = new PrintStream(new FileOutputStream(arg[1]));
+        out.print(commands);
+        output();
     }
 
-    public static void loadtest(String[] arg) {
+    public void loadtest(String[] arg) {
+        try {
+            FileReader fr = new FileReader(arg[1]);
+            BufferedReader br = new BufferedReader(fr);
 
+            String line = br.readLine();
+            String[] tmp = new String[test.length + 1];
+            tmp[test.length + 1] = line;
+            test = tmp;
+
+            while (line != null) {
+                line = br.readLine();
+                tmp = new String[test.length + 1];
+                tmp[test.length + 1] = line;
+                test = tmp;
+            }
+
+            for(int i = 0; i < test.length; ++i) {
+                commandSwitch(test);
+            }
+
+        } catch(IOException e) {
+            System.out.println("\n --- Invalid test name --- \n");
+        }
+
+
+        output();
     }
 
     public void load(String[] arg) {
@@ -111,6 +105,11 @@ public class Main {
         }
 
         lvl.load(arg[1], oneill);
+
+        commands = commands.concat(arg[0]);
+        commands = commands.concat(arg[1]);
+        commands = commands.concat("\n");
+        output();
     }
 
     public void reset(String[] arg) {
@@ -118,7 +117,12 @@ public class Main {
             System.out.println("\n --- Invalid input! ---\n");
             return;
         }
+
         lvl.reset();
+
+        commands = commands.concat(arg[0]);
+        commands = commands.concat("\n");
+        output();
     }
 
     public void move(String[] arg) {
@@ -159,6 +163,11 @@ public class Main {
                     break;
             }
         }
+        commands = commands.concat(arg[0]);
+        commands = commands.concat(arg[1]);
+        commands = commands.concat(arg[2]);
+        commands = commands.concat("\n");
+        output();
     }
 
     public void movereplicator(String[] arg) {
@@ -184,7 +193,9 @@ public class Main {
                 rep.move(Direction.Top);
                 break;
         }
-
+        commands = commands.concat(arg[0]);
+        commands = commands.concat("\n");
+        output();
     }
 
     public void add(String[] arg) {
@@ -212,11 +223,11 @@ public class Main {
                     lvl.setElement(null, d, null, null, x, y);
                     break;
                 case "opener":
-                    Opener o = new Opener();
+                    Opener o = new Opener(2);
                     lvl.setElement(null, o, null, null, x, y);
                     break;
                 case "box":
-                    Box b = new Box();
+                    Box b = new Box(1);
                     lvl.setElement(null, b, null, null, x, y);
                     break;
                 case "zpm":
@@ -229,6 +240,13 @@ public class Main {
         } catch(NumberFormatException e) {
             System.out.println("\n --- Integers are required of coordiantes --- \n");
         }
+
+        commands = commands.concat(arg[0]);
+        commands = commands.concat(arg[1]);
+        commands = commands.concat(arg[2]);
+        commands = commands.concat(arg[3]);
+        commands = commands.concat("\n");
+        output();
     }
 
     public void remove(String[] arg) {
@@ -256,11 +274,11 @@ public class Main {
                     lvl.removeElement(null, d, null, null, x, y);
                     break;
                 case "opener":
-                    Opener o = new Opener();
+                    Opener o = new Opener(2);
                     lvl.removeElement(null, o, null, null, x, y);
                     break;
                 case "box":
-                    Box b = new Box();
+                    Box b = new Box(1);
                     lvl.removeElement(null, b, null, null, x, y);
                     break;
                 case "zpm":
@@ -273,6 +291,13 @@ public class Main {
         } catch(NumberFormatException e) {
             System.out.println("\n --- Integers are required of coordinates --- \n");
         }
+
+        commands = commands.concat(arg[0]);
+        commands = commands.concat(arg[1]);
+        commands = commands.concat(arg[2]);
+        commands = commands.concat(arg[3]);
+        commands = commands.concat("\n");
+        output();
     }
 
     public void boxing(String[] arg) {
@@ -282,6 +307,11 @@ public class Main {
         }
         if(arg[1].equals("-o")) oneill.boxing();
         if(arg[1].equals("-j")) jaffa.boxing();
+
+        commands = commands.concat(arg[0]);
+        commands = commands.concat(arg[1]);
+        commands = commands.concat("\n");
+        output();
     }
 
     public void shoot(String[] arg) {
@@ -303,6 +333,11 @@ public class Main {
                 jaffa.shoot(Color.GREEN);
                 break;
         }
+
+        commands = commands.concat(arg[0]);
+        commands = commands.concat(arg[1]);
+        commands = commands.concat("\n");
+        output();
     }
 
     public void setpt(String[] arg) {
@@ -317,13 +352,80 @@ public class Main {
         } catch (NumberFormatException e) {
             System.out.println("\n --- Integers are required of coordinates --- \n");
         }
+
+        commands = commands.concat(arg[0]);
+        commands = commands.concat(arg[1]);
+        commands = commands.concat(arg[2]);
+        commands = commands.concat("\n");
+        output();
     }
 
-    public static void setreplmove(String[] arg) {
+    public void setreplmove(String[] arg) {
 
+        commands = commands.concat(arg[0]);
+        commands = commands.concat("\n");
+        output();
     }
 
     public static void menu() {
 
+    }
+
+    public void commandSwitch(String[] strarray) throws IOException{
+        switch(strarray[0]) {
+            case "help":
+                help(strarray);
+                break;
+            case "savetest":
+                savetest(strarray);
+                break;
+            case "loadtest":
+                loadtest(strarray);
+                break;
+            case "load":
+                load(strarray);
+                break;
+            case "reset":
+                reset(strarray);
+                break;
+            case "move":
+                move(strarray);
+                break;
+            case "movereplicator":
+                movereplicator(strarray);
+                break;
+            case "add":
+                add(strarray);
+                break;
+            case "remove":
+                remove(strarray);
+                break;
+            case "boxing":
+                boxing(strarray);
+                break;
+            case "shoot":
+                shoot(strarray);
+                break;
+            case "setpt":
+                setpt(strarray);
+                break;
+            case "exit":
+                System.exit(0);
+                break;
+            case "setreplmove":
+                setreplmove(strarray);
+                break;
+            default:
+                break;
+        }
+    }
+
+    //Function to write out what happened
+    //that includes the input commands, and the map drown out
+    //also we must have the missiles, boxes listed out
+    public void output() {
+        lvl.draw();
+        System.out.println("Previous Commands:");
+        System.out.println(commands);
     }
 }

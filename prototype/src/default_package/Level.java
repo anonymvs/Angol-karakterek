@@ -80,4 +80,8 @@ public class Level {
     public void setWallPortalable(int x, int y) {
 
     }
+
+    public void draw() {
+
+    }
 }
