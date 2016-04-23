@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.util.*;
 import java.util.Timer;
 
+import default_package.*;
+
 
 /**
  * 
@@ -65,6 +67,11 @@ public class Level {
 	        			f.setPlaced( new Door() );
 	        			t.get(numOfLines).add( f );
 	        			break;
+	        		case 6:
+	        			Floor f1 = new Floor(this, false);
+	        			f1.setONeill( new Player() );
+	        			t.get(numOfLines).add( f1 );
+	        			break;
 	        		}
 	        	}
 	        	numOfLines++;	        	
@@ -77,10 +84,37 @@ public class Level {
         
         for( int i = 0; i < t.size(); i++ ){
         	for( int j = 0; j < t.get(i).size(); j++){
-        		int ki = i-1;
+        		
+        		int ki = i;
         		int kj = j-1;
-        		if( ki < 0 || kj < 0 ){
-        			//t.get(i).get(j).setNeighbour( Direction.west, null);
+        		if( kj < 0 ){
+        			t.get(i).get(j).setNeighbour( Direction.Left, null );
+        		} else {
+        			t.get(i).get(j).setNeighbour( Direction.Left, t.get(ki).get(kj) );
+        		}
+        		
+        		ki = i-1;
+        		kj = j;
+        		if( ki < 0 || kj >= t.get(ki).size() ){
+        			t.get(i).get(j).setNeighbour( Direction.Top, null);
+        		} else {
+        			t.get(i).get(j).setNeighbour( Direction.Top, t.get(ki).get(kj) );
+        		}
+        		
+        		ki = i;
+        		kj = j+1;
+        		if( kj >= t.get(i).size() ){
+        			t.get(i).get(j).setNeighbour( Direction.Right, null);
+        		} else {
+        			t.get(i).get(j).setNeighbour( Direction.Right, t.get(ki).get(kj) );
+        		}
+        		
+        		ki = i+1;
+        		kj = j;
+        		if( ki >= t.size() || kj >= t.get(ki).size() ){
+        			t.get(i).get(j).setNeighbour( Direction.Bottom, null);
+        		} else {
+        			t.get(i).get(j).setNeighbour( Direction.Bottom, t.get(ki).get(kj) );
         		}
         	}
         }
