@@ -6,6 +6,7 @@ package default_package;
 public final class Floor extends LevelEntity {
 
 	private Player oneill = null;
+	private Replicator repl = null;
     private Placeable placed = null;
     private ZPM zpm = null;
 	
@@ -29,6 +30,15 @@ public final class Floor extends LevelEntity {
 		}
     	oneill = o;
     }
+
+	public void setRepl(Replicator rep) {
+		System.out.println("FLOOR::setOneill");
+		if(placed != null) {
+			System.out.println("FLOOR::setOneill: There is something on the floor that is being left.");
+			placed.moveEvent(rep);
+		}
+		repl = rep;
+	}
 
     /**
      * @param p - an instance of Placeable class, which can be put on the Floor
@@ -75,6 +85,32 @@ public final class Floor extends LevelEntity {
     	
     	return canMove;
     };
+
+	public final boolean moveAction(Replicator rep){
+		System.out.println("FLOOR::moveAction:\t This Floor's move action has been called.");
+		// If there nothing placed on the floor then Player can move here
+		if(placed == null) {
+			System.out.println("FLOOR::moveAction:\t Yes, there is no object on this Floor.");
+			rep.getFloor().setRepl(null);
+			return true;
+		}
+		System.out.println("FLOOR::moveAction:\t Something is on this Floor, better check that out.");
+		boolean canMove = placed.moveEvent(rep);
+
+		if(canMove)
+		{
+			System.out.println("FLOOR::moveAction:\t Player is free to move.");
+			rep.getFloor().setONeill(null);
+			rep.setFloor(this);
+			repl = rep;
+			if(zpm != null) {
+				System.out.println("FLOOR::moveAction:\t There is a ZPM on this floor, better collect it :P");
+				zpm.collect();
+			}
+		}
+
+		return canMove;
+	};
 
     /**
      * @param o - an instance of Player

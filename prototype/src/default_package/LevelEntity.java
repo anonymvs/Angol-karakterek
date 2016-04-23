@@ -17,6 +17,12 @@ public abstract class LevelEntity {
      */
     public abstract boolean moveAction(Player oneill);
 
+	/**
+	 * @param rep - an instance of Replicator
+	 * @return
+	 */
+	public abstract boolean moveAction(Replicator rep);
+
     /**
      * @param oneill - an instance of Player
      * @param box - an instance of a Box

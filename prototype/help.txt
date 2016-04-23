@@ -1,5 +1,16 @@
-help:
-kilistázza az utasításokat, egy rövid leírással róluk.
+Possible commands with Hungarian description:
 
-add: 
-valamti csinál
+help: - kilistázza az utasításokat, és ad egy rövid leírást róluk.
+savetest: - A felhasználó el tudja menteni az adott tesztesetet. pl: savetest test.txt
+loadtest: - Egy korábban már elkészített tesztesetet tölt be, és futtat le. pl: loadtest test.txt
+load: - A prototípushoz egy pályának betöltése név alapján. pl: load map.txt
+reset: - A pályát visszaállítja az eredetileg betöltött filebeli alapállapotba.
+move: - Egy karakter mozgatása valamilyen irányba. Karakter lehet ONeill(-o) Jaffa(-j). pl: move -o right
+movereplicator: - A replikátor mozgatása egy random irányban. pl: movereplicator
+add: - Egy kiválasztott játékelem hozzáadása a pályához koordináták segítségével. pl: add zpm 2 3
+remove: - Egy kiválasztott játékelem elvétele a pályáról koordináták segítségével. pl: remove zpm 2 3
+boxing: - Egy játékos megkísérel dobozt felvenni/letenni az előtte lévő területről. pl: boxing -o
+shoot: - Egy játékos kilő egy rakétát. pl: shoot -y
+setpt: - Egy adott fal azon képességének beállítása, hogy lőhető e rá portál. pl: setpt 5 5
+exit: - Kilép a prototíusból és bezárja a programot.
+setreplmove: - A replikátor random mozgás helyett, milyen irányba mozogjon. pl: setreplmove right

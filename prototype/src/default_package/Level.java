@@ -5,11 +5,6 @@ import java.io.FileReader;
 import java.util.*;
 import java.util.Timer;
 
-import generatedFile_v1.Chasm;
-import generatedFile_v1.Door;
-import generatedFile_v1.Floor;
-import generatedFile_v1.LevelEntity;
-import generatedFile_v1.Wall;
 
 /**
  * 
