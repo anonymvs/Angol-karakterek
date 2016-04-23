@@ -168,8 +168,8 @@ public final class Floor extends LevelEntity {
                 System.out.print("Φ");
             }
         }
-        if(repl != null) {
-            System.out.print("");
+        if(repl != null && placed == null) {
+            System.out.print("δ");
         }
 	}
 
