@@ -43,4 +43,8 @@ public final class Door extends Placeable {
         return opened;
     };
 
+    public final boolean moveEvent(Replicator rep) {
+        return false;
+    }
+
 }

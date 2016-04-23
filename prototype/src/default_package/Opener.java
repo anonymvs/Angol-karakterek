@@ -85,4 +85,8 @@ public final class Opener extends Placeable {
 		}
 	};
 
+	public final boolean moveEvent(Replicator rep) {
+		return true;
+	}
+
 }

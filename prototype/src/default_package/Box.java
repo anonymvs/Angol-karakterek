@@ -34,6 +34,10 @@ public final class Box extends Placeable {
         return true;
     };
 
+    public final boolean moveEvent(Replicator rep) {
+        return true;
+    }
+
     public int getWeight() {
         return weight;
     }

@@ -17,6 +17,12 @@ public class Chasm extends LevelEntity {
 	}
 
 	@Override
+	public final boolean moveAction(Replicator rep) {
+		return true;
+		///magic!!!
+	}
+
+	@Override
 	public final boolean boxAction(Player oneill, Box box) {
 		System.out.println("CHASM::boxAction:\t Box will die.");
 		return true;
