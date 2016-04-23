@@ -1,9 +1,6 @@
 package default_package;
 
-import java.io.BufferedReader;
-import java.io.Console;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Scanner;
 
 /**
@@ -71,8 +68,19 @@ public class Main {
         }
     }
 
-    public static void help(String[] arg) {
+    public static void help(String[] arg) throws IOException{
+        FileReader fr = new FileReader("help.txt");
+        BufferedReader br = new BufferedReader(fr);
 
+        String line = br.readLine();
+        System.out.println(line);
+
+        while(line != null) {
+            line = br.readLine();
+            if(line != null) {
+                System.out.println(line);
+            }
+        }
     }
 
     public static void savetest(String[] arg) {

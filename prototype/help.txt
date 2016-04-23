@@ -1,0 +1,5 @@
+help:
+kilistázza az utasításokat, egy rövid leírással róluk.
+
+add: 
+valamti csinál
