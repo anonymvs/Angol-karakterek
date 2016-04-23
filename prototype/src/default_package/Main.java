@@ -364,7 +364,7 @@ public class Main {
     }
 
     public void setreplmove(String[] arg) throws UnsupportedEncodingException{
-        
+
         commands = commands.concat(arg[0]);
         commands = commands.concat("\n");
         output();
