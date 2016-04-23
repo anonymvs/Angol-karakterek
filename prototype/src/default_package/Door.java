@@ -1,7 +1,5 @@
 package default_package;
 
-import java.util.*;
-
 /**
  * 
  */
@@ -27,19 +25,19 @@ public final class Door extends Placeable {
     }
 
     /**
-     * @param on - an instance of ONeill
+     * @param on - an instance of Player
      * @param b - an instance of a Box
      * @return
      */
-    public final boolean boxEvent(ONeill on, Box b) {
+    public final boolean boxEvent(Player on, Box b) {
     	System.out.println("DOOR::boxEvent:\t false");
     	return false;
     };
 
     /**
-     * @param on - an instance of ONeill
+     * @param on - an instance of Player
      */
-    public final boolean moveEvent(ONeill on) {
+    public final boolean moveEvent(Player on) {
     	System.out.println("DOOR::moveEvent:\t " + opened + ".");
     	return opened;
     };

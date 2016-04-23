@@ -1,15 +1,15 @@
 package default_package;
 
 import java.io.*;
-import java.util.Scanner;
 
 /**
  * Created by hege on 2016.03.28..
  */
 public class Main {
+    private Level lvl = new Level();
+    private Player oneill = new Player();
 
-    public static void main(String args[]) throws IOException{
-
+    Main() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         boolean b = true;
 
@@ -19,23 +19,23 @@ public class Main {
             String line = br.readLine();
             String[] strarray = line.split(" ");
 
-        	switch(strarray[0]) {
-	    		case "help":
+            switch(strarray[0]) {
+                case "help":
                     help(strarray);
                     break;
-	    		case "savetest":
+                case "savetest":
                     savetest(strarray);
                     break;
-	    		case "loadtest":
+                case "loadtest":
                     loadtest(strarray);
                     break;
-	    		case "load":
+                case "load":
                     load(strarray);
                     break;
-	    		case "reset":
+                case "reset":
                     reset(strarray);
                     break;
-	    		case "move":
+                case "move":
                     move(strarray);
                     break;
                 case "movereplicator":
@@ -64,8 +64,12 @@ public class Main {
                     break;
                 default:
                     break;
-        	}
+            }
         }
+    }
+
+    public static void main(String args[]) throws IOException{
+        new Main();
     }
 
     public static void help(String[] arg) throws IOException{
@@ -91,12 +95,12 @@ public class Main {
 
     }
 
-    public static void load(String[] arg) {
-
+    public void load(String[] arg) {
+        lvl.load(arg[1]);
     }
 
-    public static void reset(String[] arg) {
-
+    public void reset(String[] arg) {
+        lvl.reset();
     }
 
     public static void move(String[] arg) {

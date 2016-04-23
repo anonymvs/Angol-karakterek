@@ -27,30 +27,30 @@ public final class Opener extends Placeable {
      * @param b
      * @return
      */
-    public final boolean boxEvent(ONeill o, Box b) {
+    public final boolean boxEvent(Player o, Box b) {
     	System.out.println("OPENER::boxEvent:\t The Openers box event has been triggered");
-    	// ONeill tries to pick up a box
+    	// Player tries to pick up a box
     	if(b == null) {
-			System.out.println("OPENER::boxEvent:\t ONeill doesn't have a Box");
+			System.out.println("OPENER::boxEvent:\t Player doesn't have a Box");
 			if(box != null) {
-				System.out.println("OPENER::boxEvent:\t ONeill takes the Openers box.");
+				System.out.println("OPENER::boxEvent:\t Player takes the Openers box.");
 				o.setBox(box);
 				box = null;
 				return true;
 			} else {
-				System.out.println("OPENER::boxEvent:\t Neither ONeill neither the Opener has any Box, nothing happens :(");
+				System.out.println("OPENER::boxEvent:\t Neither Player neither the Opener has any Box, nothing happens :(");
 				return false;
 			}
 		}
     	
-    	// ONeill tries to put down a box
+    	// Player tries to put down a box
     	if (box == null) {
-			System.out.println("OPENER::boxEvent:\t ONeill tries to put down a Box to an Opener, that has no Box yet, and succeeds");
+			System.out.println("OPENER::boxEvent:\t Player tries to put down a Box to an Opener, that has no Box yet, and succeeds");
 			door.open( true );
 			box = b;
 			return true;
 		}
-		System.out.println("OPENER::boxEvent:\t ONeill has a Box, the Opener also has a box, but ONeill can not put another Box on the Opener");
+		System.out.println("OPENER::boxEvent:\t Player has a Box, the Opener also has a box, but Player can not put another Box on the Opener");
 		return false;
     	
     };
@@ -58,14 +58,14 @@ public final class Opener extends Placeable {
     /**
      * @param o
      */
-    public final boolean moveEvent(ONeill o){
+    public final boolean moveEvent(Player o){
     	System.out.printf("OPENER::moveEvent: \t");
     	if( o != null ){
-            System.out.printf("ONeill moved to an Opener.\n");
+            System.out.printf("Player moved to an Opener.\n");
     		door.open(true);
         	return true;
     	} else {
-            System.out.printf("ONeill has stepped off from an Opener\n");
+            System.out.printf("Player has stepped off from an Opener\n");
     		door.open(false);
     		return false;
     	}    	

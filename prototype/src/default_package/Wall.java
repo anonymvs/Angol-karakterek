@@ -23,13 +23,13 @@ public class Wall extends LevelEntity {
     }
 
 	@Override
-	public final boolean moveAction(ONeill oneill) {
+	public final boolean moveAction(Player oneill) {
 		System.out.println("wall::moveAction:\t false");
 		return false;
 	}
 
 	@Override
-	public final boolean boxAction(ONeill oneill, Box box) {
+	public final boolean boxAction(Player oneill, Box box) {
 		System.out.println("wall::boxAction:\t false");
 		return false;
 	}

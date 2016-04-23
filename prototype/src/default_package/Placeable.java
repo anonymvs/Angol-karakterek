@@ -1,7 +1,5 @@
 package default_package;
 
-import java.util.*;
-
 /**
  * 
  */
@@ -13,11 +11,11 @@ public abstract class Placeable {
      * @param b
      * @return
      */
-    public abstract boolean boxEvent(ONeill o, Box b);
+    public abstract boolean boxEvent(Player o, Box b);
 
     /**
      * @param o
      */
-    public abstract boolean moveEvent(ONeill o);
+    public abstract boolean moveEvent(Player o);
 
 }

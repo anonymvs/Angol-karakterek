@@ -12,17 +12,17 @@ public abstract class LevelEntity {
     protected Missile missile = null;
 
     /**
-     * @param oneill - an instance of ONeill
+     * @param oneill - an instance of Player
      * @return
      */
-    public abstract boolean moveAction(ONeill oneill);
+    public abstract boolean moveAction(Player oneill);
 
     /**
-     * @param oneill - an instance of ONeill
+     * @param oneill - an instance of Player
      * @param box - an instance of a Box
      * @return
      */
-    public abstract boolean boxAction(ONeill oneill, Box box);
+    public abstract boolean boxAction(Player oneill, Box box);
 
     /**
      * @param missile - an instance of a Missile

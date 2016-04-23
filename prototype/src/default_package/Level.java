@@ -32,7 +32,7 @@ public class Level {
     /**
      * 
      */
-    public void load() {
+    public void load(String path) {
         System.out.println("LEVEL::load:\t Level's load function been called.");
         Floor floor = new Floor(this, false);
         ls.add(floor);
@@ -47,7 +47,7 @@ public class Level {
         Placeable box = new Box();
         Placeable opener = new Opener();
         Placeable door = new Door();
-        ONeill oneill = new ONeill(floor, Direction.Bottom);
+        Player oneill = new Player(floor, Direction.Bottom);
         floor.setONeill(oneill);
     }
 

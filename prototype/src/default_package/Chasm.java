@@ -10,14 +10,14 @@ public class Chasm extends LevelEntity {
 	}
 
 	@Override
-	public final boolean moveAction(ONeill oneill) {
+	public final boolean moveAction(Player oneill) {
 		System.out.println("CHASM::moveAction:\t Oneill will die.");
 		oneill.kill();
 		return false;
 	}
 
 	@Override
-	public final boolean boxAction(ONeill oneill, Box box) {
+	public final boolean boxAction(Player oneill, Box box) {
 		System.out.println("CHASM::boxAction:\t Box will die.");
 		return true;
 	}

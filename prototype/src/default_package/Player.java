@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * 
  */
-public class ONeill {
+public class Player {
 
     /**
      * 
@@ -15,13 +15,17 @@ public class ONeill {
     private Box box;
     private Floor floor;
 
+    Player() {
+
+    }
+
     /**
      *
      * @param f
      * @param dir
      */
-    public ONeill(Floor f, Direction dir) {
-        System.out.printf("ONEILL::ONeill:\t ONeill just came to life,");
+    public Player(Floor f, Direction dir) {
+        System.out.printf("ONEILL::Player:\t Player just came to life,");
         switch (dir) {
             case Left :
                 System.out.printf(" and is facing to the LEFT\n");
@@ -47,7 +51,7 @@ public class ONeill {
         System.out.println("ONEILL::move:\t A movement has been triggered.");
     	LevelEntity entity = floor.getNeighbour(dir);
     	boolean b = entity.moveAction(this);
-        if(b) System.out.println("ONEILL::move:\t ONeill has moved.");
+        if(b) System.out.println("ONEILL::move:\t Player has moved.");
     }
 
     /**
@@ -96,7 +100,7 @@ public class ONeill {
     }
 
     public void setDir(Direction arg) {
-    	System.out.println("ONEILL::setDir: ONeill's direction has changed.");
+    	System.out.println("ONEILL::setDir: Player's direction has changed.");
         dir = arg;
     }
 

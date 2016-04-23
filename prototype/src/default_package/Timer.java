@@ -6,10 +6,10 @@ package default_package;
  */
 
 public class Timer {
-    ONeill o;
+    Player o;
     int i;
 
-    public Timer(ONeill on) {
+    public Timer(Player on) {
         i = 0;
         o = on;
     }
@@ -22,7 +22,7 @@ public class Timer {
     }
 
     public void timeOut() {
-        System.out.println("Timer::timeOut(): \t ONeill your time is up.");
+        System.out.println("Timer::timeOut(): \t Player your time is up.");
         o.kill();
     }
 }

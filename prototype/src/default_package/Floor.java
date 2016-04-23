@@ -5,7 +5,7 @@ package default_package;
  */
 public final class Floor extends LevelEntity {
 
-	private ONeill oneill = null;
+	private Player oneill = null;
     private Placeable placed = null;
     private ZPM zpm = null;
 	
@@ -19,9 +19,9 @@ public final class Floor extends LevelEntity {
     }
 
     /**
-     * @param o - an instance of ONeill, that we use to set the Floor's reference
+     * @param o - an instance of Player, that we use to set the Floor's reference
      */
-    public void setONeill(ONeill o) {
+    public void setONeill(Player o) {
     	System.out.println("FLOOR::setOneill");
 		if(placed != null) {
 			System.out.println("FLOOR::setOneill: There is something on the floor that is being left.");
@@ -47,12 +47,12 @@ public final class Floor extends LevelEntity {
     }
 
     /**
-     * @param o - an instance of ONeill
+     * @param o - an instance of Player
      * @return
      */
-    public final boolean moveAction(ONeill o){
+    public final boolean moveAction(Player o){
     	System.out.println("FLOOR::moveAction:\t This Floor's move action has been called.");
-    	// If there nothing placed on the floor then ONeill can move here
+    	// If there nothing placed on the floor then Player can move here
     	if(placed == null) {
             System.out.println("FLOOR::moveAction:\t Yes, there is no object on this Floor.");
 			o.getFloor().setONeill(null);
@@ -63,7 +63,7 @@ public final class Floor extends LevelEntity {
     	
     	if(canMove)
     	{
-    		System.out.println("FLOOR::moveAction:\t ONeill is free to move.");
+    		System.out.println("FLOOR::moveAction:\t Player is free to move.");
             o.getFloor().setONeill(null);
     		o.setFloor(this);
     		oneill = o;
@@ -77,11 +77,11 @@ public final class Floor extends LevelEntity {
     };
 
     /**
-     * @param o - an instance of ONeill
+     * @param o - an instance of Player
      * @param b - an instance of a Box
      * @return
      */
-    public final boolean boxAction(ONeill o, Box b){
+    public final boolean boxAction(Player o, Box b){
         System.out.println("FLOOR::boxAction:\t This Floor's box action has been called.");
     	
     	if(b != null) {

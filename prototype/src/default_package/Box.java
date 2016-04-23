@@ -10,11 +10,11 @@ public final class Box extends Placeable {
     }
 
     /**
-     * @param on  an instance of ONeill
+     * @param on  an instance of Player
      * @param b   an instance of the Box class
      * @return
      */
-    public final boolean boxEvent(ONeill on, Box b) {
+    public final boolean boxEvent(Player on, Box b) {
         System.out.println("BOX::boxEvent:\t The Box's event has been triggered");
     	if(b == null) {
             System.out.println("BOX::boxEvent:\t ONeil received the Box");
@@ -26,9 +26,9 @@ public final class Box extends Placeable {
     };
 
     /**
-     * @param on - an instance of ONeill
+     * @param on - an instance of Player
      */
-    public final boolean moveEvent(ONeill on) {
+    public final boolean moveEvent(Player on) {
     	System.out.println("BOX::moveEvent:\t " + true );
     	return true;
     };
