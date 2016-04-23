@@ -361,6 +361,7 @@ public class Main {
     }
 
     public void setreplmove(String[] arg) {
+        System.out.print("\n \tΩ \n");
 
         commands = commands.concat(arg[0]);
         commands = commands.concat("\n");

@@ -14,9 +14,18 @@ public class Player {
     private Direction dir;
     private Box box;
     private Floor floor;
+    private String type;
 
     Player() {
 
+    }
+
+    Player(String s) {
+        type = s;
+    }
+
+    public String getType() {
+        return type;
     }
 
     /**

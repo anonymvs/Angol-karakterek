@@ -35,4 +35,7 @@ public class Chasm extends LevelEntity {
 		return true;
 	}
 
+	public void draw() {
+
+	}
 }

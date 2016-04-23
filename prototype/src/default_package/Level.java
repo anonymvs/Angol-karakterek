@@ -11,7 +11,7 @@ import java.util.Timer;
  */
 public class Level {
 
-    public List<LevelEntity> ls = new ArrayList<LevelEntity>();
+    public ArrayList<ArrayList<LevelEntity>> ls = new ArrayList<>();
 
     /**
      * Default constructor
@@ -122,6 +122,11 @@ public class Level {
     }
 
     public void draw() {
-
+        for(int i = 0; i < ls.size(); ++i) {
+            for(int j = 0; j < ls.get(i).size(); ++j) {
+                String s = ls.get(i).get(j).getClass().getSimpleName();
+                ls.get(i).get(j).draw();
+            }
+        }
     }
 }

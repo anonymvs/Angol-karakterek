@@ -11,6 +11,8 @@ public abstract class LevelEntity {
     protected LevelEntity east = null;
     protected Missile missile = null;
 
+	public abstract void draw();
+
     /**
      * @param oneill - an instance of Player
      * @return
