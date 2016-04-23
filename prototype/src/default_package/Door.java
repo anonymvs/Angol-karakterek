@@ -1,14 +1,15 @@
 package default_package;
 
 /**
- * 
+ *
  */
 public final class Door extends Placeable {
 
-    private boolean opened = false;
+    private boolean opened;
 
     public Door() {
         System.out.println("DOOR::Door:\t A Door has been constructed.");
+        opened = false;
     }
 
     /**
@@ -18,10 +19,10 @@ public final class Door extends Placeable {
         opened = op;
         System.out.println("DOOR::open:\t A Door's Opener has changed to " + opened + ".");
     }
-    
+
     public boolean isOpened() {
-    	System.out.println("DOOR::isOpened:\t Check whether a door is opened.");
-    	return opened;
+        System.out.println("DOOR::isOpened:\t Check whether a door is opened.");
+        return opened;
     }
 
     /**
@@ -30,16 +31,16 @@ public final class Door extends Placeable {
      * @return
      */
     public final boolean boxEvent(Player on, Box b) {
-    	System.out.println("DOOR::boxEvent:\t false");
-    	return false;
+        System.out.println("DOOR::boxEvent:\t false");
+        return false;
     };
 
     /**
      * @param on - an instance of Player
      */
     public final boolean moveEvent(Player on) {
-    	System.out.println("DOOR::moveEvent:\t " + opened + ".");
-    	return opened;
+        System.out.println("DOOR::moveEvent:\t " + opened + ".");
+        return opened;
     };
 
 }
