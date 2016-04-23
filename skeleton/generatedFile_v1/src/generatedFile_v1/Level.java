@@ -36,39 +36,6 @@ public class Level {
      */
     public void load() {
         System.out.println("LEVEL::load:\t Level's load function been called.");
-        
-        ArrayList<ArrayList<LevelEntity>> t = new ArrayList<ArrayList<LevelEntity>>();
-        
-        try{
-	        BufferedReader br = new BufferedReader( new FileReader( "load.txt" ) );
-	        String tmp;
-	        
-	        int numOfLines = 0;
-	        while( (tmp = br.readLine()) != null ){
-    			t.add(new ArrayList<LevelEntity>());
-	        	for( int i = 0; i < tmp.length(); i++ ){
-	        		switch( tmp.charAt(i) ){
-	        		case 0xB0:
-	        			t.get(numOfLines).add( new Floor( this, false ) );
-	        			break;
-	        		case 0xDB:
-	        			t.get(numOfLines).add( new Wall( false ) );
-	        			break;
-	        		case 'p':
-	        			t.get(numOfLines).add( new Wall( true ) );
-	        			break;
-	        		case ' ':
-	        			t.get(numOfLines).add( new Chasm() );
-	        			break;
-	        		case 'd':
-	        			Floor f = new Floor( this, false );
-	        			f.setPlaced( new Door() );
-	        			t.get(numOfLines).add( f );
-	        			break;
-	        		}
-	        	}
-	        	numOfLines++;	        	
-	        }
 	        
 	        Floor floor = new Floor(this, false);
 	        ls.add(floor);
@@ -86,10 +53,6 @@ public class Level {
 	        ONeill oneill = new ONeill(floor, Direction.Bottom);
 	        floor.setONeill(oneill);
         
-	        br.close();
-        }catch(Exception e){
-        	e.printStackTrace();
-        }
    }
 
     /**
