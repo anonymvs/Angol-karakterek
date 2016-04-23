@@ -171,6 +171,7 @@ public final class Floor extends LevelEntity {
         if(repl != null && placed == null) {
             System.out.print("δ");
         }
+
 	}
 
 }
