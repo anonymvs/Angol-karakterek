@@ -40,27 +40,27 @@ public class Level {
         ArrayList<ArrayList<LevelEntity>> t = new ArrayList<ArrayList<LevelEntity>>();
         
         try{
-	        BufferedReader br = new BufferedReader( new FileReader( "load.txt" ) );
+	        BufferedReader br = new BufferedReader( new FileReader( path ) );
 	        String tmp;
 	        
 	        int numOfLines = 0;
 	        while( (tmp = br.readLine()) != null ){
     			t.add(new ArrayList<LevelEntity>());
 	        	for( int i = 0; i < tmp.length(); i++ ){
-	        		switch( tmp.charAt(i) ){
-	        		case 0xB0:
+	        		switch( Character.getNumericValue(tmp.charAt(i)) ){
+	        		case 1:
 	        			t.get(numOfLines).add( new Floor( this, false ) );
 	        			break;
-	        		case 0xDB:
+	        		case 2:
 	        			t.get(numOfLines).add( new Wall( false ) );
 	        			break;
-	        		case 'p':
+	        		case 3:
 	        			t.get(numOfLines).add( new Wall( true ) );
 	        			break;
-	        		case ' ':
+	        		case 4:
 	        			t.get(numOfLines).add( new Chasm() );
 	        			break;
-	        		case 'd':
+	        		case 5:
 	        			Floor f = new Floor( this, false );
 	        			f.setPlaced( new Door() );
 	        			t.get(numOfLines).add( f );
