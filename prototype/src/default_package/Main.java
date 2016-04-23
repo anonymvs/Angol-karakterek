@@ -1,7 +1,9 @@
 package default_package;
 
+import java.io.BufferedReader;
 import java.io.Console;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -18,9 +20,18 @@ public class Main {
         int input = 10000;
         Scanner in = new Scanner(System.in);
 
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
         while (input != 0){
             menu();
             input = in.nextInt();
+            try{
+                String line = br.readLine();
+            } catch(IOException e) {
+                e.printStackTrace();
+            }
+
+            String[] strarray = line.split(" ");
 
         	switch(input) {
 	    		case 1:
