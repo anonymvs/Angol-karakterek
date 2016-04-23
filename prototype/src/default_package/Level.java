@@ -15,7 +15,7 @@ public class Level {
      */
     public Level() {
         System.out.println("LEVEL::Level:\t Level contstructor been called.");
-        load();
+        //load();
     }
 
     /**
@@ -32,23 +32,8 @@ public class Level {
     /**
      * 
      */
-    public void load(String path) {
-        System.out.println("LEVEL::load:\t Level's load function been called.");
-        Floor floor = new Floor(this, false);
-        ls.add(floor);
-        Floor floorWzpm = new Floor(this, true);
-        ls.add(floorWzpm);
-        Wall wall = new Wall(false);
-        ls.add(wall);
-        Wall wallPortalable = new Wall(true);
-        ls.add(wallPortalable);
-        Chasm chasm = new Chasm();
-        ls.add(chasm);
-        Placeable box = new Box();
-        Placeable opener = new Opener();
-        Placeable door = new Door();
-        Player oneill = new Player(floor, Direction.Bottom);
-        floor.setONeill(oneill);
+    public void load(String path, Player pl) {
+
     }
 
     /**

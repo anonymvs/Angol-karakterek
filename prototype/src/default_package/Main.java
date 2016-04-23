@@ -1,6 +1,7 @@
 package default_package;
 
 import java.io.*;
+import java.util.Random;
 
 /**
  * Created by hege on 2016.03.28..
@@ -8,6 +9,12 @@ import java.io.*;
 public class Main {
     private Level lvl = new Level();
     private Player oneill = new Player();
+    private Player jaffa = new Player();
+    private Replicator rep = new Replicator();
+
+    public static void main(String args[]) throws IOException{
+        new Main();
+    }
 
     Main() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -68,11 +75,12 @@ public class Main {
         }
     }
 
-    public static void main(String args[]) throws IOException{
-        new Main();
-    }
-
     public static void help(String[] arg) throws IOException{
+        if(arg.length != 1) {
+            System.out.println("\n --- Invalid input! ---\n");
+            return;
+        }
+
         FileReader fr = new FileReader("help.txt");
         BufferedReader br = new BufferedReader(fr);
 
@@ -96,23 +104,90 @@ public class Main {
     }
 
     public void load(String[] arg) {
-        lvl.load(arg[1]);
+        if(arg.length != 2) {
+            System.out.println("\n --- Invalid input! ---\n");
+            return;
+        }
+
+        lvl.load(arg[1], oneill);
     }
 
     public void reset(String[] arg) {
+        if(arg.length != 1) {
+            System.out.println("\n --- Invalid input! ---\n");
+            return;
+        }
         lvl.reset();
     }
 
-    public static void move(String[] arg) {
+    public void move(String[] arg) {
+        if(arg.length != 3) {
+            System.out.println("\n --- Invalid input! ---\n");
+            return;
+        }
+        if(arg[1].equals("-o")) {
+            switch(arg[2]) {
+                case "right":
+                    oneill.move(Direction.Right);
+                    break;
+                case "left":
+                    oneill.move(Direction.Left);
+                    break;
+                case "up":
+                    oneill.move(Direction.Top);
+                    break;
+                case "down":
+                    oneill.move(Direction.Bottom);
+                    break;
+            }
+        }
 
+        if(arg[1].equals("-j")) {
+            switch(arg[2]) {
+                case "right":
+                    oneill.move(Direction.Right);
+                    break;
+                case "left":
+                    oneill.move(Direction.Left);
+                    break;
+                case "up":
+                    oneill.move(Direction.Top);
+                    break;
+                case "down":
+                    oneill.move(Direction.Bottom);
+                    break;
+            }
+        }
     }
 
-    public static void movereplicator(String[] arg) {
+    public void movereplicator(String[] arg) {
+        if(arg.length != 1) {
+            System.out.println("\n --- Invalid input! ---\n");
+            return;
+        }
+
+        Random rand = new Random();
+        int randomNum = rand.nextInt((4 - 1) + 1) + 1;
+
+        switch (randomNum) {
+            case 1:
+                rep.move(Direction.Bottom);
+                break;
+            case 2:
+                rep.move(Direction.Left);
+                break;
+            case 3:
+                rep.move(Direction.Right);
+                break;
+            case 4:
+                rep.move(Direction.Top)
+                break;
+        }
 
     }
 
     public static void add(String[] arg) {
-
+        
     }
 
     public static void remove(String[] arg) {

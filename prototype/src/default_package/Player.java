@@ -47,7 +47,7 @@ public class Player {
     /**
      * 
      */
-    public void move() {
+    public void move(Direction dir) {
         System.out.println("ONEILL::move:\t A movement has been triggered.");
     	LevelEntity entity = floor.getNeighbour(dir);
     	boolean b = entity.moveAction(this);
