@@ -91,9 +91,9 @@ public class Player {
     /**
      * 
      */
-    public void shoot() {
+    public void shoot(Color c) {
     	System.out.println("ONEILL::shoot: \t A Missile has been shot.");
-    	Missile m = new Missile(Color.BLUE, dir);
+    	Missile m = new Missile(c, dir);
         m.setTile(floor);
         m.move();
         m.move();

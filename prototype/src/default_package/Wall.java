@@ -47,4 +47,8 @@ public class Wall extends LevelEntity {
 		return true;
 	}
 
+	public void setPortalable(boolean b) {
+		portalable = b;
+	}
+
 }

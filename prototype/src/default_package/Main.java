@@ -1,5 +1,6 @@
 package default_package;
 
+import java.awt.*;
 import java.io.*;
 import java.util.Random;
 
@@ -180,30 +181,142 @@ public class Main {
                 rep.move(Direction.Right);
                 break;
             case 4:
-                rep.move(Direction.Top)
+                rep.move(Direction.Top);
                 break;
         }
 
     }
 
-    public static void add(String[] arg) {
-        
+    public void add(String[] arg) {
+        if(arg.length != 4) {
+            System.out.println("\n --- Invalid input! ---\n");
+            return;
+        }
+
+        try {
+            int x = Integer.parseInt(arg[2]);
+            int y = Integer.parseInt(arg[3]);
+
+            switch (arg[1]) {
+                case "oneill":
+                    lvl.setElement(oneill, null, null, null, x, y);
+                    break;
+                case "jaffa":
+                    lvl.setElement(jaffa, null, null, null, x, y);
+                    break;
+                case "replicator":
+                    lvl.setElement(null, null, rep, null, x ,y);
+                    break;
+                case "door":
+                    Door d = new Door();
+                    lvl.setElement(null, d, null, null, x, y);
+                    break;
+                case "opener":
+                    Opener o = new Opener();
+                    lvl.setElement(null, o, null, null, x, y);
+                    break;
+                case "box":
+                    Box b = new Box();
+                    lvl.setElement(null, b, null, null, x, y);
+                    break;
+                case "zpm":
+                    ZPM zpm = new ZPM(lvl);
+                    lvl.setElement(null, null, null, zpm, x ,y);
+                    break;
+                default:
+                    System.out.println("\n --- Invalid input! ---\n");
+            }
+        } catch(NumberFormatException e) {
+            System.out.println("\n --- Integers are required of coordiantes --- \n");
+        }
     }
 
-    public static void remove(String[] arg) {
+    public void remove(String[] arg) {
+        if(arg.length != 4) {
+            System.out.println("\n --- Invalid input! ---\n");
+            return;
+        }
 
+        try {
+            int x = Integer.parseInt(arg[2]);
+            int y = Integer.parseInt(arg[3]);
+
+            switch (arg[1]) {
+                case "oneill":
+                    lvl.removeElement(oneill, null, null, null, x, y);
+                    break;
+                case "jaffa":
+                    lvl.removeElement(jaffa, null, null, null, x, y);
+                    break;
+                case "replicator":
+                    lvl.removeElement(null, null, rep, null, x ,y);
+                    break;
+                case "door":
+                    Door d = new Door();
+                    lvl.removeElement(null, d, null, null, x, y);
+                    break;
+                case "opener":
+                    Opener o = new Opener();
+                    lvl.removeElement(null, o, null, null, x, y);
+                    break;
+                case "box":
+                    Box b = new Box();
+                    lvl.removeElement(null, b, null, null, x, y);
+                    break;
+                case "zpm":
+                    ZPM zpm = new ZPM(lvl);
+                    lvl.removeElement(null, null, null, zpm, x ,y);
+                    break;
+                default:
+                    System.out.println("\n --- Invalid input! ---\n");
+            }
+        } catch(NumberFormatException e) {
+            System.out.println("\n --- Integers are required of coordinates --- \n");
+        }
     }
 
-    public static void boxing(String[] arg) {
-
+    public void boxing(String[] arg) {
+        if(arg.length != 2) {
+            System.out.println("\n --- Invalid input! ---\n");
+            return;
+        }
+        if(arg[1].equals("-o")) oneill.boxing();
+        if(arg[1].equals("-j")) jaffa.boxing();
     }
 
-    public static void shoot(String[] arg) {
-
+    public void shoot(String[] arg) {
+        if(arg.length != 2) {
+            System.out.println("\n --- Invalid input! ---\n");
+            return;
+        }
+        switch (arg[1]) {
+            case "-y":
+                oneill.shoot(Color.YELLOW);
+                break;
+            case "-b":
+                oneill.shoot(Color.BLUE);
+                break;
+            case "-r":
+                jaffa.shoot(Color.RED);
+                break;
+            case "-g":
+                jaffa.shoot(Color.GREEN);
+                break;
+        }
     }
 
-    public static void setpt(String[] arg) {
-
+    public void setpt(String[] arg) {
+        if(arg.length != 3) {
+            System.out.println("\n --- Invalid input! ---\n");
+            return;
+        }
+        try {
+            int x = Integer.parseInt(arg[1]);
+            int y = Integer.parseInt(arg[2]);
+            lvl.setWallPortalable(x, y);
+        } catch (NumberFormatException e) {
+            System.out.println("\n --- Integers are required of coordinates --- \n");
+        }
     }
 
     public static void setreplmove(String[] arg) {
@@ -211,14 +324,6 @@ public class Main {
     }
 
     public static void menu() {
-        System.out.println("Please select an option!");
-        System.out.println("[1]: Move sequence");
-        System.out.println("[2]: Box sequence");
-        System.out.println("[3]: Door sequence");
-        System.out.println("[4]: Missile sequence");
-        System.out.println("[5]: Reset sequence");
-        System.out.println("[6]: End of game sequence");
-        System.out.println("[7]: Not yet have shown sequences");
-        System.out.println("[0]: exit\n");
+
     }
 }

@@ -36,6 +36,14 @@ public class Level {
 
     }
 
+    public void setElement(Player pl, Placeable entity, Replicator replicator, ZPM zpm, int x, int y) {
+
+    }
+
+    public void removeElement(Player pl, Placeable entity, Replicator replicator, ZPM zpm, int x, int y) {
+
+    }
+
     /**
      * 
      */
@@ -69,4 +77,7 @@ public class Level {
         reset();
     }
 
+    public void setWallPortalable(int x, int y) {
+
+    }
 }
