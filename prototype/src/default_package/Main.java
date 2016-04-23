@@ -11,145 +11,116 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public static void main(String args[]) {
-
-        System.out.println("Initialization sequence: ");
-        Level level = new Level();
-        System.out.println("Initialization sequence is done.\n");
-
-        int input = 10000;
-        Scanner in = new Scanner(System.in);
+    public static void main(String args[]) throws IOException{
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        boolean b = true;
 
-        while (input != 0){
+        while (b){
             menu();
-            input = in.nextInt();
-            try{
-                String line = br.readLine();
-            } catch(IOException e) {
-                e.printStackTrace();
-            }
 
+            String line = br.readLine();
             String[] strarray = line.split(" ");
 
-        	switch(input) {
-	    		case 1:
-                    moveSeq(level);
+        	switch(strarray[0]) {
+	    		case "help":
+                    help(strarray);
                     break;
-	    		case 2:
-                    boxSeq(level);
+	    		case "savetest":
+                    savetest(strarray);
                     break;
-	    		case 3:
-	    			doorSeq();
+	    		case "loadtest":
+                    loadtest(strarray);
                     break;
-	    		case 4:
-	    			missileSeq(level);
+	    		case "load":
+                    load(strarray);
                     break;
-	    		case 5:
-                    resetSeq(level);
+	    		case "reset":
+                    reset(strarray);
                     break;
-	    		case 6:
-                    endofgameSeq(level);
+	    		case "move":
+                    move(strarray);
                     break;
-                case 7:
-                    notYetHaveShownSeq(level);
+                case "movereplicator":
+                    movereplicator(strarray);
                     break;
-	    		case 0: System.exit(0);
+                case "add":
+                    add(strarray);
+                    break;
+                case "remove":
+                    remove(strarray);
+                    break;
+                case "boxing":
+                    boxing(strarray);
+                    break;
+                case "shoot":
+                    shoot(strarray);
+                    break;
+                case "setpt":
+                    setpt(strarray);
+                    break;
+                case "exit":
+                    System.exit(0);
+                    break;
+                case "setreplmove":
+                    setreplmove(strarray);
+                    break;
                 default:
                     break;
         	}
-
-        	System.out.println();
         }
     }
 
-    public static void moveSeq(Level level) {
-        Floor f1 = new Floor(level, false);
-        Floor f2 = new Floor(level, false);
-        f1.setNeighbour(Direction.Bottom, f2);
-        f2.setNeighbour(Direction.Top, f1);
-        ONeill oneill1 = new ONeill(f1, Direction.Bottom);
-        oneill1.move();
-    }
-    public static void boxSeq(Level level) {
-        Floor f3 = new Floor(level, false);
-        Floor f4 = new Floor(level, false);
-        Floor f5 = new Floor(level, false);
-        Door door = new Door();
-        f3.setNeighbour(Direction.Bottom, f4);
-        f4.setNeighbour(Direction.Top, f3);
-        f3.setNeighbour(Direction.Left, f5);
-        f5.setNeighbour(Direction.Right, f3);
-        Opener opener1 = new Opener();
-        opener1.setDoor(door);
-        Box box1 = new Box();
-        ONeill oneill2 = new ONeill(f3, Direction.Bottom);
-        f4.setPlaced(box1);
-        f5.setPlaced(opener1);
-        oneill2.boxing();
-        oneill2.setDir(Direction.Left);
-        oneill2.boxing();
-    }
-    public static void doorSeq() {
-        Opener op = new Opener();
-        Door d = new Door();
-        Box b = new Box();
-        op.setDoor(d);
-        op.boxEvent(null, b);
-    }
-    public static void missileSeq(Level level) {
-        Floor f5 = new Floor(level, false);
-        Floor f6 = new Floor(level, false);
-        Wall wall = new Wall(true);
-        f5.setNeighbour(Direction.Bottom, f6);
-        f6.setNeighbour(Direction.Top, f5);
-        f6.setNeighbour(Direction.Bottom, wall);
-        wall.setNeighbour(Direction.Top, f6);
-        ONeill oneill3 = new ONeill(f5, Direction.Bottom);
-        oneill3.shoot();
+    public static void help(String[] arg) {
 
     }
-    public static void resetSeq(Level level) {
-    	Floor f1 = new Floor(level, false);
-        Chasm c = new Chasm();
-        f1.setNeighbour(Direction.Bottom, c);
-        c.setNeighbour(Direction.Top, f1);
 
-        ONeill oneill1 = new ONeill(f1, Direction.Bottom);
-        oneill1.move();
+    public static void savetest(String[] arg) {
 
     }
-    public static void endofgameSeq(Level level) {
-        Floor f1 = new Floor(level, false);
-        ONeill oneill = new ONeill(f1, Direction.Bottom);
-        Timer t = new Timer(oneill);
-        t.run();
+
+    public static void loadtest(String[] arg) {
+
     }
 
-    private static void notYetHaveShownSeq(Level level) {
-        Floor mid = new Floor(level, false);
-        Floor left = new Floor(level, false);
-        Floor right = new Floor(level, false);
-        Wall bottom = new Wall(false);
-        mid.setNeighbour(Direction.Bottom, bottom);
-        mid.setNeighbour(Direction.Left, left);
-        mid.setNeighbour(Direction.Right, right);
-        right.setNeighbour(Direction.Left, mid);
-        left.setNeighbour(Direction.Right, mid);
-        ONeill oneill = new ONeill(mid, Direction.Bottom);
-        Opener op = new Opener();
-        Door door = new Door();
-        op.setDoor(door);
-        left.setPlaced(op);
-        right.setPlaced(door);
-        oneill.move();
-        oneill.setDir(Direction.Right);
-        oneill.move();
-        oneill.setDir(Direction.Left);
-        oneill.move();
-        oneill.setDir(Direction.Right);
-        oneill.move();
+    public static void load(String[] arg) {
+
+    }
+
+    public static void reset(String[] arg) {
+
+    }
+
+    public static void move(String[] arg) {
+
+    }
+
+    public static void movereplicator(String[] arg) {
+
+    }
+
+    public static void add(String[] arg) {
+
+    }
+
+    public static void remove(String[] arg) {
+
+    }
+
+    public static void boxing(String[] arg) {
+
+    }
+
+    public static void shoot(String[] arg) {
+
+    }
+
+    public static void setpt(String[] arg) {
+
+    }
+
+    public static void setreplmove(String[] arg) {
+
     }
 
     public static void menu() {
