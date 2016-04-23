@@ -74,6 +74,16 @@ public class Level {
 	    }catch(Exception e){
 	    	e.printStackTrace();
 	    }
+        
+        for( int i = 0; i < t.size(); i++ ){
+        	for( int j = 0; j < t.get(i).size(); j++){
+        		int ki = i-1;
+        		int kj = j-1;
+        		if( ki < 0 || kj < 0 ){
+        			//t.get(i).get(j).setNeighbour( Direction.west, null);
+        		}
+        	}
+        }
     }
 
     public void setElement(Player pl, Placeable entity, Replicator replicator, ZPM zpm, int x, int y) {
