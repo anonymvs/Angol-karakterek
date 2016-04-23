@@ -17,12 +17,15 @@ public class Main {
 
     public static void main(String args[]) throws IOException{
         new Main();
+        
     }
 
     Main() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         boolean b = true;
-
+        
+        lvl.load("load.txt", new Player() );
+        
         while (b){
             menu();
 
