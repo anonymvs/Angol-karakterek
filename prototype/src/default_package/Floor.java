@@ -181,13 +181,14 @@ public final class Floor extends LevelEntity {
             System.out.print("δ");
             return;
         } else if(placed != null) {
+        	String s = placed.getClass().getSimpleName();
             if (placed.getClass().getSimpleName() == "Opener") {
                 if (placed instanceof Opener) {
                     Opener o = (Opener) placed;
                     System.out.print(Integer.toString(o.boxCount()));
                     return;
                 }
-            } else if (placed.getClass().getSimpleName() == "Door") {
+            } else if (placed.getClass().getSimpleName().equals("Door") ) {
                 System.out.print("d");
                 return;
             }
