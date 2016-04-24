@@ -61,6 +61,15 @@ public abstract class LevelEntity {
     	}
     }
 
+	public LevelEntity[] getNeighbourArray() {
+		LevelEntity[] list = new LevelEntity[4];
+		list[0] = east;
+		list[1] = west;
+		list[2] = north;
+		list[3] = south;
+		return list;
+	}
+
     /**
      * @param dir
      * @param entity

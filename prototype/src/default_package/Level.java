@@ -121,13 +121,51 @@ public class Level {
     }
 
     public void setElement(Player pl, Placeable entity, Replicator replicator, ZPM zpm, int x, int y) {
-
+        if(pl != null) {
+            Floor tmp = new Floor(this, false);
+            tmp.setONeill(pl);
+            pl.setFloor(tmp);
+            addToLevel(tmp, x, y);
+        }
+        if(entity != null) {
+            Floor tmp = new Floor(this, false);
+            tmp.setPlaced(entity);
+            addToLevel(tmp, x, y);
+        }
+        if(replicator != null) {
+            Floor tmp = new Floor(this, false);
+            tmp.setRepl(replicator);
+            replicator.setFloor(tmp);
+            addToLevel(tmp, x, y);
+        }
+        if(zpm != null) {
+            Floor tmp = new Floor(this, true);
+            addToLevel(tmp, x, y);
+        }
     }
 
     public void removeElement(Player pl, Placeable entity, Replicator replicator, ZPM zpm, int x, int y) {
 
     }
 
+    private void addToLevel(LevelEntity tmp, int x, int y) {
+        LevelEntity[] list = ls.get(y).get(x).getNeighbourArray();
+
+        list[0].setNeighbour(Direction.Left, tmp);
+        tmp.setNeighbour(Direction.Right, list[0]);
+
+        list[1].setNeighbour(Direction.Right, tmp);
+        tmp.setNeighbour(Direction.Left, list[1]);
+
+        list[2].setNeighbour(Direction.Bottom, tmp);
+        tmp.setNeighbour(Direction.Top, list[2]);
+
+        list[3].setNeighbour(Direction.Top, tmp);
+        tmp.setNeighbour(Direction.Bottom, list[3]);
+
+        ls.get(y).set(x, tmp);
+    }
+    
     /**
      * 
      */
