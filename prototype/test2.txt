@@ -1,0 +1,3 @@
+load ojmovetest.txt
+move -o down
+move -o down
