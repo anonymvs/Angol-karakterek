@@ -168,7 +168,7 @@ public final class Floor extends LevelEntity {
         return false;
     }
 
-	public final void draw() {
+    public final void draw() {
 		if(oneill != null && placed == null) {
             if(oneill.getType().equals("oneill")) {
                 System.out.print("Ω");

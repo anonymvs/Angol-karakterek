@@ -1,7 +1,5 @@
 package default_package;
 
-import default_package.*;
-
 /**
  * 
  */
