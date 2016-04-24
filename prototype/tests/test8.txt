@@ -1,0 +1,7 @@
+load doorchasm.txt
+boxing -o
+move -o right
+boxing -o
+move -o right
+move -o up
+boxing -o

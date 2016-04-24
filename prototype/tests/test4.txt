@@ -1,0 +1,3 @@
+load doorchasm.txt
+move -o left
+move -o left

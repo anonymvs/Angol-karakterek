@@ -77,7 +77,10 @@ public class Player {
     public void boxing() {
     	System.out.println("ONEILL::boxing");
     	LevelEntity entity = floor.getNeighbour(dir);
-        entity.boxAction(this, box);
+        boolean b = entity.boxAction(this, box);
+        if(b){
+        	box = null;
+        }
     }
 
     /**
