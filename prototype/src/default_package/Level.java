@@ -67,6 +67,21 @@ public class Level {
 	        			p2.setFloor(f2);
 	        			ls.get(numOfLines).add( f2 );
 	        			break;
+	        		case 8:
+	        			Floor f3 = new Floor(this, false);
+	        			Box b = new Box(1);
+	        			f3.setPlaced(b);
+	        			ls.get(numOfLines).add( f3 );
+	        			break;
+	        		case 9:
+	        			ls.get(numOfLines).add( new Chasm() );
+	        			break;
+	        		case 0:
+	        			Floor f4 = new Floor(this, false);
+	        			Opener o = new Opener(1);
+	        			f4.setPlaced(o);
+	        			ls.get(numOfLines).add( f4 );
+	        			break;
 	        		}
 	        	}
 	        	numOfLines++;	        	
