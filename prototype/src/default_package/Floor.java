@@ -62,6 +62,11 @@ public final class Floor extends LevelEntity {
      */
     public final boolean moveAction(Player o){
     	System.out.println("FLOOR::moveAction:\t This Floor's move action has been called.");
+
+    	if(oneill != null){
+    		return false;
+    	}
+    	
     	// If there nothing placed on the floor then Player can move here
     	if(placed == null) {
             System.out.println("FLOOR::moveAction:\t Yes, there is no object on this Floor.");
