@@ -60,7 +60,10 @@ public class Player {
         System.out.println("ONEILL::move:\t A movement has been triggered.");
     	LevelEntity entity = floor.getNeighbour(dir);
     	boolean b = entity.moveAction(this);
-        if(b) System.out.println("ONEILL::move:\t Player has moved.");
+        if(b){
+        	floor = (Floor) entity;
+        	System.out.println("ONEILL::move:\t Player has moved.");
+        }
     }
 
     /**

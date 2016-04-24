@@ -57,7 +57,7 @@ public class Wall extends LevelEntity {
 	}
 
 	public void draw() {
-
+		System.out.print("W");
 	}
 
 }

@@ -171,6 +171,7 @@ public class Level {
                 String s = ls.get(i).get(j).getClass().getSimpleName();
                 ls.get(i).get(j).draw();
             }
+            System.out.print("\n");
         }
     }
 }
