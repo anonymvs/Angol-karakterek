@@ -11,7 +11,7 @@ import java.util.Timer;
 public class Missile {
 	
     private Direction dir;
-    private Timer timer;
+    private MissileTimer timer;
     private Color color;
     private LevelEntity tile = null;
 
@@ -19,18 +19,24 @@ public class Missile {
         System.out.println("MISSILE::Missile:\t A Missile has been constructed.");
         dir = d;
         color = c;
-        timer = new Timer();
+        timer = new MissileTimer(this);
     }
 
-    public void move() {
+    public boolean move() {
     	System.out.println("MISSILE::move:\t Missile's movement has been triggered.");
         LevelEntity entity = tile.getNeighbour(dir);
-        
+
+        if(entity == null) {
+            return false;
+        }
+
         if(entity.missileAction(this))
         {
         	tile.setMissile(null);
         	tile = entity;
+            return true;
         }
+        return true;
     }
 
     public Color getColor() {
