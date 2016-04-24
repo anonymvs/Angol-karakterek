@@ -252,11 +252,11 @@ public class Level {
                 if(ls.get(i).get(j) instanceof Floor) {
                     Floor f = (Floor) ls.get(i).get(j);
                     if(f.hasBox()) {
-                        boxes = boxes + "(" + Integer.toString(j) + ", " + Integer.toString(i) + "), ";
+                        boxes = boxes + "(" + Integer.toString(j + 1) + ", " + Integer.toString(i + 1) + "), ";
                     }
                 }
                 if(ls.get(i).get(j).hasMissile()) {
-                    missiles = missiles + "(" + Integer.toString(j) + ", " + Integer.toString(i) + "), ";
+                    missiles = missiles + "(" + Integer.toString(j + 1) + ", " + Integer.toString(i + 1) + "), ";
                 }
             }
         }
