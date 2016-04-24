@@ -104,7 +104,7 @@ public class Main {
             return;
         }
 
-        lvl.load(arg[1], oneill);
+        lvl.load(arg[1], oneill, jaffa );
 
         commands = commands.concat(arg[0]);
         commands = commands + " ";

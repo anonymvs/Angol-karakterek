@@ -27,7 +27,7 @@ public class Level {
     /**
      * 
      */
-    public void load(String path, Player pl) {
+    public void load(String path, Player p1, Player p2) {
         
         try{
 	        BufferedReader br = new BufferedReader( new FileReader( path ) );
@@ -57,9 +57,15 @@ public class Level {
 	        			break;
 	        		case 6:
 	        			Floor f1 = new Floor(this, false);
-	        			f1.setONeill( pl );
-	        			pl.setFloor(f1);
+	        			f1.setONeill( p1 );
+	        			p1.setFloor(f1);
 	        			ls.get(numOfLines).add( f1 );
+	        			break;
+	        		case 7:
+	        			Floor f2 = new Floor(this, false);
+	        			f2.setONeill( p2 );
+	        			p2.setFloor(f2);
+	        			ls.get(numOfLines).add( f2 );
 	        			break;
 	        		}
 	        	}
