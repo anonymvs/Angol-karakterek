@@ -101,4 +101,11 @@ public abstract class LevelEntity {
         missile = m;
     }
 
+	public boolean hasMissile() {
+		if(missile != null) {
+			return true;
+		}
+		return false;
+	}
+
 }

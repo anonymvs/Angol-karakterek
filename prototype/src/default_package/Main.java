@@ -374,6 +374,11 @@ public class Main {
     }
 
     public void setreplmove(String[] arg) throws UnsupportedEncodingException{
+        LevelEntity le = new Floor(lvl, false);
+        Floor f = new Floor(lvl, false);
+
+        System.out.println(le.getClass().getSimpleName());
+        System.out.println(f.getClass().getSimpleName());
 
         commands = commands.concat(arg[0]);
         commands = commands.concat("\n");

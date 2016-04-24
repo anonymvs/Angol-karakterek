@@ -14,7 +14,8 @@ import default_package.*;
 public class Level {
 
     public ArrayList<ArrayList<LevelEntity>> ls = new ArrayList<>();
-
+    private Timer timer;
+    private int zpmCount;
     /**
      * Default constructor
      */
@@ -22,17 +23,6 @@ public class Level {
         System.out.println("LEVEL::Level:\t Level contstructor been called.");
         //load();
     }
-
-    /**
-     * 
-     */
-    private Timer timer;
-
-    /**
-     * 
-     */
-    private int zpmCount;
-
 
     /**
      * 
@@ -245,5 +235,32 @@ public class Level {
             }
             System.out.print("\n");
         }
+    }
+
+    public String generateMissileList() {
+        String ret = "";
+        for(int i = 0; i < ls.size(); ++i) {
+            for(int j = 0; j < ls.get(i).size(); ++j) {
+                if(ls.get(i).get(j).hasMissile()) {
+                    ret = ret + "(" + Integer.toString(j) + ", " + Integer.toString(i) + "), ";
+                }
+            }
+        }
+        return ret;
+    }
+
+    public String generateBoxList() {
+        String ret = "";
+        for(int i = 0; i < ls.size(); ++i) {
+            for(int j = 0; j < ls.get(i).size(); ++j) {
+                if(ls.get(i).get(j) instanceof Floor) {
+                    Floor f = (Floor) ls.get(i).get(j);
+                    if(f.hasBox()) {
+                        ret = ret + "(" + Integer.toString(j) + ", " + Integer.toString(i) + "), ";
+                    }
+                }
+            }
+        }
+        return ret;
     }
 }

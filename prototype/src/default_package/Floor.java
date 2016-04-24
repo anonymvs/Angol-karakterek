@@ -159,7 +159,12 @@ public final class Floor extends LevelEntity {
     public final boolean missileAction( Missile mis ){
     	System.out.println("FLOOR::missileAction:\t true.");
     	return true;
-    };
+    }
+
+    public boolean hasBox() {
+        if(placed.getClass().getSimpleName() == "Box") return true;
+        return false;
+    }
 
 	public final void draw() {
 		if(oneill != null && placed == null) {
