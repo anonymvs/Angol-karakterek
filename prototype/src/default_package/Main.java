@@ -9,8 +9,8 @@ import java.util.Random;
  */
 public class Main {
     private Level lvl = new Level();
-    private Player oneill = new Player();
-    private Player jaffa = new Player();
+    private Player oneill = new Player("oneill");
+    private Player jaffa = new Player("jaffa");
     private Replicator rep = new Replicator();
     private String commands = "";
     private String[] test;
@@ -23,8 +23,6 @@ public class Main {
     Main() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         boolean b = true;
-        
-        lvl.load("load.txt", new Player() );
         
         while (b){
             menu();

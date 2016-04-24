@@ -39,38 +39,37 @@ public class Level {
      */
     public void load(String path, Player pl) {
         
-        ArrayList<ArrayList<LevelEntity>> t = new ArrayList<ArrayList<LevelEntity>>();
-        
         try{
 	        BufferedReader br = new BufferedReader( new FileReader( path ) );
 	        String tmp;
 	        
 	        int numOfLines = 0;
 	        while( (tmp = br.readLine()) != null ){
-    			t.add(new ArrayList<LevelEntity>());
+    			ls.add(new ArrayList<LevelEntity>());
 	        	for( int i = 0; i < tmp.length(); i++ ){
 	        		switch( Character.getNumericValue(tmp.charAt(i)) ){
 	        		case 1:
-	        			t.get(numOfLines).add( new Floor( this, false ) );
+	        			ls.get(numOfLines).add( new Floor( this, false ) );
 	        			break;
 	        		case 2:
-	        			t.get(numOfLines).add( new Wall( false ) );
+	        			ls.get(numOfLines).add( new Wall( false ) );
 	        			break;
 	        		case 3:
-	        			t.get(numOfLines).add( new Wall( true ) );
+	        			ls.get(numOfLines).add( new Wall( true ) );
 	        			break;
 	        		case 4:
-	        			t.get(numOfLines).add( new Chasm() );
+	        			ls.get(numOfLines).add( new Chasm() );
 	        			break;
 	        		case 5:
 	        			Floor f = new Floor( this, false );
 	        			f.setPlaced( new Door() );
-	        			t.get(numOfLines).add( f );
+	        			ls.get(numOfLines).add( f );
 	        			break;
 	        		case 6:
 	        			Floor f1 = new Floor(this, false);
-	        			f1.setONeill( new Player() );
-	        			t.get(numOfLines).add( f1 );
+	        			f1.setONeill( pl );
+	        			pl.setFloor(f1);
+	        			ls.get(numOfLines).add( f1 );
 	        			break;
 	        		}
 	        	}
@@ -82,42 +81,43 @@ public class Level {
 	    	e.printStackTrace();
 	    }
         
-        for( int i = 0; i < t.size(); i++ ){
-        	for( int j = 0; j < t.get(i).size(); j++){
+        for( int i = 0; i < ls.size(); i++ ){
+        	for( int j = 0; j < ls.get(i).size(); j++){
         		
         		int ki = i;
         		int kj = j-1;
         		if( kj < 0 ){
-        			t.get(i).get(j).setNeighbour( Direction.Left, null );
+        			ls.get(i).get(j).setNeighbour( Direction.Left, null );
         		} else {
-        			t.get(i).get(j).setNeighbour( Direction.Left, t.get(ki).get(kj) );
+        			ls.get(i).get(j).setNeighbour( Direction.Left, ls.get(ki).get(kj) );
         		}
         		
         		ki = i-1;
         		kj = j;
-        		if( ki < 0 || kj >= t.get(ki).size() ){
-        			t.get(i).get(j).setNeighbour( Direction.Top, null);
+        		if( ki < 0 || kj >= ls.get(ki).size() ){
+        			ls.get(i).get(j).setNeighbour( Direction.Top, null);
         		} else {
-        			t.get(i).get(j).setNeighbour( Direction.Top, t.get(ki).get(kj) );
+        			ls.get(i).get(j).setNeighbour( Direction.Top, ls.get(ki).get(kj) );
         		}
         		
         		ki = i;
         		kj = j+1;
-        		if( kj >= t.get(i).size() ){
-        			t.get(i).get(j).setNeighbour( Direction.Right, null);
+        		if( kj >= ls.get(i).size() ){
+        			ls.get(i).get(j).setNeighbour( Direction.Right, null);
         		} else {
-        			t.get(i).get(j).setNeighbour( Direction.Right, t.get(ki).get(kj) );
+        			ls.get(i).get(j).setNeighbour( Direction.Right, ls.get(ki).get(kj) );
         		}
         		
         		ki = i+1;
         		kj = j;
-        		if( ki >= t.size() || kj >= t.get(ki).size() ){
-        			t.get(i).get(j).setNeighbour( Direction.Bottom, null);
+        		if( ki >= ls.size() || kj >= ls.get(ki).size() ){
+        			ls.get(i).get(j).setNeighbour( Direction.Bottom, null);
         		} else {
-        			t.get(i).get(j).setNeighbour( Direction.Bottom, t.get(ki).get(kj) );
+        			ls.get(i).get(j).setNeighbour( Direction.Bottom, ls.get(ki).get(kj) );
         		}
         	}
         }
+        return;
     }
 
     public void setElement(Player pl, Placeable entity, Replicator replicator, ZPM zpm, int x, int y) {
