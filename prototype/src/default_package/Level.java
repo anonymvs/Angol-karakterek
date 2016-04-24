@@ -116,6 +116,7 @@ public class Level {
         if(pl != null) {
             Floor tmp = new Floor(this, false);
             tmp.setONeill(pl);
+            pl.setDir(Direction.Right);
             pl.setFloor(tmp);
             addToLevel(tmp, x, y);
         }
@@ -237,30 +238,23 @@ public class Level {
         }
     }
 
-    public String generateMissileList() {
-        String ret = "";
-        for(int i = 0; i < ls.size(); ++i) {
-            for(int j = 0; j < ls.get(i).size(); ++j) {
-                if(ls.get(i).get(j).hasMissile()) {
-                    ret = ret + "(" + Integer.toString(j) + ", " + Integer.toString(i) + "), ";
-                }
-            }
-        }
-        return ret;
-    }
-
-    public String generateBoxList() {
-        String ret = "";
+    public String generateLists() {
+        String boxes = "";
+        String missiles = "";
         for(int i = 0; i < ls.size(); ++i) {
             for(int j = 0; j < ls.get(i).size(); ++j) {
                 if(ls.get(i).get(j) instanceof Floor) {
                     Floor f = (Floor) ls.get(i).get(j);
                     if(f.hasBox()) {
-                        ret = ret + "(" + Integer.toString(j) + ", " + Integer.toString(i) + "), ";
+                        boxes = boxes + "(" + Integer.toString(j) + ", " + Integer.toString(i) + "), ";
                     }
+                }
+                if(ls.get(i).get(j).hasMissile()) {
+                    missiles = missiles + "(" + Integer.toString(j) + ", " + Integer.toString(i) + "), ";
                 }
             }
         }
+        String ret = "Boxes: " + boxes + "\nMissiles: " + missiles + "\n";
         return ret;
     }
 }

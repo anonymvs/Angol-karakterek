@@ -36,6 +36,6 @@ public class Chasm extends LevelEntity {
 	}
 
 	public void draw() {
-
+		System.out.print("C");
 	}
 }

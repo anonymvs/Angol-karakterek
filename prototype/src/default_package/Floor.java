@@ -162,23 +162,37 @@ public final class Floor extends LevelEntity {
     }
 
     public boolean hasBox() {
-        if(placed.getClass().getSimpleName() == "Box") return true;
+        if(placed != null) {
+            if (placed.getClass().getSimpleName() == "Box") return true;
+        }
         return false;
     }
 
 	public final void draw() {
 		if(oneill != null && placed == null) {
             if(oneill.getType().equals("oneill")) {
-                System.out.print("O");
+                System.out.print("Ω");
+                return;
             } else {
                 System.out.print("Φ");
+                return;
             }
         } else if(repl != null && placed == null) {
             System.out.print("δ");
-        } else {
-        	System.out.print("F");
+            return;
+        } else if(placed != null) {
+            if (placed.getClass().getSimpleName() == "Opener") {
+                if (placed instanceof Opener) {
+                    Opener o = (Opener) placed;
+                    System.out.print(Integer.toString(o.boxCount()));
+                    return;
+                }
+            } else if (placed.getClass().getSimpleName() == "Door") {
+                System.out.print("d");
+                return;
+            }
         }
-
+        System.out.print("F");
 	}
 
 }

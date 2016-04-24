@@ -438,10 +438,10 @@ public class Main {
         }
     }
 
-    //Function to write out what happened
-    //that includes the input commands, and the map drown out
-    //also we must have the missiles, boxes listed out
     public void output() {
+        System.out.println("ONeill: ");
+        System.out.println("Jaffa: ");
+        System.out.print(lvl.generateLists());
         lvl.draw();
         System.out.println("Previous Commands:");
         System.out.println(commands);

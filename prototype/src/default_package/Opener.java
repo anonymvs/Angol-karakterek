@@ -89,4 +89,8 @@ public final class Opener extends Placeable {
 		return true;
 	}
 
+	public int boxCount() {
+		return boxList.size();
+	}
+
 }
