@@ -11,7 +11,7 @@ public class Player {
     /**
      * 
      */
-    private Direction dir;
+    private Direction dir = Direction.Right;
     private Box box;
     private Floor floor;
     private String type;
