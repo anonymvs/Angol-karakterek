@@ -204,8 +204,68 @@ public final class Floor extends LevelEntity {
                 return;
             }
         }
+        //player + placed
+        if(oneill != null && placed != null) {
+            if(placed.getClass().getSimpleName().equals("Opener") && oneill.getType().equals("oneill")) {
+                System.out.print("x");
+                return;
+            }
+            if(placed.getClass().getSimpleName().equals("Opener") && oneill.getType().equals("jaffa")) {
+                System.out.print("y");
+                return;
+            }
+            if(placed.getClass().getSimpleName().equals("Box") && oneill.getType().equals("oneill")) {
+                System.out.print("Ω");
+                return;
+            }
+            if(placed.getClass().getSimpleName().equals("Box") && oneill.getType().equals("jaffa")) {
+                System.out.print("Φ");
+                return;
+            }
+            if(placed.getClass().getSimpleName().equals("Door") && oneill.getType().equals("oneill")) {
+                if(placed instanceof Door) {
+                    Door tmp = (Door) placed;
+                    if(tmp.isOpened()) {
+                        System.out.print("l");
+                    }
+                }
+            }
+            if(placed.getClass().getSimpleName().equals("Door") && oneill.getType().equals("jaffa")) {
+                if(placed instanceof Door) {
+                    Door tmp = (Door) placed;
+                    if(tmp.isOpened()) {
+                        System.out.print("m");
+                    }
+                }
+            }
+        }
+        //replicator + placed
+        if(repl != null && placed != null) {
+            if(placed.getClass().getSimpleName().equals("Opener")) {
+                System.out.print("w");
+                return;
+            }
+            if(placed.getClass().getSimpleName().equals("Box")) {
+                System.out.print("δ");
+                return;
+            }
+            if(placed.getClass().getSimpleName().equals("Door")) {
+                if(placed instanceof Door) {
+                    Door tmp = (Door) placed;
+                    if(tmp.isOpened()) {
+                        System.out.print("n");
+                    }
+                }
+            }
+        }
         if(oneill == null && placed == null && repl == null) {
-            System.out.print("F");
+            if(zpm != null) {
+                System.out.print("F");
+                return;
+            } else {
+                System.out.print("Z");
+                return;
+            }
         }
 	}
 }
