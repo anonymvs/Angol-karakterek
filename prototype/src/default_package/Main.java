@@ -108,6 +108,7 @@ public class Main {
         lvl.load(arg[1], oneill);
 
         commands = commands.concat(arg[0]);
+        commands = commands + " ";
         commands = commands.concat(arg[1]);
         commands = commands.concat("\n");
         output();
@@ -121,7 +122,6 @@ public class Main {
 
         lvl.reset();
 
-        
         commands = commands.concat(arg[0]);
         commands = commands.concat("\n");
         output();
@@ -166,7 +166,9 @@ public class Main {
             }
         }
         commands = commands.concat(arg[0]);
+        commands = commands + " ";
         commands = commands.concat(arg[1]);
+        commands = commands + " ";
         commands = commands.concat(arg[2]);
         commands = commands.concat("\n");
         output();
@@ -244,8 +246,11 @@ public class Main {
         }
 
         commands = commands.concat(arg[0]);
+        commands = commands + " ";
         commands = commands.concat(arg[1]);
+        commands = commands + " ";
         commands = commands.concat(arg[2]);
+        commands = commands + " ";
         commands = commands.concat(arg[3]);
         commands = commands.concat("\n");
         output();
@@ -295,8 +300,11 @@ public class Main {
         }
 
         commands = commands.concat(arg[0]);
+        commands = commands + " ";
         commands = commands.concat(arg[1]);
+        commands = commands + " ";
         commands = commands.concat(arg[2]);
+        commands = commands + " ";
         commands = commands.concat(arg[3]);
         commands = commands.concat("\n");
         output();
@@ -311,6 +319,7 @@ public class Main {
         if(arg[1].equals("-j")) jaffa.boxing();
 
         commands = commands.concat(arg[0]);
+        commands = commands + " ";
         commands = commands.concat(arg[1]);
         commands = commands.concat("\n");
         output();
@@ -337,6 +346,7 @@ public class Main {
         }
 
         commands = commands.concat(arg[0]);
+        commands = commands + " ";
         commands = commands.concat(arg[1]);
         commands = commands.concat("\n");
         output();
@@ -356,7 +366,9 @@ public class Main {
         }
 
         commands = commands.concat(arg[0]);
+        commands = commands + " ";
         commands = commands.concat(arg[1]);
+        commands = commands + " ";
         commands = commands.concat(arg[2]);
         commands = commands.concat("\n");
         output();
