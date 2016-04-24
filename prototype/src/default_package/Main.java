@@ -121,6 +121,7 @@ public class Main {
 
         lvl.reset();
 
+        
         commands = commands.concat(arg[0]);
         commands = commands.concat("\n");
         output();

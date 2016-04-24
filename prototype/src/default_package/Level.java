@@ -120,7 +120,9 @@ public class Level {
         return;
     }
 
-    public void setElement(Player pl, Placeable entity, Replicator replicator, ZPM zpm, int x, int y) {
+    public void setElement(Player pl, Placeable entity, Replicator replicator, ZPM zpm, int argx, int argy) {
+        int x = argx - 1;
+        int y = argy - 1;
         if(pl != null) {
             Floor tmp = new Floor(this, false);
             tmp.setONeill(pl);
@@ -165,7 +167,7 @@ public class Level {
 
         ls.get(y).set(x, tmp);
     }
-    
+
     /**
      * 
      */
@@ -206,7 +208,6 @@ public class Level {
     public void draw() {
         for(int i = 0; i < ls.size(); ++i) {
             for(int j = 0; j < ls.get(i).size(); ++j) {
-                String s = ls.get(i).get(j).getClass().getSimpleName();
                 ls.get(i).get(j).draw();
             }
             System.out.print("\n");
