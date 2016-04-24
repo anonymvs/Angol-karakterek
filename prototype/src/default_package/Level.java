@@ -231,8 +231,10 @@ public class Level {
     public void setWallPortalable(int argx, int argy) {
         int x = argx - 1;
         int y = argy - 1;
-        Wall tmp = new Wall(true);
-        addToLevel(tmp, x, y);
+        if(ls.get(y).get(x).getClass().getSimpleName().equals("Wall")){
+            Wall tmp = new Wall(true);
+            addToLevel(tmp, x, y);
+        }
     }
 
     public void draw() {
