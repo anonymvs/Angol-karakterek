@@ -163,7 +163,7 @@ public final class Floor extends LevelEntity {
 
     public boolean hasBox() {
         if(placed != null) {
-            if (placed.getClass().getSimpleName() == "Box") return true;
+            if (placed.getClass().getSimpleName().equals("Box")) return true;
         }
         return false;
     }
@@ -203,5 +203,4 @@ public final class Floor extends LevelEntity {
             System.out.print("F");
         }
 	}
-
 }
