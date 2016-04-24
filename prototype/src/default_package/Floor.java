@@ -72,6 +72,10 @@ public final class Floor extends LevelEntity {
             System.out.println("FLOOR::moveAction:\t Yes, there is no object on this Floor.");
 			setONeill(o);
             o.getFloor().setONeill(null);
+            if(zpm != null) {
+                zpm.collect();
+                zpm = null;
+            }
             return true;
         }
         System.out.println("FLOOR::moveAction:\t Something is on this Floor, better check that out.");
@@ -86,8 +90,10 @@ public final class Floor extends LevelEntity {
     		if(zpm != null) {
                 System.out.println("FLOOR::moveAction:\t There is a ZPM on this floor, better collect it :P");
     			zpm.collect();
+                zpm = null;
     		}
     	}
+
     	
     	return canMove;
     };
@@ -109,11 +115,6 @@ public final class Floor extends LevelEntity {
 			rep.getFloor().setONeill(null);
 			rep.setFloor(this);
 			repl = rep;
-			if(zpm != null) {
-				System.out.println("FLOOR::moveAction:\t There is a ZPM on this floor, better collect it :P");
-				zpm.collect();
-                zpm = null;
-			}
 		}
 
 		return canMove;
