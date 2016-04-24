@@ -1,0 +1,8 @@
+load ojmovetest.txt
+move -o up
+move -j up
+move -o right
+move -o right
+move -j left
+move -j left
+move -o right
