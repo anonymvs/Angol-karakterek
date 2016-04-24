@@ -146,25 +146,55 @@ public class Level {
         }
     }
 
-    public void removeElement(Player pl, Placeable entity, Replicator replicator, ZPM zpm, int x, int y) {
-
+    public void removeElement(Player pl, Placeable entity, Replicator replicator, ZPM zpm, int argx, int argy) {
+        int x = argx - 1;
+        int y = argy - 1;
+        if(pl != null) {
+            Floor tmp = new Floor(this, false);
+            pl.setFloor(null);
+            addToLevel(tmp, x, y);
+        }
+        if(entity != null) {
+            Floor tmp = new Floor(this, false);
+            addToLevel(tmp, x, y);
+        }
+        if(replicator != null) {
+            Floor tmp = new Floor(this, false);
+            replicator.setFloor(null);
+            addToLevel(tmp, x, y);
+        }
+        if(zpm != null) {
+            Floor tmp = new Floor(this, false);
+            addToLevel(tmp, x, y);
+        }
     }
 
     private void addToLevel(LevelEntity tmp, int x, int y) {
         LevelEntity[] list = ls.get(y).get(x).getNeighbourArray();
-
-        list[0].setNeighbour(Direction.Left, tmp);
-        tmp.setNeighbour(Direction.Right, list[0]);
-
-        list[1].setNeighbour(Direction.Right, tmp);
-        tmp.setNeighbour(Direction.Left, list[1]);
-
-        list[2].setNeighbour(Direction.Bottom, tmp);
-        tmp.setNeighbour(Direction.Top, list[2]);
-
-        list[3].setNeighbour(Direction.Top, tmp);
-        tmp.setNeighbour(Direction.Bottom, list[3]);
-
+        if(list[0] != null) {
+            list[0].setNeighbour(Direction.Left, tmp);
+            tmp.setNeighbour(Direction.Right, list[0]);
+        } else {
+            tmp.setNeighbour(Direction.Right, null);
+        }
+        if(list[1] != null) {
+            list[1].setNeighbour(Direction.Right, tmp);
+            tmp.setNeighbour(Direction.Left, list[1]);
+        } else {
+            tmp.setNeighbour(Direction.Left, null);
+        }
+        if(list[2] != null) {
+            list[2].setNeighbour(Direction.Bottom, tmp);
+            tmp.setNeighbour(Direction.Top, list[2]);
+        } else {
+            tmp.setNeighbour(Direction.Top, null);
+        }
+        if(list[3] != null) {
+            list[3].setNeighbour(Direction.Top, tmp);
+            tmp.setNeighbour(Direction.Bottom, list[3]);
+        } else {
+            tmp.setNeighbour(Direction.Bottom, null);
+        }
         ls.get(y).set(x, tmp);
     }
 
@@ -201,8 +231,11 @@ public class Level {
         reset();
     }
 
-    public void setWallPortalable(int x, int y) {
-
+    public void setWallPortalable(int argx, int argy) {
+        int x = argx;
+        int y = argy;
+        Wall tmp = new Wall(true);
+        addToLevel(tmp, x, y);
     }
 
     public void draw() {
