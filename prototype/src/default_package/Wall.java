@@ -1,5 +1,7 @@
 package default_package;
 
+import java.awt.*;
+
 /**
  * 
  */
@@ -57,7 +59,34 @@ public class Wall extends LevelEntity {
 	}
 
 	public void draw() {
-		System.out.print("W");
+        if(portal != null) {
+            if(portal.getColor() == Color.YELLOW) {
+                System.out.print("Y");
+                return;
+            }
+            if(portal.getColor() == Color.BLUE) {
+                System.out.print("B");
+                return;
+            }
+            if(portal.getColor() == Color.RED) {
+                System.out.print("R");
+                return;
+            }
+            if(portal.getColor() == Color.GREEN) {
+                System.out.print("G");
+                return;
+            }
+        } else {
+            if (portalable) {
+                System.out.print("w");
+                return;
+            } else {
+                System.out.print("W");
+                return;
+            }
+        }
+
+
 	}
 
 }

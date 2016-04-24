@@ -259,7 +259,7 @@ public final class Floor extends LevelEntity {
             }
         }
         if(oneill == null && placed == null && repl == null) {
-            if(zpm != null) {
+            if(zpm == null) {
                 System.out.print("F");
                 return;
             } else {

@@ -11,6 +11,7 @@ public class Portal {
     private static Portal yellowPortal = null;
     private Direction dir;
     private Wall wall;
+	private Color color;
 
     /**
      * @param m
@@ -28,6 +29,7 @@ public class Portal {
     			yellowPortal.close();
     		}
 			yellowPortal = this;
+			color = Color.YELLOW;
 			
 			if(bluePortal != null) {
 				LevelEntity myNeighbour = wall.getNeighbour(dir);
@@ -44,6 +46,7 @@ public class Portal {
     			bluePortal.close();
     		}
     		bluePortal = this;
+			color = Color.BLUE;
     		
     		if(yellowPortal != null) {
 				LevelEntity myNeighbour = wall.getNeighbour(dir);
@@ -78,5 +81,9 @@ public class Portal {
     	System.out.println("PORTAL::getWallNeighbour");
     	return wall.getNeighbour(d);
     }
+
+	public Color getColor() {
+		return color;
+	}
 
 }
