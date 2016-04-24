@@ -151,16 +151,16 @@ public class Main {
         if(arg[1].equals("-j")) {
             switch(arg[2]) {
                 case "right":
-                    oneill.move(Direction.Right);
+                    jaffa.move(Direction.Right);
                     break;
                 case "left":
-                    oneill.move(Direction.Left);
+                    jaffa.move(Direction.Left);
                     break;
                 case "up":
-                    oneill.move(Direction.Top);
+                    jaffa.move(Direction.Top);
                     break;
                 case "down":
-                    oneill.move(Direction.Bottom);
+                    jaffa.move(Direction.Bottom);
                     break;
             }
         }
