@@ -112,6 +112,7 @@ public final class Floor extends LevelEntity {
 			if(zpm != null) {
 				System.out.println("FLOOR::moveAction:\t There is a ZPM on this floor, better collect it :P");
 				zpm.collect();
+                zpm = null;
 			}
 		}
 
