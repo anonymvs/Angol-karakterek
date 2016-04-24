@@ -1,8 +1,8 @@
 load doorchasm.txt
-boxing -o
 move -o up
 boxing -o
 shoot -y
+move -o up
 move -o right
 shoot -b
 move -o up
