@@ -224,6 +224,23 @@ public class Level {
         ls.get(y).set(x, tmp);
     }
 
+    public void replicatorReplicated(Chasm c) {
+        Floor f = new Floor(this, false);
+        LevelEntity[] le = c.getNeighbourArray();
+
+        le[0].setNeighbour(Direction.Left, f);
+        f.setNeighbour(Direction.Right, le[0]);
+
+        le[1].setNeighbour(Direction.Right, f);
+        f.setNeighbour(Direction.Left, le[1]);
+
+        le[2].setNeighbour(Direction.Bottom, f);
+        f.setNeighbour(Direction.Top, le[2]);
+
+        le[3].setNeighbour(Direction.Top, f);
+        f.setNeighbour(Direction.Bottom, le[3]);
+    }
+
     /**
      * 
      */
@@ -267,12 +284,27 @@ public class Level {
     }
 
     public void draw() {
+        /*
         for(int i = 0; i < ls.size(); ++i) {
             for(int j = 0; j < ls.get(i).size(); ++j) {
                 ls.get(i).get(j).draw();
             }
             System.out.print("\n");
         }
+        */
+        for(int i = 0; i < ls.size(); ++i) {
+            recursiveDraw(ls.get(i).get(0));
+        }
+    }
+
+    private void recursiveDraw(LevelEntity le) {
+        if(le == null) {
+            System.out.print("\n");
+            return;
+        }
+        le.draw();
+        recursiveDraw(le.getNeighbour(Direction.Right));
+
     }
 
     public String generateLists() {

@@ -11,7 +11,7 @@ public class Main {
     private Level lvl = new Level();
     private Player oneill = new Player("oneill");
     private Player jaffa = new Player("jaffa");
-    private Replicator rep = new Replicator();
+    private Replicator rep = new Replicator(lvl);
     private Direction repldir = null;
     private String commands = "";
     private String[] test;

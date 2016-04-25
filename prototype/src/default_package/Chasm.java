@@ -18,8 +18,9 @@ public class Chasm extends LevelEntity {
 
 	@Override
 	public final boolean moveAction(Replicator rep) {
-		return true;
-		///magic!!!
+		rep.replicate(this);
+		return false;
+
 	}
 
 	@Override
@@ -36,6 +37,6 @@ public class Chasm extends LevelEntity {
 	}
 
 	public void draw() {
-		System.out.print("C");
+		System.out.print(" ");
 	}
 }

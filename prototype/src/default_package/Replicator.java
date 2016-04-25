@@ -8,7 +8,8 @@ public class Replicator {
     private Floor floor;
     private Direction dir;
 
-    Replicator() {
+    Replicator(Level l) {
+        lvl = l;
         dir = Direction.Right;
     }
 
@@ -20,6 +21,9 @@ public class Replicator {
     }
 
     public void replicate(Chasm ch) {
+        floor.setRepl(null);
+        floor = null;
+        lvl.replicatorReplicated(ch);
 
     }
 
