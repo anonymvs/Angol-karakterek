@@ -45,7 +45,7 @@ public final class Opener extends Placeable {
 				weightCount  -=  boxList.get(boxList.size()-1).getWeight();
 				o.setBox(boxList.remove(boxList.size()-1));
 				if(weightCount < weightLimit){
-					door.open(false);
+					if(door != null) door.open(false);
 				}
 				return true;
 			} else {
@@ -59,7 +59,7 @@ public final class Opener extends Placeable {
 			boxList.add(b);
 			weightCount  +=  boxList.get(boxList.size()-1).getWeight();
 			if(weightCount >= weightLimit){
-				door.open(true);
+				if(door != null) door.open(true);
 			}
 			System.out.println("OPENER::boxEvent:\t Player tries to put down a Box to an Opener, that has no Box yet, and succeeds");
 			return true;
