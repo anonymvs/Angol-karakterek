@@ -132,7 +132,7 @@ public class Level {
                             }
                         }
                         if(o != null && d != null) {
-                            //System.out.print("\n KAPCSOLAAATAAT \n");
+                            System.out.print("\n KAPCSOLAAATAAT \n");
                             o.setDoor(d);
                         }
 
