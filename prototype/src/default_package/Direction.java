@@ -19,4 +19,19 @@ public enum Direction {
 				return null;
 		}
 	}
+
+	public static Direction getDir(String arg) {
+		switch(arg) {
+			case "right":
+				return Direction.Right;
+			case "left":
+				return Direction.Left;
+			case "up":
+				return Direction.Top;
+			case "down":
+				return Direction.Bottom;
+			default:
+				return null;
+		}
+	}
 }

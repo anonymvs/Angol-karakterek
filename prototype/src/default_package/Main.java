@@ -12,6 +12,7 @@ public class Main {
     private Player oneill = new Player("oneill");
     private Player jaffa = new Player("jaffa");
     private Replicator rep = new Replicator();
+    private Direction repldir = null;
     private String commands = "";
     private String[] test;
 
@@ -132,37 +133,11 @@ public class Main {
             return;
         }
         if(arg[1].equals("-o")) {
-            switch(arg[2]) {
-                case "right":
-                    oneill.move(Direction.Right);
-                    break;
-                case "left":
-                    oneill.move(Direction.Left);
-                    break;
-                case "up":
-                    oneill.move(Direction.Top);
-                    break;
-                case "down":
-                    oneill.move(Direction.Bottom);
-                    break;
-            }
+            oneill.move(Direction.getDir(arg[2]));
         }
 
         if(arg[1].equals("-j")) {
-            switch(arg[2]) {
-                case "right":
-                    jaffa.move(Direction.Right);
-                    break;
-                case "left":
-                    jaffa.move(Direction.Left);
-                    break;
-                case "up":
-                    jaffa.move(Direction.Top);
-                    break;
-                case "down":
-                    jaffa.move(Direction.Bottom);
-                    break;
-            }
+            jaffa.move(Direction.getDir(arg[2]));
         }
         commands = commands.concat(arg[0]);
         commands = commands + " ";
@@ -180,21 +155,25 @@ public class Main {
         }
 
         Random rand = new Random();
-        int randomNum = rand.nextInt((4 - 1) + 1) + 1;
 
-        switch (randomNum) {
-            case 1:
-                rep.move(Direction.Bottom);
-                break;
-            case 2:
-                rep.move(Direction.Left);
-                break;
-            case 3:
-                rep.move(Direction.Right);
-                break;
-            case 4:
-                rep.move(Direction.Top);
-                break;
+        if(repldir == null) {
+            int randomNum = rand.nextInt((4 - 1) + 1) + 1;
+            switch (randomNum) {
+                case 1:
+                    rep.move(Direction.Bottom);
+                    break;
+                case 2:
+                    rep.move(Direction.Left);
+                    break;
+                case 3:
+                    rep.move(Direction.Right);
+                    break;
+                case 4:
+                    rep.move(Direction.Top);
+                    break;
+            }
+        } else {
+            rep.move(repldir);
         }
         commands = commands.concat(arg[0]);
         commands = commands.concat("\n");
@@ -373,14 +352,17 @@ public class Main {
         output();
     }
 
-    public void setreplmove(String[] arg) throws UnsupportedEncodingException{
-        LevelEntity le = new Floor(lvl, false);
-        Floor f = new Floor(lvl, false);
+    public void setreplmove(String[] arg) {
+        if(arg.length != 2) {
+            System.out.println("\n --- Invalid input! ---\n");
+            return;
+        }
 
-        System.out.println(le.getClass().getSimpleName());
-        System.out.println(f.getClass().getSimpleName());
+        repldir = Direction.getDir(arg[1]);
 
         commands = commands.concat(arg[0]);
+        commands = commands + " ";
+        commands = commands.concat(arg[1]);
         commands = commands.concat("\n");
         output();
     }

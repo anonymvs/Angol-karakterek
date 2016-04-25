@@ -45,19 +45,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Portal.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/default_package/Portal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="93" column="9" selection-start-line="93" selection-start-column="9" selection-end-line="93" selection-end-column="9" />
-              <folding>
-                <element signature="e#3374#3375#0" expanded="true" />
-                <element signature="e#3393#3394#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Wall.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/default_package/Wall.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -71,11 +58,21 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/default_package/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="95">
+              <caret line="355" column="26" selection-start-line="355" selection-start-column="26" selection-end-line="355" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Direction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/default_package/Direction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="467">
+              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -154,14 +151,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/default_package/ONeill.java" />
-        <option value="$PROJECT_DIR$/src/default_package/Direction.java" />
         <option value="$PROJECT_DIR$/src/default_package/Placeable.java" />
         <option value="$PROJECT_DIR$/src/default_package/Box.java" />
         <option value="$PROJECT_DIR$/src/default_package/Door.java" />
         <option value="$PROJECT_DIR$/src/default_package/Player.java" />
         <option value="$PROJECT_DIR$/src/default_package/Chasm.java" />
         <option value="$PROJECT_DIR$/src/default_package/LevelEntity.java" />
-        <option value="$PROJECT_DIR$/src/default_package/Main.java" />
         <option value="$PROJECT_DIR$/src/default_package/Timer.java" />
         <option value="$PROJECT_DIR$/src/default_package/MissileTimer.java" />
         <option value="$PROJECT_DIR$/src/default_package/Missile.java" />
@@ -171,6 +166,8 @@
         <option value="$PROJECT_DIR$/src/default_package/Replicator.java" />
         <option value="$PROJECT_DIR$/src/default_package/Wall.java" />
         <option value="$PROJECT_DIR$/src/default_package/Floor.java" />
+        <option value="$PROJECT_DIR$/src/default_package/Direction.java" />
+        <option value="$PROJECT_DIR$/src/default_package/Main.java" />
       </list>
     </option>
   </component>
@@ -904,13 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/default_package/Direction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/default_package/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -1050,10 +1040,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/default_package/Direction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/default_package/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="95">
+          <caret line="355" column="26" selection-start-line="355" selection-start-column="26" selection-end-line="355" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
