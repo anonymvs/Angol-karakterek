@@ -14,10 +14,10 @@ public class Replicator {
     }
 
     public void move(Direction dir) {
-        System.out.println("REPLICATOR::move:\t A movement has been triggered.");
+        //System.out.println("REPLICATOR::move:\t A movement has been triggered.");
         LevelEntity entity = floor.getNeighbour(dir);
         boolean b = entity.moveAction(this);
-        if(b) System.out.println("REPLICATOR::move:\t Player has moved.");
+        //if(b) System.out.println("REPLICATOR::move:\t Player has moved.");
     }
 
     public void replicate(Chasm ch) {

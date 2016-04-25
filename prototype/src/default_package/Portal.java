@@ -20,7 +20,7 @@ public class Portal {
      * @param w
      */
     public Portal(Missile m, Wall w) {
-    	System.out.println("PORTAL::Portal:\t Portal contstructor been called.");
+    	//System.out.println("PORTAL::Portal:\t Portal contstructor been called.");
     	wall = w;
     	
     	dir = m.getDirection().inverse();
@@ -40,7 +40,7 @@ public class Portal {
 				myNeighbour.setNeighbour(dir.inverse(), blueNeighbour);
 				blueNeighbour.setNeighbour(bluePortal.getDirection().inverse(), myNeighbour);
 			}
-	    	System.out.println("PORTAL::Portal:\t Yellow portal opened.");
+	    	//System.out.println("PORTAL::Portal:\t Yellow portal opened.");
     	}
     	// Open blue portal
     	if(m.getColor() == Color.BLUE) {
@@ -57,7 +57,7 @@ public class Portal {
 				myNeighbour.setNeighbour(dir.inverse(), yellowNeighbour);
 				yellowNeighbour.setNeighbour(yellowPortal.getDirection().inverse(), myNeighbour);
 			}
-        	System.out.println("PORTAL::Portal:\t Blue portal opened.");
+        	//System.out.println("PORTAL::Portal:\t Blue portal opened.");
     	}
 		//Open red portal
 		if(m.getColor() == Color.RED) {
@@ -74,7 +74,7 @@ public class Portal {
 				myNeighbour.setNeighbour(dir.inverse(), blueNeighbour);
 				blueNeighbour.setNeighbour(greenPortal.getDirection().inverse(), myNeighbour);
 			}
-			System.out.println("PORTAL::Portal:\t red portal opened.");
+			//System.out.println("PORTAL::Portal:\t red portal opened.");
 		}
 		if(m.getColor() == Color.GREEN) {
 			if (greenPortal != null) {
@@ -90,7 +90,7 @@ public class Portal {
 				myNeighbour.setNeighbour(dir.inverse(), blueNeighbour);
 				blueNeighbour.setNeighbour(redPortal.getDirection().inverse(), myNeighbour);
 			}
-			System.out.println("PORTAL::Portal:\t Yellow portal opened.");
+			//System.out.println("PORTAL::Portal:\t Yellow portal opened.");
 		}
     }
 
@@ -100,19 +100,19 @@ public class Portal {
     public void close() {
     	LevelEntity e = wall.getNeighbour(dir);
     	e.setNeighbour(dir.inverse(), wall);
-    	System.out.println("PORTAL::close:\t Portal has been closed.");
+    	//System.out.println("PORTAL::close:\t Portal has been closed.");
     }
 
     /**
      * @return
      */
     public Direction getDirection() {
-    	System.out.println("PORTAL::getDirection");
+    	//System.out.println("PORTAL::getDirection");
     	return dir;
     }
     
     public LevelEntity getWallNeighbour(Direction d) {
-    	System.out.println("PORTAL::getWallNeighbour");
+    	//System.out.println("PORTAL::getWallNeighbour");
     	return wall.getNeighbour(d);
     }
 

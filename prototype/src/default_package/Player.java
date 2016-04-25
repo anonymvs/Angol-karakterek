@@ -121,7 +121,7 @@ public class Player {
     }
 
     public void setDir(Direction arg) {
-    	System.out.println("ONEILL::setDir: Player's direction has changed.");
+    	//System.out.println("ONEILL::setDir: Player's direction has changed.");
         dir = arg;
     }
 

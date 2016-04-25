@@ -48,6 +48,7 @@ public class Level {
 	        	if(!logic) {
                     for (int i = 0; i < tmp.length(); i++) {
                         if (tmp.charAt(i) == 'z') {
+                            zpmCount++;
                             ls.get(numOfLines).add(new Floor(this, true));
                         }else if(tmp.charAt(i) == 'r') {
                             Floor f = new Floor(this, false);
@@ -210,6 +211,7 @@ public class Level {
             addToLevel(tmp, x, y);
         }
         if(zpm != null) {
+            zpmCount++;
             Floor tmp = new Floor(this, true);
             addToLevel(tmp, x, y);
         }
@@ -233,6 +235,7 @@ public class Level {
             addToLevel(tmp, x, y);
         }
         if(zpm != null) {
+            zpmCount--;
             Floor tmp = new Floor(this, false);
             addToLevel(tmp, x, y);
         }
@@ -289,7 +292,6 @@ public class Level {
      */
     public void reset() {
         // TODO implement here
-        System.out.println("LEVEL::reset:\t A reset has been asked. The level is going to be reloaded.");
     }
 
     /**
@@ -297,8 +299,7 @@ public class Level {
      */
     public void decreaseZPM() {    	
     	if(zpmCount == 0 ){    		
-    		System.out.println("Collected all the ZPMs.");
-    		endOfGame();    		
+    		endOfGame();
     	}
     	
     	if(zpmCreaterCount == 2) {
@@ -320,7 +321,7 @@ public class Level {
     		
     		if(randEntity instanceof Floor) {
     			Floor randFloor = (Floor)randEntity;
-    			if(randFloor.getZPM() != null) {
+    			if(randFloor.getZPM() == null) {
     				randFloor.setZPM(this);
     				foundFloor = true;
     				zpmCount++;
@@ -334,7 +335,6 @@ public class Level {
      */
     public void endOfGame() {
         // TODO implement here
-        System.out.println("LEVEL::level:\t The end of the game has been triggered.");
         reset();
     }
 
