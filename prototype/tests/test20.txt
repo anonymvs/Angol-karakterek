@@ -1,0 +1,10 @@
+load veryreplicator.txt
+move -o right
+move -o right
+move -o up
+move -o up
+setreplmove left
+movereplicator
+setreplmove up
+movereplicator
+movereplicator

@@ -1,0 +1,4 @@
+load zpm.txt
+move -o up
+move -o left
+move -o left

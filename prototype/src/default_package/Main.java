@@ -64,14 +64,14 @@ public class Main {
             return;
         }
 
-        PrintStream out = new PrintStream(new FileOutputStream(arg[1]));
+        PrintStream out = new PrintStream(new FileOutputStream("./tests/" + arg[1]));
         out.print(commands);
         output();
     }
 
     public void loadtest(String[] arg) {
         try {
-            FileReader fr = new FileReader(arg[1]);
+            FileReader fr = new FileReader("./tests/" + arg[1]);
             BufferedReader br = new BufferedReader(fr);
 
             String line = br.readLine();
@@ -421,6 +421,10 @@ public class Main {
     }
 
     public void output() {
+        for(int i = 0; i < 60; ++i) {
+            System.out.print("-");
+        }
+        System.out.print("\n");
         System.out.println("ONeill: \tdir: " + Direction.getDir(oneill.getDir()) + "\tbox: " + Boolean.toString(oneill.hasBox()));
         System.out.println("Jaffa: \tdir: " + Direction.getDir(jaffa.getDir()) + "\tbox: " + Boolean.toString(jaffa.hasBox()) );
         System.out.print(lvl.generateLists());

@@ -1,0 +1,9 @@
+load ultimatelevel.txt
+shoot -r
+move -j down
+shoot -r
+move -o down
+shoot -y
+move -o down
+move -o left
+shoot -b

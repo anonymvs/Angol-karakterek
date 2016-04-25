@@ -2,7 +2,7 @@ load doorchasm.txt
 boxing -o
 move -o left
 boxing -o
-move -o up
+move -o right
 boxing -o
 move -o left
 boxing -o

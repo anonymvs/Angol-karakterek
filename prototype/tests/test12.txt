@@ -1,0 +1,2 @@
+load ultimatelevel.txt
+move -j up

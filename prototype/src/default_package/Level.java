@@ -37,65 +37,102 @@ public class Level {
 	        
 	        int numOfLines = 0;
 	        int doorIndex = -1;
+            boolean logic = false;
 	        Door door = null;
 	        
 	        while( (tmp = br.readLine()) != null ){
-    			ls.add(new ArrayList<LevelEntity>());
-	        	for( int i = 0; i < tmp.length(); i++ ){
-	        		switch( Character.getNumericValue(tmp.charAt(i)) ){
-	        		case 1:
-	        			ls.get(numOfLines).add( new Floor( this, false ) );
-	        			break;
-	        		case 2:
-	        			ls.get(numOfLines).add( new Wall( false ) );
-	        			break;
-	        		case 3:
-	        			ls.get(numOfLines).add( new Wall( true ) );
-	        			break;
-	        		case 4:
-	        			ls.get(numOfLines).add( new Chasm() );
-	        			break;
-	        		case 5:
-	        			Floor f = new Floor( this, false );
-	        			Door d = new Door();
-	        			door = d;
-	        			f.setPlaced( d );
-	        			doorIndex = i;
-	        			ls.get(numOfLines).add( f );
-	        			break;
-	        		case 6:
-	        			Floor f1 = new Floor(this, false);
-	        			f1.setONeill( p1 );
-	        			p1.setFloor(f1);
-	        			ls.get(numOfLines).add( f1 );
-	        			break;
-	        		case 7:
-	        			Floor f2 = new Floor(this, false);
-	        			f2.setONeill( p2 );
-	        			p2.setFloor(f2);
-	        			ls.get(numOfLines).add( f2 );
-	        			break;
-	        		case 8:
-	        			Floor f3 = new Floor(this, false);
-	        			Box b = new Box(1);
-	        			f3.setPlaced(b);
-	        			ls.get(numOfLines).add( f3 );
-	        			break;
-	        		case 9:
-	        			ls.get(numOfLines).add( new Chasm() );
-	        			break;
-	        		case 0:
-	        			Floor f4 = new Floor(this, false);
-	        			Opener o = new Opener(1);
-	        			f4.setPlaced(o);
-	        			ls.get(numOfLines).add( f4 );
-	        			
-	        			if(doorIndex == i - 2 && door != null) {
-	        				o.setDoor(door);
-	        			}
-	        			break;
-	        		}
-	        	}
+                if(tmp.equals("|")) logic = true;
+                if(!logic) {
+                    ls.add(new ArrayList<LevelEntity>());
+                }
+	        	if(!logic) {
+                    for (int i = 0; i < tmp.length(); i++) {
+                        if (tmp.charAt(i) == 'z') {
+                            ls.get(numOfLines).add(new Floor(this, true));
+                        } else {
+                            switch (Character.getNumericValue(tmp.charAt(i))) {
+                                case 1:
+                                    ls.get(numOfLines).add(new Floor(this, false));
+                                    break;
+                                case 2:
+                                    ls.get(numOfLines).add(new Wall(false));
+                                    break;
+                                case 3:
+                                    ls.get(numOfLines).add(new Wall(true));
+                                    break;
+                                case 4:
+                                    ls.get(numOfLines).add(new Chasm());
+                                    break;
+                                case 5:
+                                    Floor f = new Floor(this, false);
+                                    Door d = new Door();
+                                    door = d;
+                                    f.setPlaced(d);
+                                    doorIndex = i;
+                                    ls.get(numOfLines).add(f);
+                                    break;
+                                case 6:
+                                    Floor f1 = new Floor(this, false);
+                                    f1.setONeill(p1);
+                                    p1.setFloor(f1);
+                                    ls.get(numOfLines).add(f1);
+                                    break;
+                                case 7:
+                                    Floor f2 = new Floor(this, false);
+                                    f2.setONeill(p2);
+                                    p2.setFloor(f2);
+                                    ls.get(numOfLines).add(f2);
+                                    break;
+                                case 8:
+                                    Floor f3 = new Floor(this, false);
+                                    Box b = new Box(1);
+                                    f3.setPlaced(b);
+                                    ls.get(numOfLines).add(f3);
+                                    break;
+                                case 9:
+                                    ls.get(numOfLines).add(new Chasm());
+                                    break;
+                                case 0:
+                                    Floor f4 = new Floor(this, false);
+                                    Opener o = new Opener(1);
+                                    f4.setPlaced(o);
+                                    ls.get(numOfLines).add(f4);
+
+                                    if (doorIndex == i - 2 && door != null) {
+                                        o.setDoor(door);
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+                } else {
+                    if(!tmp.equals("|")) {
+                        //the left pair of coords are for the Opener, the others in the line for the Door
+                        String[] coordarray = tmp.split(" ");
+                        Opener o = null;
+                        Door d = null;
+                        LevelEntity f1 = ls.get(Integer.parseInt(coordarray[1]) - 1).get(Integer.parseInt(coordarray[0]) - 1);
+                        if(f1 instanceof Floor) {
+                            Placeable op = ((Floor) f1).getPlaceable();
+                            if(op instanceof Opener) {
+                                o = ((Opener) op);
+                            }
+                        }
+
+                        LevelEntity f2 = ls.get(Integer.parseInt(coordarray[3]) - 1).get(Integer.parseInt(coordarray[2]) - 1);
+                        if(f2 instanceof Floor) {
+                            Placeable doo = ((Floor) f2).getPlaceable();
+                            if(doo instanceof Door) {
+                                d = ((Door) doo);
+                            }
+                        }
+                        if(o != null && d != null) {
+                            System.out.print("\n KAPCSOLAAATAAT \n");
+                            o.setDoor(d);
+                        }
+
+                    }
+                }
 	        	numOfLines++;	        	
 	        }
        

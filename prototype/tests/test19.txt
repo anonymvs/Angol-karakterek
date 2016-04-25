@@ -1,0 +1,9 @@
+load veryreplicator.txt
+setreplmove right
+movereplicator
+setreplmove left
+movereplicator
+setreplmove down
+movereplicator
+setreplmove up
+movereplicator

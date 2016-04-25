@@ -1,0 +1,3 @@
+load ultimatelevel.txt
+move -o right
+shoot -y
