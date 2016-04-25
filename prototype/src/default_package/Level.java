@@ -53,6 +53,7 @@ public class Level {
                         }else if(tmp.charAt(i) == 'r') {
                             Floor f = new Floor(this, false);
                             f.setRepl(rep);
+                            rep.setFloor(f);
                             ls.get(numOfLines).add(f);
                         } else {
                             switch (Character.getNumericValue(tmp.charAt(i))) {
