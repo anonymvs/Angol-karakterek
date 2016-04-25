@@ -104,21 +104,26 @@ public final class Floor extends LevelEntity {
 		if(placed == null) {
 			System.out.println("FLOOR::moveAction:\t Yes, there is no object on this Floor.");
 			rep.getFloor().setRepl(null);
+            rep.setFloor(this);
+            repl = rep;
 			return true;
 		}
 		System.out.println("FLOOR::moveAction:\t Something is on this Floor, better check that out.");
 		boolean canMove = placed.moveEvent(rep);
+        if(oneill != null) {
+            return false;
+        }
 
 		if(canMove)
 		{
-			System.out.println("FLOOR::moveAction:\t Player is free to move.");
-			rep.getFloor().setONeill(null);
+			System.out.println("FLOOR::moveAction:\t Repl is free to move.");
+			rep.getFloor().setRepl(null);
 			rep.setFloor(this);
 			repl = rep;
 		}
 
 		return canMove;
-	};
+	}
 
     /**
      * @param o - an instance of Player
@@ -157,7 +162,7 @@ public final class Floor extends LevelEntity {
             }
     		return false;
     	}    	
-    };
+    }
 
     /**
      * @param mis - an instance of a Missile

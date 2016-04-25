@@ -32,6 +32,7 @@ public class Wall extends LevelEntity {
 
 	@Override
 	public final boolean moveAction(Replicator rep) {
+		System.out.println("wall::moveAction:\t false");
 		return false;
 	}
 
