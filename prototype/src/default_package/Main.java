@@ -103,7 +103,7 @@ public class Main {
             return;
         }
 
-        lvl.load(arg[1], oneill, jaffa );
+        lvl.load(arg[1], oneill, jaffa, rep );
 
         commands = commands.concat(arg[0]);
         commands = commands + " ";

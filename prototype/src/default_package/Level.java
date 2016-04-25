@@ -29,7 +29,7 @@ public class Level {
     /**
      * 
      */
-    public void load(String path, Player p1, Player p2) {
+    public void load(String path, Player p1, Player p2, Replicator rep) {
         
         try{
 	        BufferedReader br = new BufferedReader( new FileReader( path ) );
@@ -49,6 +49,10 @@ public class Level {
                     for (int i = 0; i < tmp.length(); i++) {
                         if (tmp.charAt(i) == 'z') {
                             ls.get(numOfLines).add(new Floor(this, true));
+                        }else if(tmp.charAt(i) == 'r') {
+                            Floor f = new Floor(this, false);
+                            f.setRepl(rep);
+                            ls.get(numOfLines).add(f);
                         } else {
                             switch (Character.getNumericValue(tmp.charAt(i))) {
                                 case 1:
@@ -127,7 +131,7 @@ public class Level {
                             }
                         }
                         if(o != null && d != null) {
-                            System.out.print("\n KAPCSOLAAATAAT \n");
+                            //System.out.print("\n KAPCSOLAAATAAT \n");
                             o.setDoor(d);
                         }
 
