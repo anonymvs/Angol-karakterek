@@ -88,7 +88,7 @@ public class Level {
 	        			f4.setPlaced(o);
 	        			ls.get(numOfLines).add( f4 );
 	        			
-	        			if(doorIndex == i - 1 && door != null) {
+	        			if(doorIndex == i - 2 && door != null) {
 	        				o.setDoor(door);
 	        			}
 	        			break;

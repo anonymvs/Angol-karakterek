@@ -21,7 +21,7 @@ public final class Door extends Placeable {
     }
 
     public boolean isOpened() {
-        System.out.println("DOOR::isOpened:\t Check whether a door is opened.");
+        //System.out.println("DOOR::isOpened:\t Check whether a door is opened.");
         return opened;
     }
 

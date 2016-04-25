@@ -47,7 +47,7 @@ public final class Opener extends Placeable {
 				if(weightCount < weightLimit){
 					if(door != null) door.open(false);
 				}
-				return true;
+				return false;
 			} else {
 				System.out.println("OPENER::boxEvent:\t Neither Player neither the Opener has any Box, nothing happens :(");
 				return false;

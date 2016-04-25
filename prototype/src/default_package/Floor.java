@@ -196,6 +196,16 @@ public final class Floor extends LevelEntity {
         }
         if(placed != null) {
             if(placed.getClass().getSimpleName().equals("Opener")) {
+                if(oneill != null) {
+                    if (oneill.getType().equals("oneill")) {
+                        System.out.print("Ω");
+                        return;
+                    }
+                    if (oneill.getType().equals("jaffa")) {
+                        System.out.print("Φ");
+                        return;
+                    }
+                }
                 if (placed instanceof Opener) {
                     Opener o = (Opener) placed;
                     System.out.print(Integer.toString(o.boxCount()));
@@ -203,8 +213,14 @@ public final class Floor extends LevelEntity {
                 }
             }
             if(placed.getClass().getSimpleName().equals("Door")) {
-                System.out.print("d");
-                return;
+                if(placed instanceof Door) {
+                    Door tmp = (Door) placed;
+                    if(tmp.isOpened()) {
+                        System.out.print("c");
+                    } else {
+                        System.out.print("d");
+                    }
+                }
             }
             if(placed.getClass().getSimpleName().equals("Box")) {
                 System.out.print("b");
@@ -233,7 +249,9 @@ public final class Floor extends LevelEntity {
                 if(placed instanceof Door) {
                     Door tmp = (Door) placed;
                     if(tmp.isOpened()) {
-                        System.out.print("l");
+                        System.out.print("c");
+                    } else {
+                        System.out.print("d");
                     }
                 }
             }
