@@ -34,6 +34,9 @@ public class Level {
 	        String tmp;
 	        
 	        int numOfLines = 0;
+	        int doorIndex = -1;
+	        Door door = null;
+	        
 	        while( (tmp = br.readLine()) != null ){
     			ls.add(new ArrayList<LevelEntity>());
 	        	for( int i = 0; i < tmp.length(); i++ ){
@@ -52,7 +55,10 @@ public class Level {
 	        			break;
 	        		case 5:
 	        			Floor f = new Floor( this, false );
-	        			f.setPlaced( new Door() );
+	        			Door d = new Door();
+	        			door = d;
+	        			f.setPlaced( d );
+	        			doorIndex = i;
 	        			ls.get(numOfLines).add( f );
 	        			break;
 	        		case 6:
@@ -81,6 +87,10 @@ public class Level {
 	        			Opener o = new Opener(1);
 	        			f4.setPlaced(o);
 	        			ls.get(numOfLines).add( f4 );
+	        			
+	        			if(doorIndex == i - 1 && door != null) {
+	        				o.setDoor(door);
+	        			}
 	        			break;
 	        		}
 	        	}
@@ -128,6 +138,10 @@ public class Level {
         		}
         	}
         }
+        
+        // Setting Opener and Doors
+        
+        
         return;
     }
 
