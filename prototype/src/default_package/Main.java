@@ -23,10 +23,10 @@ public class Main {
     Main() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         boolean b = true;
-        
-        while (b){
-            menu();
+        menu();
 
+        while (b){
+            System.out.println("Please insert you command after this line: ");
             String line = br.readLine();
             String[] strarray = line.split(" ");
 
@@ -367,7 +367,9 @@ public class Main {
     }
 
     public static void menu() {
-
+        System.out.println("If you need a fast and easy way to check the available commands please use our 'help' command.");
+        System.out.println("You can exit the program any time using the 'exit' command.");
+        System.out.println("Please insert your commands after this line: ");
     }
 
     public void commandSwitch(String[] strarray) throws IOException{
@@ -420,8 +422,8 @@ public class Main {
     }
 
     public void output() {
-        System.out.println("ONeill: ");
-        System.out.println("Jaffa: ");
+        System.out.println("ONeill: \tdir: " + Direction.getDir(oneill.getDir()) + "\tbox: " + Boolean.toString(oneill.hasBox()));
+        System.out.println("Jaffa: \tdir: " + Direction.getDir(jaffa.getDir()) + "\tbox: " + Boolean.toString(jaffa.hasBox()) );
         System.out.print(lvl.generateLists());
         lvl.draw();
         System.out.println("Previous Commands:");

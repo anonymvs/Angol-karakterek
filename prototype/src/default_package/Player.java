@@ -124,4 +124,13 @@ public class Player {
         dir = arg;
     }
 
+    public Direction getDir() {
+        return dir;
+    }
+
+    public boolean hasBox() {
+        if(box != null) return true;
+        return false;
+    }
+
 }
