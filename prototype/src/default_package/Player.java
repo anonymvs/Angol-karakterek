@@ -96,7 +96,7 @@ public class Player {
      */
     public void kill() {
     	//System.out.println("ONEILL::kill:\t Game Over");
-
+        floor.setONeill(null);
     }
     
     public Floor getFloor() {
