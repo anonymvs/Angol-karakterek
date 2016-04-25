@@ -1,0 +1,11 @@
+load veryreplicator.txt
+move -o right
+shoot -y
+move -o left
+shoot -b
+setreplmove right
+movereplicator
+setreplmove down
+movereplicator
+setreplmove right
+movereplicator
