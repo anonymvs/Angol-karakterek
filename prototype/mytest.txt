@@ -1,0 +1,11 @@
+load ojmovetest.txt
+move -o right
+add replicator 2 2
+move -o right
+remove oneill 4 2
+movereplicator
+movereplicator
+movereplicator
+movereplicator
+setreplmove right
+movereplicator

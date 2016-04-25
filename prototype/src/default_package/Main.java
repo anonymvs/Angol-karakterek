@@ -76,20 +76,19 @@ public class Main {
             BufferedReader br = new BufferedReader(fr);
 
             String line = br.readLine();
-            String[] tmp = new String[test.length + 1];
-            tmp[test.length + 1] = line;
-            test = tmp;
+
+            test = line.split(" ");
+            commandSwitch(test);
 
             while (line != null) {
                 line = br.readLine();
-                tmp = new String[test.length + 1];
-                tmp[test.length + 1] = line;
-                test = tmp;
-            }
-
-            for(int i = 0; i < test.length; ++i) {
+                if(line == null) {
+                    break;
+                }
+                test = line.split(" ");
                 commandSwitch(test);
             }
+
 
         } catch(IOException e) {
             System.out.println("\n --- Invalid test name --- \n");
