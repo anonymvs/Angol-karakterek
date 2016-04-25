@@ -34,19 +34,19 @@ public class Player {
      * @param dir
      */
     public Player(Floor f, Direction dir) {
-        System.out.printf("ONEILL::Player:\t Player just came to life,");
+        //System.out.printf("ONEILL::Player:\t Player just came to life,");
         switch (dir) {
             case Left :
-                System.out.printf(" and is facing to the LEFT\n");
+                //System.out.printf(" and is facing to the LEFT\n");
                 break;
             case Right :
-                System.out.printf(" and is facing to the RIGHT\n");
+                //System.out.printf(" and is facing to the RIGHT\n");
                 break;
             case Top :
-                System.out.printf(" and is facing to the TOP\n");
+                //System.out.printf(" and is facing to the TOP\n");
                 break;
             case Bottom :
-                System.out.printf(" and is facing to the BOTTOM\n");
+                //System.out.printf(" and is facing to the BOTTOM\n");
                 break;
         }
         floor = f;
@@ -57,7 +57,7 @@ public class Player {
      * 
      */
     public void move(Direction dir) {
-        System.out.println("ONEILL::move:\t A movement has been triggered.");
+        //System.out.println("ONEILL::move:\t A movement has been triggered.");
     	
         if(this.dir != dir){
         	this.dir = dir;
@@ -66,7 +66,7 @@ public class Player {
 	    	boolean b = entity.moveAction(this);
 	        if(b){
 	        	floor = (Floor) entity;
-	        	System.out.println("ONEILL::move:\t Player has moved.");
+	        	//System.out.println("ONEILL::move:\t Player has moved.");
 	        }
         }
     }
@@ -75,7 +75,7 @@ public class Player {
      * 
      */
     public void boxing() {
-    	System.out.println("ONEILL::boxing");
+    	//System.out.println("ONEILL::boxing");
     	LevelEntity entity = floor.getNeighbour(dir);
         boolean b = entity.boxAction(this, box);
         if(b){
@@ -87,7 +87,7 @@ public class Player {
      * @param b
      */
     public void setBox( Box b ) {
-    	System.out.println("ONEILL::setBox");
+    	//System.out.println("ONEILL::setBox");
         box = b;
     }
 
@@ -95,16 +95,16 @@ public class Player {
      * 
      */
     public void kill() {
-    	System.out.println("ONEILL::kill:\t Game Over");
+    	//System.out.println("ONEILL::kill:\t Game Over");
     }
     
     public Floor getFloor() {
-    	System.out.println("ONEILL::getFloor");
+    	//System.out.println("ONEILL::getFloor");
         return floor;
     }
     
     public void setFloor(Floor f) {
-    	System.out.println("ONEILL::setFloor");
+    	//System.out.println("ONEILL::setFloor");
     	floor = f;
     }
 
@@ -112,7 +112,7 @@ public class Player {
      * 
      */
     public void shoot(Color c) {
-    	System.out.println("ONEILL::shoot: \t A Missile has been shot.");
+    	//System.out.println("ONEILL::shoot: \t A Missile has been shot.");
     	Missile m = new Missile(c, dir);
         m.setTile(floor);
         m.move();

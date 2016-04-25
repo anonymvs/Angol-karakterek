@@ -26,7 +26,6 @@ public class Main {
         menu();
 
         while (b){
-            System.out.println("Please insert you command after this line: ");
             String line = br.readLine();
             String[] strarray = line.split(" ");
 
@@ -425,7 +424,9 @@ public class Main {
         System.out.println("ONeill: \tdir: " + Direction.getDir(oneill.getDir()) + "\tbox: " + Boolean.toString(oneill.hasBox()));
         System.out.println("Jaffa: \tdir: " + Direction.getDir(jaffa.getDir()) + "\tbox: " + Boolean.toString(jaffa.hasBox()) );
         System.out.print(lvl.generateLists());
+        System.out.println();
         lvl.draw();
+        System.out.println();
         System.out.println("Previous Commands:");
         System.out.println(commands);
     }
