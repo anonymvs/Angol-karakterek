@@ -34,4 +34,19 @@ public enum Direction {
 				return null;
 		}
 	}
+
+	public static String getDir(Direction d) {
+		switch (d) {
+			case Right:
+				return "right";
+			case Left:
+				return "left";
+			case Top:
+				return "upward";
+			case Bottom:
+				return "downward";
+			default:
+				return null;
+		}
+	}
 }

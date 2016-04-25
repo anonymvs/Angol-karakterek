@@ -249,7 +249,7 @@ public final class Floor extends LevelEntity {
         //replicator + placed
         if(repl != null && placed != null) {
             if(placed.getClass().getSimpleName().equals("Opener")) {
-                System.out.print("w");
+                System.out.print("r");
                 return;
             }
             if(placed.getClass().getSimpleName().equals("Box")) {
