@@ -18,6 +18,14 @@ public final class Floor extends LevelEntity {
 			//System.out.println("FLOOR::Floor:\t Floor without ZPM constructed");
 		}
     }
+	
+	public void setZPM(Level lvl) {
+		zpm = new ZPM(lvl);
+	}
+	
+	public ZPM getZPM() {
+		return zpm;
+	}
 
     /**
      * @param o - an instance of Player, that we use to set the Floor's reference
@@ -29,6 +37,8 @@ public final class Floor extends LevelEntity {
 			placed.moveEvent(o);
 		}
     	oneill = o;
+    	if(zpm != null)
+    		zpm.collect();
     }
 
 	public void setRepl(Replicator rep) {

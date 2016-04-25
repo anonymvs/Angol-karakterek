@@ -15,7 +15,9 @@ public class Level {
 
     public ArrayList<ArrayList<LevelEntity>> ls = new ArrayList<>();
     private Timer timer;
-    private int zpmCount;
+    private int zpmCount = 0;
+    private int zpmCreaterCount = 0;
+    
     /**
      * Default constructor
      */
@@ -252,16 +254,37 @@ public class Level {
     /**
      * 
      */
-    public void decreaseZPM() {
-        // TODO implement here
+    public void decreaseZPM() {    	
+    	if(zpmCount == 0 ){    		
+    		System.out.println("Collected all the ZPMs.");
+    		endOfGame();    		
+    	}
     	
-    	if( --zpmCount == 0 ){
+    	if(zpmCreaterCount == 2) {
+    		createRandZpm(); 
+    		zpmCreaterCount = 0;
+    	}
+    	zpmCreaterCount++;
+    }
+    
+    public void createRandZpm() {
+    	LevelEntity randEntity = null;
+    	Random rand = new Random();
+    	boolean foundFloor = false;
+    	
+    	while (!foundFloor) {
+    		int y = rand.nextInt(ls.size());
+    		int x = rand.nextInt(ls.get(y).size());
+    		randEntity = ls.get(y).get(x);
     		
-    		System.out.println("Level::decreaseZPM:\t Collected all the ZPM-s.");
-    		endOfGame();
-    		
-    	} else {
-    		System.out.println("Level::decreaseZPM:\t ZPM decreased to " + zpmCount + ".");
+    		if(randEntity instanceof Floor) {
+    			Floor randFloor = (Floor)randEntity;
+    			if(randFloor.getZPM() != null) {
+    				randFloor.setZPM(this);
+    				foundFloor = true;
+    				zpmCount++;
+    			}
+    		}
     	}
     }
 
