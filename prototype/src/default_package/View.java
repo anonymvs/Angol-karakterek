@@ -25,7 +25,7 @@ public class View {
 	}
 	void drawMissile(int x, int y){	
 	}
-	void drawZPM(int x, int y){	
+	void drawZPM(int x, int y){
 	}
 	/*void KeyEvent(Event event){	
 	}*/	

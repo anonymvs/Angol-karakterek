@@ -11,9 +11,8 @@ public final class Floor extends LevelEntity {
     private ZPM zpm = null;
 	
 	public Floor(Level l, boolean z) {
-		if (z) {
+		if(z) {
 			zpm = new ZPM(l);
-		} else {
 		}
     }
 	
@@ -178,20 +177,21 @@ public final class Floor extends LevelEntity {
 
     public final void draw() {
 		// First draw simple floor
+    	if(player == null && zpm == null && placed == null && repl == null)
     	System.out.print("F");
     	
     	// Secondly draw ZPM (everything else hides it)
-    	if(zpm != null) {
+    	if(zpm != null && player == null && repl == null && placed == null) {
     		zpm.draw();
     	}
     	
     	// Draw the placed object
-    	if(placed != null) {
+    	if(placed != null && player == null && repl == null) {
     		placed.draw();
     	}
     	
     	// Draw only replicator
-    	if(repl != null) {
+    	if(repl != null && player == null) {
     		repl.draw();
     	}
     	

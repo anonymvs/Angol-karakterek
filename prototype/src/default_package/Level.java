@@ -17,13 +17,14 @@ public class Level {
     private Timer timer;
     private int zpmCount = 0;
     private int zpmCreaterCount = 0;
+    private int width = 0; // Level width
+    private int height = 0; // Level height
     
     /**
      * Default constructor
      */
     public Level() {
         System.out.println("LEVEL::Level:\t Level contstructor been called.");
-        //load();
     }
 
     /**
@@ -47,15 +48,19 @@ public class Level {
                 }
 	        	if(!logic) {
                     for (int i = 0; i < tmp.length(); i++) {
+                    	// Create ZPM
                         if (tmp.charAt(i) == 'z') {
                             zpmCount++;
                             ls.get(numOfLines).add(new Floor(this, true));
-                        }else if(tmp.charAt(i) == 'r') {
+                        }
+                        // Create replicator
+                        else if(tmp.charAt(i) == 'r') {
                             Floor f = new Floor(this, false);
                             f.setRepl(rep);
                             rep.setFloor(f);
                             ls.get(numOfLines).add(f);
-                        } else {
+                        } 
+                        else {
                             switch (Character.getNumericValue(tmp.charAt(i))) {
                                 case 1:
                                 	// Create floor
@@ -143,7 +148,6 @@ public class Level {
                             }
                         }
                         if(o != null && d != null) {
-                            System.out.print("\n KAPCSOLAAATAAT \n");
                             o.setDoor(d);
                         }
 
@@ -153,7 +157,10 @@ public class Level {
 	        }
        
 	        br.close();
-	    }catch(Exception e){
+	        
+	        height = ls.size();
+	        width = ls.get(0).size();
+        } catch(Exception e){
 	    	e.printStackTrace();
 	    }
         
@@ -358,28 +365,19 @@ public class Level {
         }
     }
 
-    public void draw() {
-        /*
+    public void draw() {    	
         for(int i = 0; i < ls.size(); ++i) {
-            for(int j = 0; j < ls.get(i).size(); ++j) {
-                ls.get(i).get(j).draw();
-            }
-            System.out.print("\n");
-        }
-        */
-        for(int i = 0; i < ls.size(); ++i) {
-            recursiveDraw(ls.get(i).get(0));
+            recursiveDraw(ls.get(i).get(0), 0);
         }
     }
 
-    private void recursiveDraw(LevelEntity le) {
-        if(le == null) {
+    private void recursiveDraw(LevelEntity le, int index) {
+        if(index == width - 1) {
             System.out.print("\n");
             return;
         }
         le.draw();
-        recursiveDraw(le.getNeighbour(Direction.Right));
-
+        recursiveDraw(le.getNeighbour(Direction.Right), index++);
     }
 
     public String generateLists() {
