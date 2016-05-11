@@ -2,10 +2,19 @@ package application;
 
 import java.awt.Color;
 
-public class View {
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+
+public class View extends Canvas {
 	private Player jaffa;
 	private Player oneill;
-	//private Graphics graphics;
+	GraphicsContext gc;
+	
+	View(int width, int height) {
+		super(width, height);
+        gc = getGraphicsContext2D();
+        gc.strokeOval(60, 60, 30, 30);
+	}
 	
 	void drawFloor(int x, int y){	
 	}
