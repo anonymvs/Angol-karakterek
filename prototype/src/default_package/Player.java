@@ -14,17 +14,17 @@ public class Player {
     private Direction dir = Direction.Right;
     private Box box;
     private Floor floor;
-    private String type;
+    private PlayerType type;
 
     Player() {
 
     }
 
-    Player(String s) {
-        type = s;
+    Player(PlayerType t) {
+        type = t;
     }
 
-    public String getType() {
+    public PlayerType getType() {
         return type;
     }
 
@@ -96,7 +96,7 @@ public class Player {
      */
     public void kill() {
     	//System.out.println("ONEILL::kill:\t Game Over");
-        floor.setONeill(null);
+        floor.setPlayer(null);
     }
     
     public Floor getFloor() {
@@ -132,6 +132,13 @@ public class Player {
     public boolean hasBox() {
         if(box != null) return true;
         return false;
+    }
+    
+    public void draw() {
+    	if(type.equals(PlayerType.ONeill))
+    		System.out.print("Ω");
+    	else
+    		System.out.print("Φ");
     }
 
 }

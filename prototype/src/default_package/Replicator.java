@@ -34,4 +34,8 @@ public class Replicator {
     public void setFloor(Floor f) {
         floor = f;
     }
+    
+    public void draw() {
+    	System.out.print("δ");
+    }
 }

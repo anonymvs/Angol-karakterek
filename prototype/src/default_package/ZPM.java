@@ -26,5 +26,9 @@ public class ZPM {
     	//System.out.println("ZPM::collect:\t The count of the ZPM-s on this level has been decreased.");
         level.decreaseZPM();
     }
+    
+    public void draw() {
+    	System.out.print("Z");
+    }
 
 }

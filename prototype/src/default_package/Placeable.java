@@ -19,5 +19,5 @@ public abstract class Placeable {
     public abstract boolean moveEvent(Player o);
 
     public abstract boolean moveEvent(Replicator rep);
-
+    public abstract void draw();
 }

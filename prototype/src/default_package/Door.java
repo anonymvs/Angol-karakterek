@@ -42,4 +42,13 @@ public final class Door extends Placeable {
         return false;
     }
 
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		if(opened)
+			System.out.print("c");
+		else
+			System.out.print("d");
+	}
+
 }

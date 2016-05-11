@@ -36,4 +36,10 @@ public final class Box extends Placeable {
     public int getWeight() {
         return weight;
     }
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		System.out.print("b");
+	}
 }

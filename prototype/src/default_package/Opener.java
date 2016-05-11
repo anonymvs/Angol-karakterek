@@ -94,4 +94,9 @@ public final class Opener extends Placeable {
 		return boxList.size();
 	}
 
+	@Override
+	public void draw() {
+        System.out.print(Integer.toString(boxList.size()));
+	}
+
 }

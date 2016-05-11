@@ -5,7 +5,7 @@ package default_package;
  */
 public final class Floor extends LevelEntity {
 
-	private Player oneill = null;
+	private Player player = null;
 	private Replicator repl = null;
     private Placeable placed = null;
     private ZPM zpm = null;
@@ -28,11 +28,11 @@ public final class Floor extends LevelEntity {
     /**
      * @param o - an instance of Player, that we use to set the Floor's reference
      */
-    public void setONeill(Player o) {
+    public void setPlayer(Player o) {
 		if(placed != null) {
 			placed.moveEvent(o);
 		}
-    	oneill = o;
+    	player = o;
     	if(zpm != null)
     		zpm.collect();
     }
@@ -64,14 +64,14 @@ public final class Floor extends LevelEntity {
      */
     public final boolean moveAction(Player o){
 
-    	if(oneill != null){
+    	if(player != null){
     		return false;
     	}
     	
     	// If there nothing placed on the floor then Player can move here
     	if(placed == null) {
-			setONeill(o);
-            o.getFloor().setONeill(null);
+			setPlayer(o);
+            o.getFloor().setPlayer(null);
             if(zpm != null) {
                 zpm.collect();
                 zpm = null;
@@ -82,9 +82,9 @@ public final class Floor extends LevelEntity {
     	
     	if(canMove)
     	{
-            o.getFloor().setONeill(null);
+            o.getFloor().setPlayer(null);
     		o.setFloor(this);
-    		oneill = o;
+    		player = o;
     		if(zpm != null) {
     			zpm.collect();
                 zpm = null;
@@ -107,7 +107,7 @@ public final class Floor extends LevelEntity {
 		}
 		//System.out.println("FLOOR::moveAction:\t Something is on this Floor, better check that out.");
 		boolean canMove = placed.moveEvent(rep);
-        if(oneill != null) {
+        if(player != null) {
             return false;
         }
 
@@ -177,111 +177,27 @@ public final class Floor extends LevelEntity {
     }
 
     public final void draw() {
-		if(oneill != null && placed == null) {
-            if(oneill.getType().equals("oneill")) {
-                System.out.print("Ω");
-                return;
-            } else {
-                System.out.print("Φ");
-                return;
-            }
-        }
-        if(repl != null && placed == null) {
-            System.out.print("δ");
-            return;
-        }
-        if(placed != null) {
-            if(placed.getClass().getSimpleName().equals("Opener")) {
-                if(oneill != null) {
-                    if (oneill.getType().equals("oneill")) {
-                        System.out.print("Ω");
-                        return;
-                    }
-                    if (oneill.getType().equals("jaffa")) {
-                        System.out.print("Φ");
-                        return;
-                    }
-                }
-                if (placed instanceof Opener) {
-                    Opener o = (Opener) placed;
-                    System.out.print(Integer.toString(o.boxCount()));
-                    return;
-                }
-            }
-            if(placed.getClass().getSimpleName().equals("Door")) {
-                if(placed instanceof Door) {
-                    Door tmp = (Door) placed;
-                    if(tmp.isOpened()) {
-                        if(oneill == null) {
-                            System.out.print("c");
-                        } else {
-                            if (oneill.getType().equals("oneill")) System.out.print("l");
-                            if (oneill.getType().equals("jaffa")) System.out.print("m");
-                        }
-                    } else {
-                        System.out.print("d");
-                    }
-                }
-            }
-            if(placed.getClass().getSimpleName().equals("Box")) {
-                System.out.print("b");
-                return;
-            }
-        }
-        //player + placed
-        if(oneill != null && placed != null) {
-            if(placed.getClass().getSimpleName().equals("Opener") && oneill.getType().equals("oneill")) {
-                System.out.print("x");
-                return;
-            }
-            if(placed.getClass().getSimpleName().equals("Opener") && oneill.getType().equals("jaffa")) {
-                System.out.print("y");
-                return;
-            }
-            if(placed.getClass().getSimpleName().equals("Box") && oneill.getType().equals("oneill")) {
-                System.out.print("Ω");
-                return;
-            }
-            if(placed.getClass().getSimpleName().equals("Box") && oneill.getType().equals("jaffa")) {
-                System.out.print("Φ");
-                return;
-            }
-            if(placed.getClass().getSimpleName().equals("Door") && oneill.getType().equals("jaffa")) {
-                if(placed instanceof Door) {
-                    Door tmp = (Door) placed;
-                    if(tmp.isOpened()) {
-                        System.out.print("m");
-                    }
-                }
-            }
-        }
-        //replicator + placed
-        if(repl != null && placed != null) {
-            if(placed.getClass().getSimpleName().equals("Opener")) {
-                System.out.print("r");
-                return;
-            }
-            if(placed.getClass().getSimpleName().equals("Box")) {
-                System.out.print("δ");
-                return;
-            }
-            if(placed.getClass().getSimpleName().equals("Door")) {
-                if(placed instanceof Door) {
-                    Door tmp = (Door) placed;
-                    if(tmp.isOpened()) {
-                        System.out.print("n");
-                    }
-                }
-            }
-        }
-        if(oneill == null && placed == null && repl == null) {
-            if(zpm == null) {
-                System.out.print("F");
-                return;
-            } else {
-                System.out.print("Z");
-                return;
-            }
-        }
+		// First draw simple floor
+    	System.out.print("F");
+    	
+    	// Secondly draw ZPM (everything else hides it)
+    	if(zpm != null) {
+    		zpm.draw();
+    	}
+    	
+    	// Draw the placed object
+    	if(placed != null) {
+    		placed.draw();
+    	}
+    	
+    	// Draw only replicator
+    	if(repl != null) {
+    		repl.draw();
+    	}
+    	
+    	// Draw player
+    	if(player != null) {
+    		player.draw();
+    	}
 	}
 }

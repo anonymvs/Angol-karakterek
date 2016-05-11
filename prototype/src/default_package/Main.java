@@ -9,8 +9,8 @@ import java.util.Random;
  */
 public class Main {
     private Level lvl = new Level();
-    private Player oneill = new Player("oneill");
-    private Player jaffa = new Player("jaffa");
+    private Player oneill = new Player(PlayerType.ONeill);
+    private Player jaffa = new Player(PlayerType.Jaffa);
     private Replicator rep = new Replicator(lvl);
     private Direction repldir = null;
     private String commands = "";

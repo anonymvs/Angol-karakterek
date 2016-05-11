@@ -29,7 +29,7 @@ public class Level {
     /**
      * 
      */
-    public void load(String path, Player p1, Player p2, Replicator rep) {
+    public void load(String path, Player oneill, Player jaffa, Replicator rep) {
         
         try{
 	        BufferedReader br = new BufferedReader( new FileReader( path ) );
@@ -58,18 +58,23 @@ public class Level {
                         } else {
                             switch (Character.getNumericValue(tmp.charAt(i))) {
                                 case 1:
+                                	// Create floor
                                     ls.get(numOfLines).add(new Floor(this, false));
                                     break;
                                 case 2:
+                                	// Simple wall
                                     ls.get(numOfLines).add(new Wall(false));
                                     break;
                                 case 3:
+                                	// Create portal wall
                                     ls.get(numOfLines).add(new Wall(true));
                                     break;
                                 case 4:
+                                	// Create chasm
                                     ls.get(numOfLines).add(new Chasm());
                                     break;
                                 case 5:
+                                	// Create door
                                     Floor f = new Floor(this, false);
                                     Door d = new Door();
                                     door = d;
@@ -78,27 +83,32 @@ public class Level {
                                     ls.get(numOfLines).add(f);
                                     break;
                                 case 6:
+                                	// Create O'Neill
                                     Floor f1 = new Floor(this, false);
-                                    f1.setONeill(p1);
-                                    p1.setFloor(f1);
+                                    f1.setPlayer(oneill);
+                                    oneill.setFloor(f1);
                                     ls.get(numOfLines).add(f1);
                                     break;
                                 case 7:
+                                	// Create Jaffa
                                     Floor f2 = new Floor(this, false);
-                                    f2.setONeill(p2);
-                                    p2.setFloor(f2);
+                                    f2.setPlayer(jaffa);
+                                    jaffa.setFloor(f2);
                                     ls.get(numOfLines).add(f2);
                                     break;
                                 case 8:
+                                	// Create box
                                     Floor f3 = new Floor(this, false);
                                     Box b = new Box(1);
                                     f3.setPlaced(b);
                                     ls.get(numOfLines).add(f3);
                                     break;
                                 case 9:
+                                	// Create chasm
                                     ls.get(numOfLines).add(new Chasm());
                                     break;
                                 case 0:
+                                	// Create opener
                                     Floor f4 = new Floor(this, false);
                                     Opener o = new Opener(1);
                                     f4.setPlaced(o);
@@ -195,7 +205,7 @@ public class Level {
         int y = argy - 1;
         if(pl != null) {
             Floor tmp = new Floor(this, false);
-            tmp.setONeill(pl);
+            tmp.setPlayer(pl);
             pl.setDir(Direction.Right);
             pl.setFloor(tmp);
             addToLevel(tmp, x, y);
