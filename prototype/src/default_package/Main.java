@@ -4,6 +4,11 @@ import java.awt.*;
 import java.io.*;
 import java.util.Random;
 
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 /**
  * Created by hege on 2016.03.28..
  */
@@ -18,6 +23,7 @@ public class Main {
 
     public static void main(String args[]) throws IOException{
         new Main();
+        Application.launch(args);
     }
 
     Main() throws IOException {
