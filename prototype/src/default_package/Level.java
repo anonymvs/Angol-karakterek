@@ -303,6 +303,18 @@ public class Level {
 
         le[3].setNeighbour(Direction.Top, f);
         f.setNeighbour(Direction.Bottom, le[3]);
+        
+        // Find the chasm in the level list
+        for(int i = 0; i < height; ++i) {
+        	for(int j = 0; j < width; ++j) {
+        		LevelEntity e = ls.get(i).get(j);
+        		if(e == c) {
+        			// Set the floor to be that element
+        			ls.get(i).set(j, f);
+        			break;
+        		}
+        	}
+        }
     }
 
     /**
@@ -365,10 +377,19 @@ public class Level {
         }
     }
 
-    public void draw() {    	
-        for(int i = 0; i < ls.size(); ++i) {
+    public void draw() {
+    	
+    	for(int i = 0; i < height; ++i) {
+    		for(int j = 0; j < width; ++j) {
+    			ls.get(i).get(j).draw();
+    		}
+            System.out.print("\n");
+    	}
+    	
+    	
+        /*for(int i = 0; i < ls.size(); ++i) {
             recursiveDraw(ls.get(i).get(0), 0);
-        }
+        }*/
     }
 
     private void recursiveDraw(LevelEntity le, int index) {
