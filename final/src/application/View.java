@@ -180,6 +180,10 @@ public class View extends Canvas {
 				break;
 			case SPACE:
 				oneill.boxing();
+				break;
+			case BACK_SPACE:
+				jaffa.boxing();
+				break;
 			default:
 				break;
 		}
