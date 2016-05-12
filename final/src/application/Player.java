@@ -126,8 +126,7 @@ public class Player implements IDrawable {
     }
 
     public boolean hasBox() {
-        if(box != null) return true;
-        return false;
+        return box != null;
     }
     
     public void draw(View view, int x, int y) {
@@ -135,6 +134,8 @@ public class Player implements IDrawable {
     		view.drawONeill(x, y);
     	else
     		view.drawJaffa(x, y);
+    	if(box != null)
+    		view.drawBox(x, y, 1);
     }
 
 }

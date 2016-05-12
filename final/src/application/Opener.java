@@ -16,7 +16,7 @@ public final class Opener extends Placeable {
 	public Opener(int l) {
 		//System.out.println("OPENER::Opener:\t An Opener has been constructed.");
 		boxList = new ArrayList<Box>();
-		weightLimit = l;
+		weightLimit = 2;
 		weightCount = 0;
 	}
 

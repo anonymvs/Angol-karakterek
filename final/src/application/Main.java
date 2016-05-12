@@ -17,9 +17,9 @@ public class Main extends Application {
         // Creating and initializng game elements
         Player oneill = new Player(PlayerType.ONeill);
         Player jaffa = new Player(PlayerType.Jaffa);
-        Replicator rep = null;
         Level level = new Level();
-        level.load(getClass().getResource("/levels/ultimatelevel.txt").getFile(), oneill, jaffa, rep);
+        Replicator rep = new Replicator(level);
+        level.load(getClass().getResource("/levels/doorchasm.txt").getFile(), oneill, jaffa, rep);
 
         Group g = new Group();
         Scene scene = new Scene(g, View.gridSize * level.getWidth(), View.gridSize * level.getHeight(), Color.web("0xFFFFFF", 1.0));

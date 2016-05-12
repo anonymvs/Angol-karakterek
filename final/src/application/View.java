@@ -23,6 +23,7 @@ public class View extends Canvas {
 	// Load all the the images
 	Image imgFloor = new Image("graphics/floor.gif", gridSize, gridSize, false, false);
 	Image imgBox = new Image("graphics/box.gif", gridSize, gridSize, false, false);
+	Image imgBoxSmall = new Image("graphics/boxSmall.gif", gridSize, gridSize, false, false);
 	Image imgChasm = new Image("graphics/chasm.gif", gridSize, gridSize, false, false);
 	Image imgWall = new Image("graphics/wall.gif", gridSize, gridSize, false, false);
 	Image imgPortalWall= new Image("graphics/portalwall.gif", gridSize, gridSize, false, false);
@@ -60,13 +61,13 @@ public class View extends Canvas {
         });
 	}
 	
-	void drawFloor(int x, int y){
+	void drawFloor(int x, int y) {
 		gc.drawImage(imgFloor, x * gridSize, y * gridSize);
 	}
-	void drawChasm(int x, int y){
+	void drawChasm(int x, int y) {
 		gc.drawImage(imgChasm, x * gridSize, y * gridSize);
 	}
-	void drawWall(int x, int y){	
+	void drawWall(int x, int y) {	
 		gc.drawImage(imgWall, x * gridSize, y * gridSize);
 	}
 	void drawPortal(int x, int y, MissileColor color){
@@ -86,22 +87,27 @@ public class View extends Canvas {
 				break;
 		}
 	}
-	void drawPortalWall(int x, int y){
+	void drawPortalWall(int x, int y) {
 		gc.drawImage(imgPortalWall, x * gridSize, y * gridSize);	
 	}
-	void drawBox(int x, int y, int number){	
+	void drawBox(int x, int y, int number) {
+		for(int i = 0; i < number; i++) {
+			gc.drawImage(imgBoxSmall, x * gridSize, y * gridSize - (i * 5));
+		}
+	}
+	void drawBox(int x, int y) {	
 		gc.drawImage(imgBox, x * gridSize, y * gridSize);
 	}
-	void drawONeill(int x, int y){
+	void drawONeill(int x, int y) {
 		gc.drawImage(imgONeill, x * gridSize, y * gridSize);
 	}
-	void drawJaffa(int x, int y){
+	void drawJaffa(int x, int y) {
 		gc.drawImage(imgJaffa, x * gridSize, y * gridSize);
 	}
-	void drawOpener(int x, int y){	
+	void drawOpener(int x, int y) {	
 		gc.drawImage(imgOpener, x * gridSize, y * gridSize);
 	}
-	void drawReplicator(int x, int y){	
+	void drawReplicator(int x, int y) {	
 		gc.drawImage(imgReplicator, x * gridSize, y * gridSize);
 	}
 	void drawMissile(int x, int y, MissileColor color) {
@@ -121,7 +127,7 @@ public class View extends Canvas {
 				break;
 		}
 	}
-	void drawZPM(int x, int y){
+	void drawZPM(int x, int y) {
 		gc.drawImage(imgZPM, x * gridSize, y * gridSize);
 	}
 	void drawDoorOpened(int x, int y) {
@@ -171,7 +177,9 @@ public class View extends Canvas {
 				break;
 			case UP:
 				jaffa.move(Direction.Top);
-				break;				
+				break;
+			case SPACE:
+				oneill.boxing();
 			default:
 				break;
 		}
