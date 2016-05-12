@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Timer;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 
 
 /**
@@ -325,7 +328,8 @@ public class Level {
     /**
      * 
      */
-    public void decreaseZPM() {    	
+    public void decreaseZPM() {
+    	zpmCount--;
     	if(zpmCount == 0 ){    		
     		endOfGame();
     	}
@@ -362,6 +366,12 @@ public class Level {
      * 
      */
     public void endOfGame() {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+    	alert.setTitle("Information Dialog");
+    	alert.setHeaderText(null);
+    	alert.setContentText("Vége!");
+
+    	alert.showAndWait();
         reset();
     }
 
