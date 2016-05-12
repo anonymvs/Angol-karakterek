@@ -41,7 +41,6 @@ public abstract class LevelEntity implements IDrawable {
      * @return
      */
     public LevelEntity getNeighbour(Direction dir) {
-		//System.out.println("LEVELENTITY::getNeighbour:\t This LevelEntity has been ask to return it's neighbour's reference.");
     	switch (dir)
     	{
 	    	case Right:
@@ -71,7 +70,6 @@ public abstract class LevelEntity implements IDrawable {
      * @param entity
      */
     public void setNeighbour(Direction dir, LevelEntity entity) {
-    	//System.out.println("LEVELENTITY::setNeighbour:\t A LevelEntity's neighbour has been set.");
     	switch (dir)
     	{
 	    	case Right:
@@ -93,7 +91,6 @@ public abstract class LevelEntity implements IDrawable {
      * @param m
      */
     public void setMissile(Missile m) {
-    	//System.out.println("LEVELENTITY::setMissile");
         missile = m;
     }
 
