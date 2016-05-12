@@ -367,9 +367,9 @@ public class Level {
      */
     public void endOfGame() {
     	Alert alert = new Alert(AlertType.INFORMATION);
-    	alert.setTitle("Information Dialog");
+    	alert.setTitle("");
     	alert.setHeaderText(null);
-    	alert.setContentText("Vége!");
+    	alert.setContentText("GAME OVER");
 
     	alert.showAndWait();
         reset();
