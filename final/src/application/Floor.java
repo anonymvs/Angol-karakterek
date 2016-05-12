@@ -175,29 +175,28 @@ public final class Floor extends LevelEntity {
         return false;
     }
 
-    public final void draw() {
+    public final void draw(View view, int x, int y) {
 		// First draw simple floor
-    	if(player == null && zpm == null && placed == null && repl == null)
-    	System.out.print("F");
+    	view.drawFloor(x, y);
     	
     	// Secondly draw ZPM (everything else hides it)
-    	if(zpm != null && player == null && repl == null && placed == null) {
-    		zpm.draw();
+    	if(zpm != null) {
+    		zpm.draw(view, x, y);
     	}
     	
     	// Draw the placed object
-    	if(placed != null && player == null && repl == null) {
-    		placed.draw();
+    	if(placed != null) {
+    		placed.draw(view, x, y);
     	}
     	
     	// Draw only replicator
-    	if(repl != null && player == null) {
-    		repl.draw();
+    	if(repl != null) {
+    		repl.draw(view, x, y);
     	}
     	
     	// Draw player
     	if(player != null) {
-    		player.draw();
+    		player.draw(view, x, y);
     	}
 	}
 }

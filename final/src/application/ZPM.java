@@ -1,11 +1,9 @@
 package application;
 
-import java.util.*;
-
 /**
  * 
  */
-public class ZPM {
+public class ZPM implements IDrawable {
 
 
 	private Level level = null;
@@ -26,9 +24,10 @@ public class ZPM {
     	//System.out.println("ZPM::collect:\t The count of the ZPM-s on this level has been decreased.");
         level.decreaseZPM();
     }
-    
-    public void draw() {
-    	System.out.print("Z");
-    }
+
+	@Override
+	public void draw(View view, int x, int y) {
+		view.drawZPM(x, y);
+	}
 
 }

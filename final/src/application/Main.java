@@ -2,41 +2,44 @@ package application;
 	
 
 import javafx.application.Application;
-import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.shape.Arc;
-import javafx.scene.shape.ArcType;
-import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 
 public class Main extends Application {
 	@Override
-	public void start(Stage primaryStage) {		
+	public void start(Stage primaryStage) {
 		
 		primaryStage.setTitle("Great game brah");
 
-        Group g = new Group();
-        Scene scene = new Scene(g, 600, 600, Color.web("0xFFFFFF", 1.0));
+        // Creating and initializng game elements
+        Player oneill = new Player(PlayerType.ONeill);
+        Player jaffa = new Player(PlayerType.Jaffa);
+        Replicator rep = null;
+        Level level = new Level();
+        level.load(getClass().getResource("/levels/ultimatelevel.txt").getFile(), oneill, jaffa, rep);
 
-        // TESTING THE MY DRAWING SKILLS
-        View view = new View(600, 600);
+        Group g = new Group();
+        Scene scene = new Scene(g, View.gridSize * level.getWidth(), View.gridSize * level.getHeight(), Color.web("0xFFFFFF", 1.0));
+        
+        // Set up the drawing & controlling view
+        View view = new View(level.getWidth(), level.getHeight(), oneill, jaffa);
+        // Set focus so that view can listen to key events
+        view.setFocusTraversable(true);
+        level.setView(view);
+        
+        level.draw();
         
         g.getChildren().add(view);
         
-        Image img = new Image("/final/floor.png");
         
         primaryStage.setScene(scene);
         primaryStage.show();
 	}
 	
 	public static void main(String[] args) {
-		launch(args);
-		
+		launch(args);		
 	}
 }

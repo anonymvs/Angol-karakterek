@@ -3,15 +3,13 @@ package application;
 /**
  * 
  */
-public abstract class LevelEntity {
+public abstract class LevelEntity implements IDrawable {
 
 	protected LevelEntity north = null;
     protected LevelEntity south = null;
     protected LevelEntity west = null;
     protected LevelEntity east = null;
     protected Missile missile = null;
-
-	public abstract void draw();
 
     /**
      * @param oneill - an instance of Player

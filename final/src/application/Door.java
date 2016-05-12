@@ -43,12 +43,11 @@ public final class Door extends Placeable {
     }
 
 	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
+	public void draw(View view, int x, int y) {
 		if(opened)
-			System.out.print("c");
+			view.drawDoorOpened(x, y);
 		else
-			System.out.print("d");
+			view.drawDoorClosed(x, y);
 	}
 
 }

@@ -1,12 +1,11 @@
 package application;
 
-import java.awt.*;
-import java.util.*;
+import java.awt.Color;
 
 /**
  * 
  */
-public class Player {
+public class Player implements IDrawable {
 
     /**
      * 
@@ -15,10 +14,6 @@ public class Player {
     private Box box;
     private Floor floor;
     private PlayerType type;
-
-    Player() {
-
-    }
 
     Player(PlayerType t) {
         type = t;
@@ -134,11 +129,15 @@ public class Player {
         return false;
     }
     
-    public void draw() {
+    public void draw(View view, int x, int y) {
     	if(type.equals(PlayerType.ONeill))
+    		view.drawONeill(x, y);
+    	else
+    		view.drawJaffa(x, y);
+    	/*if(type.equals(PlayerType.ONeill))
     		System.out.print("Ω");
     	else
-    		System.out.print("Φ");
+    		System.out.print("Φ");*/
     }
 
 }

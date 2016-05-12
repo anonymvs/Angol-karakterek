@@ -8,7 +8,7 @@ import java.util.Timer;
 /**
  * 
  */
-public class Missile {
+public class Missile implements IDrawable {
 	
     private Direction dir;
     private MissileTimer timer;
@@ -48,4 +48,9 @@ public class Missile {
     public void setTile(LevelEntity t) {
         tile = t;
     }
+
+	@Override
+	public void draw(View view, int x, int y) {
+		view.drawMissile(x, y);
+	}
 }

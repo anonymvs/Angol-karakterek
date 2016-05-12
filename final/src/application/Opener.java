@@ -95,8 +95,9 @@ public final class Opener extends Placeable {
 	}
 
 	@Override
-	public void draw() {
-        System.out.print(Integer.toString(boxList.size()));
+	public void draw(View view, int x, int y) {
+		view.drawOpener(x, y);
+		view.drawBox(x, y, boxList.size());
 	}
 
 }

@@ -18,19 +18,23 @@ public class Level {
     private int zpmCreaterCount = 0;
     private int width = 0; // Level width
     private int height = 0; // Level height
+    private View view = null;
     
     /**
      * Default constructor
      */
     public Level() {
-        System.out.println("LEVEL::Level:\t Level contstructor been called.");
+    }
+    
+    public void setView(View v) {
+    	view = v;
     }
 
     /**
      * 
      */
     public void load(String path, Player oneill, Player jaffa, Replicator rep) {
-        
+    	
         try{
 	        BufferedReader br = new BufferedReader( new FileReader( path ) );
 	        String tmp;
@@ -363,7 +367,6 @@ public class Level {
      * 
      */
     public void endOfGame() {
-        // TODO implement here
         reset();
     }
 
@@ -380,25 +383,22 @@ public class Level {
     	
     	for(int i = 0; i < height; ++i) {
     		for(int j = 0; j < width; ++j) {
-    			ls.get(i).get(j).draw();
+    			ls.get(i).get(j).draw(view, j, i);
     		}
-            System.out.print("\n");
     	}
-    	
-    	
         /*for(int i = 0; i < ls.size(); ++i) {
             recursiveDraw(ls.get(i).get(0), 0);
         }*/
     }
 
-    private void recursiveDraw(LevelEntity le, int index) {
+    /*private void recursiveDraw(LevelEntity le, int index) {
         if(index == width - 1) {
             System.out.print("\n");
             return;
         }
         le.draw();
         recursiveDraw(le.getNeighbour(Direction.Right), index++);
-    }
+    }*/
 
     public String generateLists() {
         String boxes = "";
@@ -418,5 +418,13 @@ public class Level {
         }
         String ret = "Boxes: " + boxes + "\nMissiles: " + missiles + "\n";
         return ret;
+    }
+    
+    public int getWidth() {
+    	return width;
+    }
+    
+    public int getHeight() {
+    	return height;
     }
 }

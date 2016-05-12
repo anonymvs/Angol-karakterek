@@ -3,7 +3,7 @@ package application;
 /**
  * 
  */
-public abstract class Placeable {
+public abstract class Placeable implements IDrawable {
 
 
     /**
@@ -19,5 +19,4 @@ public abstract class Placeable {
     public abstract boolean moveEvent(Player o);
 
     public abstract boolean moveEvent(Replicator rep);
-    public abstract void draw();
 }

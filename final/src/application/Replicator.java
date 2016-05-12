@@ -3,7 +3,7 @@ package application;
 /**
  * Created by hege on 2016.04.23..
  */
-public class Replicator {
+public class Replicator implements IDrawable {
     private Level lvl;
     private Floor floor;
     private Direction dir;
@@ -34,8 +34,9 @@ public class Replicator {
     public void setFloor(Floor f) {
         floor = f;
     }
-    
-    public void draw() {
-    	System.out.print("δ");
-    }
+
+	@Override
+	public void draw(View view, int x, int y) {
+		view.drawReplicator(x, y);
+	}
 }

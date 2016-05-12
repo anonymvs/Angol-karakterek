@@ -38,8 +38,7 @@ public final class Box extends Placeable {
     }
 
 	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
-		System.out.print("b");
+	public void draw(View view, int x, int y) {
+		view.drawBox(x, y, 1);		
 	}
 }

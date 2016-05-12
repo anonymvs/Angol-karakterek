@@ -1,11 +1,9 @@
 package application;
 
-import java.awt.*;
-
 /**
  * 
  */
-public class Wall extends LevelEntity {
+public class Wall extends LevelEntity implements IDrawable {
 
     private boolean portalable;
     private Portal portal;
@@ -59,30 +57,16 @@ public class Wall extends LevelEntity {
 		portalable = b;
 	}
 
-	public void draw() {
+	@Override
+	public void draw(View view, int x, int y) {
         if(portal != null) {
-            if(portal.getColor() == Color.YELLOW) {
-                System.out.print("Y");
-                return;
-            }
-            if(portal.getColor() == Color.BLUE) {
-                System.out.print("B");
-                return;
-            }
-            if(portal.getColor() == Color.RED) {
-                System.out.print("R");
-                return;
-            }
-            if(portal.getColor() == Color.GREEN) {
-                System.out.print("G");
-                return;
-            }
+        	view.drawPortal(x, y, portal.getColor());
         } else {
             if (portalable) {
-                System.out.print("w");
+            	view.drawPortalWall(x, y);
                 return;
             } else {
-                System.out.print("W");
+            	view.drawWall(x, y);
                 return;
             }
         }
