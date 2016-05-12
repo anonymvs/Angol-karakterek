@@ -32,8 +32,6 @@ public final class Floor extends LevelEntity {
 			placed.moveEvent(o);
 		}
     	player = o;
-    	if(zpm != null)
-    		zpm.collect();
     }
 
 	public void setRepl(Replicator rep) {

@@ -13,7 +13,7 @@ public class View extends Canvas {
 	private Level level = null;
 	
 	// Determines the size of each cell
-	final static int gridSize = 64;
+	final static int gridSize = 50;
 	
 	GraphicsContext gc;
 
