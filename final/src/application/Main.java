@@ -25,7 +25,7 @@ public class Main extends Application {
         Scene scene = new Scene(g, View.gridSize * level.getWidth(), View.gridSize * level.getHeight(), Color.web("0xFFFFFF", 1.0));
         
         // Set up the drawing & controlling view
-        View view = new View(level.getWidth(), level.getHeight(), oneill, jaffa);
+        View view = new View(level, oneill, jaffa);
         // Set focus so that view can listen to key events
         view.setFocusTraversable(true);
         level.setView(view);

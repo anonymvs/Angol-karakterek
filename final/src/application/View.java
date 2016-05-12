@@ -6,11 +6,13 @@ import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class View extends Canvas {
 	private Player jaffa = null;
 	private Player oneill = null;
+	private Level level = null;
 	
 	// Determines the size of each cell
 	final static int gridSize = 64;
@@ -32,15 +34,13 @@ public class View extends Canvas {
 	Image imgReplicator = new Image("graphics/replSingle.gif", gridSize, gridSize, false, false);
 	Image imgZPM = new Image("graphics/ZPM_insize.gif", gridSize, gridSize, false, false);
 	
-	View(int levelWidth, int levelHeight, Player oneill, Player jaffa) {
-		super(gridSize * levelWidth, gridSize * levelHeight);
+	View(Level level, Player oneill, Player jaffa) {
+		super(gridSize * level.getWidth(), gridSize * level.getHeight());
+		this.level = level;
 		this.oneill = oneill;
 		this.jaffa = jaffa;		
         
         gc = getGraphicsContext2D();
-
-        // Test drawing image
-        drawFloor(1, 1);
         
         // Keyevent
         setOnKeyReleased(new EventHandler<KeyEvent>() {
@@ -96,7 +96,26 @@ public class View extends Canvas {
 	}
 	
 	private void handleKeyEvent(KeyEvent event) {
-		System.out.println("Button pressed");
+		KeyCode key = event.getCode();
+
+		switch (key)
+		{
+			case A:
+				oneill.move(Direction.Left);
+				break;
+			case S:
+				oneill.move(Direction.Bottom);
+				break;
+			case D:
+				oneill.move(Direction.Right);
+				break;
+			case W:
+				oneill.move(Direction.Top);
+				break;
+			default:
+				break;
+		}
+		level.draw();
 	}
 	
 }
