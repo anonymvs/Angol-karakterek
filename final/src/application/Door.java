@@ -39,7 +39,7 @@ public final class Door extends Placeable {
     }
 
     public final boolean moveEvent(Replicator rep) {
-        return false;
+        return opened;
     }
 
 	@Override

@@ -1,12 +1,9 @@
 package application;
 
-import java.awt.Color;
-
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
@@ -39,7 +36,10 @@ public class View extends Canvas {
 	Image imgJaffaSouth = new Image("graphics/jaffaSouth.png", gridSize, gridSize, false, false);
 	Image imgJaffaEast = new Image("graphics/jaffaEast.png", gridSize, gridSize, false, false);
 	Image imgJaffaWest = new Image("graphics/jaffaWest.png", gridSize, gridSize, false, false);
-	Image imgReplicator = new Image("graphics/replSingle.gif", gridSize, gridSize, false, false);
+	Image imgReplicatorNorth = new Image("graphics/replNorth.png", gridSize, gridSize, false, false);
+	Image imgReplicatorSouth = new Image("graphics/replSouth.png", gridSize, gridSize, false, false);
+	Image imgReplicatorEast = new Image("graphics/replEast.png", gridSize, gridSize, false, false);
+	Image imgReplicatorWest = new Image("graphics/replWest.png", gridSize, gridSize, false, false);
 	Image imgZPM = new Image("graphics/ZPM_insize.gif", gridSize, gridSize, false, false);
 	Image imgPortalBlue = new Image("graphics/portalblue.gif", gridSize, gridSize, false, false);
 	Image imgPortalYellow = new Image("graphics/portalyellow.gif", gridSize, gridSize, false, false);
@@ -140,8 +140,21 @@ public class View extends Canvas {
 	void drawOpener(int x, int y) {	
 		gc.drawImage(imgOpener, x * gridSize, y * gridSize);
 	}
-	void drawReplicator(int x, int y) {	
-		gc.drawImage(imgReplicator, x * gridSize, y * gridSize);
+	void drawReplicator(int x, int y, Direction dir) {	
+		switch(dir){
+		case Right:
+			gc.drawImage(imgReplicatorEast, x * gridSize, y * gridSize);
+			break;
+		case Left:
+			gc.drawImage(imgReplicatorWest, x * gridSize, y * gridSize);
+			break;
+		case Top:
+			gc.drawImage(imgReplicatorNorth, x * gridSize, y * gridSize);
+			break;
+		case Bottom:
+			gc.drawImage(imgReplicatorSouth, x * gridSize, y * gridSize);
+			break;
+	}
 	}
 	void drawMissile(int x, int y, MissileColor color) {
 		switch (color){

@@ -53,6 +53,7 @@ public class Replicator implements IDrawable {
         LevelEntity entity = floor.getNeighbour(dir);
         this.dir = dir;
         boolean b = entity.moveAction(this);
+        lvl.draw();
     }
 
     public void replicate(Chasm ch) {
@@ -73,6 +74,6 @@ public class Replicator implements IDrawable {
 
 	@Override
 	public void draw(View view, int x, int y) {
-		view.drawReplicator(x, y);
-	}
+		view.drawReplicator(x, y, dir);
+	}	
 }
