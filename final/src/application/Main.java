@@ -7,6 +7,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
@@ -27,6 +28,8 @@ public class Main extends Application {
         View view = new View(600, 600);
         
         g.getChildren().add(view);
+        
+        Image img = new Image("/final/floor.png");
         
         primaryStage.setScene(scene);
         primaryStage.show();
