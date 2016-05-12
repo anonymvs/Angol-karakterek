@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
@@ -33,6 +34,14 @@ public class View extends Canvas {
 	Image imgJaffa = new Image("graphics/jaffaSingle.gif", gridSize, gridSize, false, false);
 	Image imgReplicator = new Image("graphics/replSingle.gif", gridSize, gridSize, false, false);
 	Image imgZPM = new Image("graphics/ZPM_insize.gif", gridSize, gridSize, false, false);
+	Image imgPortalBlue = new Image("graphics/portalblue.gif", gridSize, gridSize, false, false);
+	Image imgPortalYellow = new Image("graphics/portalyellow.gif", gridSize, gridSize, false, false);
+	Image imgPortalRed = new Image("graphics/portalred.gif", gridSize, gridSize, false, false);
+	Image imgPortalGreen = new Image("graphics/portalgreen.gif", gridSize, gridSize, false, false);
+	Image imgMissileGreen = new Image("graphics/fbgreen.png", gridSize, gridSize, false, false);
+	Image imgMissileRed = new Image("graphics/fbred.png", gridSize, gridSize, false, false);
+	Image imgMissileYellow = new Image("graphics/fbyellow.png", gridSize, gridSize, false, false);
+	Image imgMissileBlue = new Image("graphics/fbblue.png", gridSize, gridSize, false, false);
 	
 	View(Level level, Player oneill, Player jaffa) {
 		super(gridSize * level.getWidth(), gridSize * level.getHeight());
@@ -60,9 +69,22 @@ public class View extends Canvas {
 	void drawWall(int x, int y){	
 		gc.drawImage(imgWall, x * gridSize, y * gridSize);
 	}
-	void drawPortal(int x, int y, Color color){
-		// TODO
-		gc.drawImage(imgFloor, x * gridSize, y * gridSize);	
+	void drawPortal(int x, int y, MissileColor color){
+		switch (color)
+		{
+			case Blue:
+				gc.drawImage(imgPortalBlue, x * gridSize, y * gridSize);
+				break;
+			case Yellow:
+				gc.drawImage(imgPortalYellow, x * gridSize, y * gridSize);
+				break;
+			case Green:
+				gc.drawImage(imgPortalGreen, x * gridSize, y * gridSize);
+				break;
+			case Red:
+				gc.drawImage(imgPortalRed, x * gridSize, y * gridSize);
+				break;
+		}
 	}
 	void drawPortalWall(int x, int y){
 		gc.drawImage(imgPortalWall, x * gridSize, y * gridSize);	
@@ -82,8 +104,22 @@ public class View extends Canvas {
 	void drawReplicator(int x, int y){	
 		gc.drawImage(imgReplicator, x * gridSize, y * gridSize);
 	}
-	void drawMissile(int x, int y){	
-		gc.drawImage(imgMissile, x * gridSize, y * gridSize);
+	void drawMissile(int x, int y, MissileColor color) {
+		switch (color)
+		{
+			case Blue:
+				gc.drawImage(imgMissileBlue, x * gridSize, y * gridSize);
+				break;
+			case Yellow:
+				gc.drawImage(imgMissileYellow, x * gridSize, y * gridSize);
+				break;
+			case Green:
+				gc.drawImage(imgMissileGreen, x * gridSize, y * gridSize);
+				break;
+			case Red:
+				gc.drawImage(imgMissileRed, x * gridSize, y * gridSize);
+				break;
+		}
 	}
 	void drawZPM(int x, int y){
 		gc.drawImage(imgZPM, x * gridSize, y * gridSize);
@@ -112,6 +148,30 @@ public class View extends Canvas {
 			case W:
 				oneill.move(Direction.Top);
 				break;
+			case Y:
+				oneill.shoot(MissileColor.Yellow, level);
+				break;
+			case B:
+				oneill.shoot(MissileColor.Blue, level);
+				break;
+			case R:
+				jaffa.shoot(MissileColor.Red, level);
+				break;
+			case G:
+				jaffa.shoot(MissileColor.Green, level);
+				break;
+			case LEFT:
+				jaffa.move(Direction.Left);
+				break;
+			case DOWN:
+				jaffa.move(Direction.Bottom);
+				break;
+			case RIGHT:
+				jaffa.move(Direction.Right);
+				break;
+			case UP:
+				jaffa.move(Direction.Top);
+				break;				
 			default:
 				break;
 		}

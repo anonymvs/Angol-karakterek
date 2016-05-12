@@ -24,7 +24,6 @@ public class Replicator implements IDrawable {
         floor.setRepl(null);
         floor = null;
         lvl.replicatorReplicated(ch);
-
     }
 
     public Floor getFloor() {

@@ -1,7 +1,6 @@
 package application;
 
 
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -12,14 +11,20 @@ import java.util.TimerTask;
 public class MissileTimer extends java.util.Timer{
     Timer t;
     Missile m;
+    Level l;
 
-    public MissileTimer(Missile missile) {
+    public MissileTimer(Missile missile, Level level) {
         t = new Timer("MissileTimer");
         m = missile;
+        l = level;
+        
         TimerTask tt = new TimerTask() {
             @Override
             public void run() {
-                if(!m.move()) this.cancel();
+                if(!m.move()) {
+                	this.cancel();
+                	l.draw();
+                }
             }
         };
         t.schedule(tt, 0, 1000);

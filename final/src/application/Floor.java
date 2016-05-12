@@ -198,5 +198,9 @@ public final class Floor extends LevelEntity {
     	if(player != null) {
     		player.draw(view, x, y);
     	}
+    	
+    	if(missile != null) {
+    		missile.draw(view, x, y);
+    	}
 	}
 }

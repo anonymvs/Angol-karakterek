@@ -1,10 +1,5 @@
 package application;
 
-import java.awt.Color;
-import java.util.Timer;
-
-
-
 /**
  * 
  */
@@ -12,13 +7,13 @@ public class Missile implements IDrawable {
 	
     private Direction dir;
     private MissileTimer timer;
-    private Color color;
+    private MissileColor color;
     private LevelEntity tile = null;
 
-    public Missile(Color c, Direction d) {
+    public Missile(MissileColor c, Direction d, Level level) {
         dir = d;
         color = c;
-        timer = new MissileTimer(this);
+        timer = new MissileTimer(this, level);
     }
 
     public boolean move() {
@@ -37,7 +32,7 @@ public class Missile implements IDrawable {
         return true;
     }
 
-    public Color getColor() {
+    public MissileColor getColor() {
         return color;
     }
     
@@ -51,6 +46,6 @@ public class Missile implements IDrawable {
 
 	@Override
 	public void draw(View view, int x, int y) {
-		view.drawMissile(x, y);
+		view.drawMissile(x, y, color);
 	}
 }

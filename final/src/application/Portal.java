@@ -1,7 +1,5 @@
 package application;
 
-import java.awt.Color;
-
 /**
  * 
  */
@@ -13,25 +11,22 @@ public class Portal {
     private static Portal greenPortal = null;
     private Direction dir;
     private Wall wall;
-	private Color color;
+	private MissileColor color;
 
     /**
-     * @param m
-     * @param w
+     * 
      */
     public Portal(Missile m, Wall w) {
-    	//System.out.println("PORTAL::Portal:\t Portal contstructor been called.");
-    	wall = w;
-    	
+    	wall = w;    	
     	dir = m.getDirection().inverse();
     	
     	// Open yellow portal
-    	if(m.getColor() == Color.yellow) {
+    	if(m.getColor() == MissileColor.Yellow) {
     		if (yellowPortal != null) {
     			yellowPortal.close();
     		}
 			yellowPortal = this;
-			color = Color.YELLOW;
+			color = MissileColor.Yellow;
 			
 			if(bluePortal != null) {
 				LevelEntity myNeighbour = wall.getNeighbour(dir);
@@ -40,15 +35,14 @@ public class Portal {
 				myNeighbour.setNeighbour(dir.inverse(), blueNeighbour);
 				blueNeighbour.setNeighbour(bluePortal.getDirection().inverse(), myNeighbour);
 			}
-	    	//System.out.println("PORTAL::Portal:\t Yellow portal opened.");
     	}
     	// Open blue portal
-    	if(m.getColor() == Color.BLUE) {
+    	if(m.getColor() == MissileColor.Blue) {
     		if (bluePortal != null) {
     			bluePortal.close();
     		}
     		bluePortal = this;
-			color = Color.BLUE;
+			color = MissileColor.Blue;
     		
     		if(yellowPortal != null) {
 				LevelEntity myNeighbour = wall.getNeighbour(dir);
@@ -57,15 +51,14 @@ public class Portal {
 				myNeighbour.setNeighbour(dir.inverse(), yellowNeighbour);
 				yellowNeighbour.setNeighbour(yellowPortal.getDirection().inverse(), myNeighbour);
 			}
-        	//System.out.println("PORTAL::Portal:\t Blue portal opened.");
     	}
 		//Open red portal
-		if(m.getColor() == Color.RED) {
+		if(m.getColor() == MissileColor.Red) {
 			if (redPortal != null) {
 				redPortal.close();
 			}
 			redPortal = this;
-			color = Color.RED;
+			color = MissileColor.Red;
 
 			if(greenPortal != null) {
 				LevelEntity myNeighbour = wall.getNeighbour(dir);
@@ -74,14 +67,13 @@ public class Portal {
 				myNeighbour.setNeighbour(dir.inverse(), blueNeighbour);
 				blueNeighbour.setNeighbour(greenPortal.getDirection().inverse(), myNeighbour);
 			}
-			//System.out.println("PORTAL::Portal:\t red portal opened.");
 		}
-		if(m.getColor() == Color.GREEN) {
+		if(m.getColor() == MissileColor.Green) {
 			if (greenPortal != null) {
 				greenPortal.close();
 			}
 			greenPortal = this;
-			color = Color.YELLOW;
+			color = MissileColor.Green;
 
 			if(redPortal != null) {
 				LevelEntity myNeighbour = wall.getNeighbour(dir);
@@ -90,7 +82,6 @@ public class Portal {
 				myNeighbour.setNeighbour(dir.inverse(), blueNeighbour);
 				blueNeighbour.setNeighbour(redPortal.getDirection().inverse(), myNeighbour);
 			}
-			//System.out.println("PORTAL::Portal:\t Yellow portal opened.");
 		}
     }
 
@@ -100,23 +91,21 @@ public class Portal {
     public void close() {
     	LevelEntity e = wall.getNeighbour(dir);
     	e.setNeighbour(dir.inverse(), wall);
-    	//System.out.println("PORTAL::close:\t Portal has been closed.");
+    	wall.closePortal();
     }
 
     /**
      * @return
      */
     public Direction getDirection() {
-    	//System.out.println("PORTAL::getDirection");
     	return dir;
     }
     
     public LevelEntity getWallNeighbour(Direction d) {
-    	//System.out.println("PORTAL::getWallNeighbour");
     	return wall.getNeighbour(d);
     }
 
-	public Color getColor() {
+	public MissileColor getColor() {
 		return color;
 	}
 

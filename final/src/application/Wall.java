@@ -21,6 +21,10 @@ public class Wall extends LevelEntity implements IDrawable {
 			//System.out.println("WALL::Wall:\t A Wall has been constructed which is NOT available for portals.");
 		}
     }
+    
+    public void closePortal() {
+    	portal = null;
+    }
 
 	@Override
 	public final boolean moveAction(Player oneill) {

@@ -107,16 +107,17 @@ public class Player implements IDrawable {
     /**
      * 
      */
-    public void shoot(Color c) {
-    	//System.out.println("ONEILL::shoot: \t A Missile has been shot.");
-    	Missile m = new Missile(c, dir);
+    public void shoot(MissileColor c, Level level) {
+    	// Only shoot in a valid direction
+    	if(dir == null)
+    		return;
+    	Missile m = new Missile(c, dir, level);
         m.setTile(floor);
         m.move();
         m.move();
     }
 
     public void setDir(Direction arg) {
-    	//System.out.println("ONEILL::setDir: Player's direction has changed.");
         dir = arg;
     }
 
@@ -134,10 +135,6 @@ public class Player implements IDrawable {
     		view.drawONeill(x, y);
     	else
     		view.drawJaffa(x, y);
-    	/*if(type.equals(PlayerType.ONeill))
-    		System.out.print("Ω");
-    	else
-    		System.out.print("Φ");*/
     }
 
 }
