@@ -37,7 +37,7 @@ public class View extends Canvas {
 	Image imgONeillWest = new Image("graphics/oneillWest.png", gridSize, gridSize, false, false);
 	Image imgJaffaNorth = new Image("graphics/jaffaNorth.png", gridSize, gridSize, false, false);
 	Image imgJaffaSouth = new Image("graphics/jaffaSouth.png", gridSize, gridSize, false, false);
-	Image imgJaffaEasth = new Image("graphics/jaffaEast.png", gridSize, gridSize, false, false);
+	Image imgJaffaEast = new Image("graphics/jaffaEast.png", gridSize, gridSize, false, false);
 	Image imgJaffaWest = new Image("graphics/jaffaWest.png", gridSize, gridSize, false, false);
 	Image imgReplicator = new Image("graphics/replSingle.gif", gridSize, gridSize, false, false);
 	Image imgZPM = new Image("graphics/ZPM_insize.gif", gridSize, gridSize, false, false);
@@ -105,10 +105,37 @@ public class View extends Canvas {
 		gc.drawImage(imgBox, x * gridSize, y * gridSize);
 	}
 	void drawONeill(int x, int y) {
-		gc.drawImage(imgONeillSouth, x * gridSize, y * gridSize);
+		switch(oneill.getDirection()){
+			case Right:
+				gc.drawImage(imgONeillEast, x * gridSize, y * gridSize);
+				break;
+			case Left:
+				gc.drawImage(imgONeillWest, x * gridSize, y * gridSize);
+				break;
+			case Top:
+				gc.drawImage(imgONeillNorth, x * gridSize, y * gridSize);
+				break;
+			case Bottom:
+				gc.drawImage(imgONeillSouth, x * gridSize, y * gridSize);
+				break;
+		}
+		
 	}
 	void drawJaffa(int x, int y) {
-		gc.drawImage(imgJaffaSouth, x * gridSize, y * gridSize);
+		switch(jaffa.getDirection()){
+			case Right:
+				gc.drawImage(imgJaffaEast, x * gridSize, y * gridSize);
+				break;
+			case Left:
+				gc.drawImage(imgJaffaWest, x * gridSize, y * gridSize);
+				break;
+			case Top:
+				gc.drawImage(imgJaffaNorth, x * gridSize, y * gridSize);
+				break;
+			case Bottom:
+				gc.drawImage(imgJaffaSouth, x * gridSize, y * gridSize);
+				break;
+		}
 	}
 	void drawOpener(int x, int y) {	
 		gc.drawImage(imgOpener, x * gridSize, y * gridSize);
@@ -117,8 +144,7 @@ public class View extends Canvas {
 		gc.drawImage(imgReplicator, x * gridSize, y * gridSize);
 	}
 	void drawMissile(int x, int y, MissileColor color) {
-		switch (color)
-		{
+		switch (color){
 			case Blue:
 				gc.drawImage(imgMissileBlue, x * gridSize, y * gridSize);
 				break;
@@ -146,8 +172,7 @@ public class View extends Canvas {
 	private void handleKeyEvent(KeyEvent event) {
 		KeyCode key = event.getCode();
 
-		switch (key)
-		{
+		switch (key){
 			case A:
 				oneill.move(Direction.Left);
 				break;

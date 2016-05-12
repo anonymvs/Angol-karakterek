@@ -137,5 +137,8 @@ public class Player implements IDrawable {
     	if(box != null)
     		view.drawBox(x, y, 1);
     }
+    public Direction getDirection(){
+    	return this.dir;
+    }
 
 }
