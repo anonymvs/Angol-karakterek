@@ -19,17 +19,24 @@ public class Missile implements IDrawable {
     public boolean move() {
         LevelEntity entity = tile.getNeighbour(dir);
 
+        // If it's out of the map delete the reference of the previous floor
+        // Return false to stop the timer
         if(entity == null) {
+        	tile.setMissile(null);
             return false;
         }
 
+        // Move was successful
         if(entity.missileAction(this))
         {
         	tile.setMissile(null);
         	tile = entity;
+        	tile.setMissile(this);
             return true;
         }
-        return true;
+        // MissileAction returns false therefore must kill the missile
+    	tile.setMissile(null);
+        return false;
     }
 
     public MissileColor getColor() {
@@ -43,9 +50,9 @@ public class Missile implements IDrawable {
     public void setTile(LevelEntity t) {
         tile = t;
     }
-
 	@Override
 	public void draw(View view, int x, int y) {
 		view.drawMissile(x, y, color);
+		System.out.println("Drawing missile");
 	}
 }

@@ -19,7 +19,7 @@ public class Main extends Application {
         Player jaffa = new Player(PlayerType.Jaffa);
         Level level = new Level();
         Replicator rep = new Replicator(level);
-        level.load(getClass().getResource("/levels/doorchasm.txt").getFile(), oneill, jaffa, rep);
+        level.load(getClass().getResource("/levels/ultimatelevel.txt").getFile(), oneill, jaffa, rep);
 
         Group g = new Group();
         Scene scene = new Scene(g, View.gridSize * level.getWidth(), View.gridSize * level.getHeight(), Color.web("0xFFFFFF", 1.0));

@@ -114,7 +114,7 @@ public class Player implements IDrawable {
     	Missile m = new Missile(c, dir, level);
         m.setTile(floor);
         m.move();
-        m.move();
+        //m.move();
     }
 
     public void setDir(Direction arg) {

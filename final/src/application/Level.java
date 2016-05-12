@@ -380,7 +380,7 @@ public class Level {
         }
     }
 
-    public void draw() {
+    public synchronized void draw() {
     	
     	for(int i = 0; i < height; ++i) {
     		for(int j = 0; j < width; ++j) {

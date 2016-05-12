@@ -34,13 +34,11 @@ public class Wall extends LevelEntity implements IDrawable {
 
 	@Override
 	public final boolean moveAction(Replicator rep) {
-		//System.out.println("wall::moveAction:\t false");
 		return false;
 	}
 
 	@Override
 	public final boolean boxAction(Player oneill, Box box) {
-		//System.out.println("wall::boxAction:\t false");
 		return false;
 	}
 
@@ -48,13 +46,10 @@ public class Wall extends LevelEntity implements IDrawable {
 	public final boolean missileAction(Missile missile) {
 		
 		if(portalable) {
-			//System.out.println("wall::missileAction:\t Portal got into portable");
 			portal = new Portal(missile, this);
 			return true;
-		} else {
-			return false;
-			//System.out.println("wall::missileAction:\t Portal got into not portable");
 		}
+		return false;
 	}
 
 	public void setPortalable(boolean b) {

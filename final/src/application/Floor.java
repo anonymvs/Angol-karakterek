@@ -164,7 +164,7 @@ public final class Floor extends LevelEntity {
      * @param mis - an instance of a Missile
      * @return
      */
-    public final boolean missileAction( Missile mis ){
+    public final boolean missileAction(Missile mis){
     	return true;
     }
 
@@ -200,6 +200,7 @@ public final class Floor extends LevelEntity {
     	}
     	
     	if(missile != null) {
+    		System.out.println("Want to draw");
     		missile.draw(view, x, y);
     	}
 	}
