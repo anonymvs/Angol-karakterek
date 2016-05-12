@@ -52,83 +52,77 @@ public class Level {
                 }
 	        	if(!logic) {
                     for (int i = 0; i < tmp.length(); i++) {
-                    	// Create ZPM
-                        if (tmp.charAt(i) == 'z') {
-                            zpmCount++;
-                            ls.get(numOfLines).add(new Floor(this, true));
-                        }
-                        // Create replicator
-                        else if(tmp.charAt(i) == 'r') {
-                            Floor f = new Floor(this, false);
-                            Replicator rep = new Replicator(this, f);
-                            f.setRepl(rep);
-                            ls.get(numOfLines).add(f);
-                        } 
-                        else {
-                            switch (Character.getNumericValue(tmp.charAt(i))) {
-                                case 1:
-                                	// Create floor
-                                    ls.get(numOfLines).add(new Floor(this, false));
-                                    break;
-                                case 2:
-                                	// Simple wall
-                                    ls.get(numOfLines).add(new Wall(false));
-                                    break;
-                                case 3:
-                                	// Create portal wall
-                                    ls.get(numOfLines).add(new Wall(true));
-                                    break;
-                                case 4:
-                                	// Create chasm
-                                    ls.get(numOfLines).add(new Chasm());
-                                    break;
-                                case 5:
-                                	// Create door
-                                    Floor f = new Floor(this, false);
-                                    Door d = new Door();
-                                    door = d;
-                                    f.setPlaced(d);
-                                    doorIndex = i;
-                                    ls.get(numOfLines).add(f);
-                                    break;
-                                case 6:
-                                	// Create O'Neill
-                                    Floor f1 = new Floor(this, false);
-                                    f1.setPlayer(oneill);
-                                    oneill.setFloor(f1);
-                                    ls.get(numOfLines).add(f1);
-                                    break;
-                                case 7:
-                                	// Create Jaffa
-                                    Floor f2 = new Floor(this, false);
-                                    f2.setPlayer(jaffa);
-                                    jaffa.setFloor(f2);
-                                    ls.get(numOfLines).add(f2);
-                                    break;
-                                case 8:
-                                	// Create box
-                                    Floor f3 = new Floor(this, false);
-                                    Box b = new Box(1);
-                                    f3.setPlaced(b);
-                                    ls.get(numOfLines).add(f3);
-                                    break;
-                                case 9:
-                                	// Create chasm
-                                    ls.get(numOfLines).add(new Chasm());
-                                    break;
-                                case 0:
-                                	// Create opener
-                                    Floor f4 = new Floor(this, false);
-                                    Opener o = new Opener(1);
-                                    f4.setPlaced(o);
-                                    ls.get(numOfLines).add(f4);
-
-                                    if (doorIndex == i - 2 && door != null) {
-                                        o.setDoor(door);
-                                    }
-                                    break;
-                            }
-                        }
+	                   	switch (tmp.charAt(i)) {
+	                        case 'f':
+	                        	// Create floor
+	                            ls.get(numOfLines).add(new Floor(this, false));
+	                            break;
+	                        case 'w':
+	                        	// Simple wall
+	                            ls.get(numOfLines).add(new Wall(false));
+	                            break;
+	                        case 'p':
+	                        	// Create portal wall
+	                            ls.get(numOfLines).add(new Wall(true));
+	                            break;
+	                        case 'c':
+	                        	// Create chasm
+	                            ls.get(numOfLines).add(new Chasm());
+	                            break;
+	                        case 'd':
+	                        	// Create door
+	                            Floor f = new Floor(this, false);
+	                            Door d = new Door();
+	                            door = d;
+	                            f.setPlaced(d);
+	                            doorIndex = i;
+	                            ls.get(numOfLines).add(f);
+	                            break;
+	                        case 'O':
+	                        	// Create O'Neill
+	                            Floor f1 = new Floor(this, false);
+	                            f1.setPlayer(oneill);
+	                            oneill.setFloor(f1);
+	                            ls.get(numOfLines).add(f1);
+	                            break;
+	                        case 'J':
+	                        	// Create Jaffa
+	                            Floor f2 = new Floor(this, false);
+	                            f2.setPlayer(jaffa);
+	                            jaffa.setFloor(f2);
+	                            ls.get(numOfLines).add(f2);
+	                            break;
+	                        case 'b':
+	                        	// Create box
+	                            Floor f3 = new Floor(this, false);
+	                            Box b = new Box(1);
+	                            f3.setPlaced(b);
+	                            ls.get(numOfLines).add(f3);
+	                            break;
+	                        case 'o':
+	                        	// Create opener
+	                            Floor f4 = new Floor(this, false);
+	                            Opener o = new Opener(1);
+	                            f4.setPlaced(o);
+	                            ls.get(numOfLines).add(f4);
+	                            if (doorIndex == i - 2 && door != null) {
+	                                o.setDoor(door);
+	                            }
+	                            break;
+	                        case 'z':
+	                        	// Create ZPM
+	                            zpmCount++;
+	                            ls.get(numOfLines).add(new Floor(this, true));
+	                            break;
+	                    	case 'R':
+	                    		// Create replicator
+	                            Floor f5 = new Floor(this, false);
+	                            Replicator rep = new Replicator(this, f5);
+	                            f5.setRepl(rep);
+	                            ls.get(numOfLines).add(f5);
+	                            break;
+	                   		}
+                        
                     }
                 } else {
                     if(!tmp.equals("|")) {

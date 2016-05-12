@@ -18,7 +18,7 @@ public class Main extends Application {
         Player oneill = new Player(PlayerType.ONeill);
         Player jaffa = new Player(PlayerType.Jaffa);
         Level level = new Level();
-        level.load(getClass().getResource("/levels/veryreplicator.txt").getFile(), oneill, jaffa);
+        level.load(getClass().getResource("/levels/level.txt").getFile(), oneill, jaffa);
 
         Group g = new Group();
         Scene scene = new Scene(g, View.gridSize * level.getWidth(), View.gridSize * level.getHeight(), Color.web("0xFFFFFF", 1.0));
