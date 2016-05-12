@@ -38,6 +38,7 @@ public class Chasm extends LevelEntity {
 
 	public void draw(View view, int x, int y) {
 		view.drawChasm(x, y);
-		//System.out.print(" ");
+		if(missile != null)
+			view.drawMissile(x, y, missile.getColor());
 	}
 }

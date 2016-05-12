@@ -63,6 +63,12 @@ public class Replicator implements IDrawable {
         lvl.replicatorReplicated(ch);
         lvl.draw();
     }
+    
+    public void kill() {
+    	floor.setRepl(null);
+    	floor = null;
+    	timer.cancel();
+    }
 
     public Floor getFloor() {
         return floor;

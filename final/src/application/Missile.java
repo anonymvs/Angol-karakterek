@@ -15,6 +15,10 @@ public class Missile implements IDrawable {
         color = c;
         timer = new MissileTimer(this, level);
     }
+    
+    public void stop() {
+    	timer.cancel();
+    }
 
     public boolean move() {
         LevelEntity entity = tile.getNeighbour(dir);

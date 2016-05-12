@@ -102,6 +102,14 @@ public final class Floor extends LevelEntity {
 			rep.getFloor().setRepl(null);
             rep.setFloor(this);
             repl = rep;
+            
+            // If replicator moved into a missile kill him
+            if(missile != null) {
+            	repl.kill();
+            	missile.stop();
+            	missile = null;
+            }
+            
 			return true;
 		}
 		//System.out.println("FLOOR::moveAction:\t Something is on this Floor, better check that out.");
@@ -112,10 +120,17 @@ public final class Floor extends LevelEntity {
 
 		if(canMove)
 		{
-			//System.out.println("FLOOR::moveAction:\t Repl is free to move.");
+			//Repl is free to move;
 			rep.getFloor().setRepl(null);
 			rep.setFloor(this);
 			repl = rep;
+			
+			// If replicator moved into a missile kill him
+            if(missile != null) {
+            	repl.kill();
+            	missile.stop();
+            	missile = null;
+            }
 		}
 
 		return canMove;
@@ -164,7 +179,13 @@ public final class Floor extends LevelEntity {
      * @param mis - an instance of a Missile
      * @return
      */
-    public final boolean missileAction(Missile mis){
+    public final boolean missileAction(Missile mis) {
+    	// Missile hits replicator and it dies
+    	if(repl != null) {
+    		repl.kill();
+    		return false;
+    	}
+    	
     	return true;
     }
 

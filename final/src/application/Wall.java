@@ -47,7 +47,6 @@ public class Wall extends LevelEntity implements IDrawable {
 		
 		if(portalable) {
 			portal = new Portal(missile, this);
-			return true;
 		}
 		return false;
 	}

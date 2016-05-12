@@ -187,46 +187,60 @@ public class View extends Canvas {
 
 		switch (key){
 			case A:
-				oneill.move(Direction.Left);
+				if(oneill != null)
+					oneill.move(Direction.Left);
 				break;
 			case S:
-				oneill.move(Direction.Bottom);
+				if(oneill != null)
+					oneill.move(Direction.Bottom);
 				break;
 			case D:
-				oneill.move(Direction.Right);
+				if(oneill != null)
+					oneill.move(Direction.Right);
 				break;
 			case W:
-				oneill.move(Direction.Top);
+				if(oneill != null)
+					oneill.move(Direction.Top);
 				break;
 			case Y:
-				oneill.shoot(MissileColor.Yellow, level);
+				if(oneill != null)
+					oneill.shoot(MissileColor.Yellow, level);
 				break;
 			case B:
-				oneill.shoot(MissileColor.Blue, level);
+				if(oneill != null)
+					oneill.shoot(MissileColor.Blue, level);
 				break;
 			case R:
-				jaffa.shoot(MissileColor.Red, level);
+				if(jaffa != null)
+					jaffa.shoot(MissileColor.Red, level);
 				break;
 			case G:
-				jaffa.shoot(MissileColor.Green, level);
+				if(jaffa != null)
+					jaffa.shoot(MissileColor.Green, level);
 				break;
 			case LEFT:
-				jaffa.move(Direction.Left);
+				if(jaffa != null)
+					jaffa.move(Direction.Left);
 				break;
 			case DOWN:
-				jaffa.move(Direction.Bottom);
+				if(jaffa != null)
+					jaffa.move(Direction.Bottom);
 				break;
 			case RIGHT:
-				jaffa.move(Direction.Right);
+				if(jaffa != null)
+					jaffa.move(Direction.Right);
 				break;
 			case UP:
-				jaffa.move(Direction.Top);
+				if(jaffa != null)
+					jaffa.move(Direction.Top);
 				break;
 			case SPACE:
-				oneill.boxing();
+				if(oneill != null)
+					oneill.boxing();
 				break;
 			case BACK_SPACE:
-				jaffa.boxing();
+				if(jaffa != null)
+					jaffa.boxing();
 				break;
 			default:
 				break;
