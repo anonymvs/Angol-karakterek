@@ -200,7 +200,6 @@ public final class Floor extends LevelEntity {
     	}
     	
     	if(missile != null) {
-    		System.out.println("Want to draw");
     		missile.draw(view, x, y);
     	}
 	}

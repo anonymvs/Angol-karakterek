@@ -1,7 +1,5 @@
 package application;
 
-import java.awt.Color;
-
 /**
  * 
  */

@@ -23,13 +23,10 @@ public class MissileTimer extends java.util.Timer{
             public void run() {
                 if(!m.move()) {
                 	this.cancel();
-                	//l.draw();
                 }
             	l.draw();
-            	System.out.println("Drawing?");
             }
         };
         t.schedule(tt, 1000, 1000);
     }
-
 }

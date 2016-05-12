@@ -53,6 +53,5 @@ public class Missile implements IDrawable {
 	@Override
 	public void draw(View view, int x, int y) {
 		view.drawMissile(x, y, color);
-		System.out.println("Drawing missile");
 	}
 }

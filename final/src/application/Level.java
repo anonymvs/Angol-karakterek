@@ -34,7 +34,7 @@ public class Level {
     /**
      * 
      */
-    public void load(String path, Player oneill, Player jaffa, Replicator rep) {
+    public void load(String path, Player oneill, Player jaffa) {
     	
         try{
 	        BufferedReader br = new BufferedReader( new FileReader( path ) );
@@ -60,8 +60,8 @@ public class Level {
                         // Create replicator
                         else if(tmp.charAt(i) == 'r') {
                             Floor f = new Floor(this, false);
+                            Replicator rep = new Replicator(this, f);
                             f.setRepl(rep);
-                            rep.setFloor(f);
                             ls.get(numOfLines).add(f);
                         } 
                         else {
