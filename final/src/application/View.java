@@ -31,8 +31,14 @@ public class View extends Canvas {
 	Image imgOpener = new Image("graphics/libre.gif", gridSize, gridSize, false, false);
 	Image imgDoorOpened = new Image("graphics/doorOpened.gif", gridSize, gridSize, false, false);
 	Image imgDoorClosed = new Image("graphics/doorClosed.gif", gridSize, gridSize, false, false);
-	Image imgONeill = new Image("graphics/oneillSingle.gif", gridSize, gridSize, false, false);
-	Image imgJaffa = new Image("graphics/jaffaSingle.gif", gridSize, gridSize, false, false);
+	Image imgONeillNorth = new Image("graphics/oneillNorth.png", gridSize, gridSize, false, false);
+	Image imgONeillSouth = new Image("graphics/oneillSouth.png", gridSize, gridSize, false, false);
+	Image imgONeillEast = new Image("graphics/oneillEast.png", gridSize, gridSize, false, false);
+	Image imgONeillWest = new Image("graphics/oneillWest.png", gridSize, gridSize, false, false);
+	Image imgJaffaNorth = new Image("graphics/jaffaNorth.png", gridSize, gridSize, false, false);
+	Image imgJaffaSouth = new Image("graphics/jaffaSouth.png", gridSize, gridSize, false, false);
+	Image imgJaffaEasth = new Image("graphics/jaffaEast.png", gridSize, gridSize, false, false);
+	Image imgJaffaWest = new Image("graphics/jaffaWest.png", gridSize, gridSize, false, false);
 	Image imgReplicator = new Image("graphics/replSingle.gif", gridSize, gridSize, false, false);
 	Image imgZPM = new Image("graphics/ZPM_insize.gif", gridSize, gridSize, false, false);
 	Image imgPortalBlue = new Image("graphics/portalblue.gif", gridSize, gridSize, false, false);
@@ -99,10 +105,10 @@ public class View extends Canvas {
 		gc.drawImage(imgBox, x * gridSize, y * gridSize);
 	}
 	void drawONeill(int x, int y) {
-		gc.drawImage(imgONeill, x * gridSize, y * gridSize);
+		gc.drawImage(imgONeillSouth, x * gridSize, y * gridSize);
 	}
 	void drawJaffa(int x, int y) {
-		gc.drawImage(imgJaffa, x * gridSize, y * gridSize);
+		gc.drawImage(imgJaffaSouth, x * gridSize, y * gridSize);
 	}
 	void drawOpener(int x, int y) {	
 		gc.drawImage(imgOpener, x * gridSize, y * gridSize);
