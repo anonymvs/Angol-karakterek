@@ -12,6 +12,7 @@ public class Player implements IDrawable {
     private Box box;
     private Floor floor;
     private PlayerType type;
+    private boolean alive = true;
 
     Player(PlayerType t) {
         type = t;
@@ -27,21 +28,6 @@ public class Player implements IDrawable {
      * @param dir
      */
     public Player(Floor f, Direction dir) {
-        //System.out.printf("ONEILL::Player:\t Player just came to life,");
-        switch (dir) {
-            case Left :
-                //System.out.printf(" and is facing to the LEFT\n");
-                break;
-            case Right :
-                //System.out.printf(" and is facing to the RIGHT\n");
-                break;
-            case Top :
-                //System.out.printf(" and is facing to the TOP\n");
-                break;
-            case Bottom :
-                //System.out.printf(" and is facing to the BOTTOM\n");
-                break;
-        }
         floor = f;
         this.dir = dir;
     }
@@ -90,6 +76,11 @@ public class Player implements IDrawable {
     public void kill() {
     	//System.out.println("ONEILL::kill:\t Game Over");
         floor.setPlayer(null);
+        alive = false;
+    }
+    
+    public boolean isAlive() {
+    	return alive;
     }
     
     public Floor getFloor() {

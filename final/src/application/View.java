@@ -185,66 +185,68 @@ public class View extends Canvas {
 	private void handleKeyEvent(KeyEvent event) {
 		KeyCode key = event.getCode();
 
-		switch (key){
+		if(oneill != null) {
+			switch(key) {
 			case A:
-				if(oneill != null)
-					oneill.move(Direction.Left);
+				oneill.move(Direction.Left);
 				break;
 			case S:
-				if(oneill != null)
-					oneill.move(Direction.Bottom);
+				oneill.move(Direction.Bottom);
 				break;
 			case D:
-				if(oneill != null)
-					oneill.move(Direction.Right);
+				oneill.move(Direction.Right);
 				break;
 			case W:
-				if(oneill != null)
-					oneill.move(Direction.Top);
+				oneill.move(Direction.Top);
 				break;
 			case Y:
-				if(oneill != null)
-					oneill.shoot(MissileColor.Yellow, level);
+				oneill.shoot(MissileColor.Yellow, level);
 				break;
 			case B:
-				if(oneill != null)
-					oneill.shoot(MissileColor.Blue, level);
-				break;
-			case R:
-				if(jaffa != null)
-					jaffa.shoot(MissileColor.Red, level);
-				break;
-			case G:
-				if(jaffa != null)
-					jaffa.shoot(MissileColor.Green, level);
-				break;
-			case LEFT:
-				if(jaffa != null)
-					jaffa.move(Direction.Left);
-				break;
-			case DOWN:
-				if(jaffa != null)
-					jaffa.move(Direction.Bottom);
-				break;
-			case RIGHT:
-				if(jaffa != null)
-					jaffa.move(Direction.Right);
-				break;
-			case UP:
-				if(jaffa != null)
-					jaffa.move(Direction.Top);
+				oneill.shoot(MissileColor.Blue, level);
 				break;
 			case SPACE:
-				if(oneill != null)
-					oneill.boxing();
-				break;
-			case BACK_SPACE:
-				if(jaffa != null)
-					jaffa.boxing();
+				oneill.boxing();
 				break;
 			default:
 				break;
+			}
 		}
+		
+		if(jaffa != null) {
+			switch (key) {
+			case R:
+				jaffa.shoot(MissileColor.Red, level);
+				break;
+			case G:
+				jaffa.shoot(MissileColor.Green, level);
+				break;
+			case LEFT:
+				jaffa.move(Direction.Left);
+				break;
+			case DOWN:
+				jaffa.move(Direction.Bottom);
+				break;
+			case RIGHT:
+				jaffa.move(Direction.Right);
+				break;
+			case UP:
+				jaffa.move(Direction.Top);
+				break;
+			case BACK_SPACE:
+				jaffa.boxing();
+				break;
+			default:
+				break;
+			}
+		}
+		
+		
+		if(oneill != null && !oneill.isAlive())
+			oneill = null;
+		if(jaffa != null && !jaffa.isAlive())
+			jaffa = null;
+		
 		level.draw();
 	}
 	

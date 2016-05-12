@@ -11,7 +11,6 @@ public class Chasm extends LevelEntity {
 
 	@Override
 	public final boolean moveAction(Player oneill) {
-
 		oneill.kill();
 		return false;
 	}
@@ -20,12 +19,10 @@ public class Chasm extends LevelEntity {
 	public final boolean moveAction(Replicator rep) {
 		rep.replicate(this);
 		return false;
-
 	}
 
 	@Override
 	public final boolean boxAction(Player oneill, Box box) {
-
 		return true;
 	}
 
