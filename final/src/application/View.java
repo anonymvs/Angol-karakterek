@@ -7,7 +7,10 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+// The view will manage the images
 public class View extends Canvas {
+	
+	// Players, and level
 	private Player jaffa = null;
 	private Player oneill = null;
 	private Level level = null;
@@ -17,7 +20,7 @@ public class View extends Canvas {
 	
 	GraphicsContext gc;
 
-	// Load all the the images
+	// Load all the images
 	Image imgFloor = new Image("graphics/floor.gif", gridSize, gridSize, false, false);
 	Image imgBox = new Image("graphics/box.gif", gridSize, gridSize, false, false);
 	Image imgBoxSmall = new Image("graphics/boxSmall.gif", gridSize, gridSize, false, false);
@@ -50,7 +53,10 @@ public class View extends Canvas {
 	Image imgMissileYellow = new Image("graphics/fbyellow.png", gridSize, gridSize, false, false);
 	Image imgMissileBlue = new Image("graphics/fbblue.png", gridSize, gridSize, false, false);
 	
+	// Construct the view object 
 	View(Level level, Player oneill, Player jaffa) {
+		
+		// set the width, and height and sets the players, and level
 		super(gridSize * level.getWidth(), gridSize * level.getHeight());
 		this.level = level;
 		this.oneill = oneill;
@@ -58,7 +64,7 @@ public class View extends Canvas {
         
         gc = getGraphicsContext2D();
         
-        // Keyevent
+        // keyevent
         setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -67,15 +73,22 @@ public class View extends Canvas {
         });
 	}
 	
+	// Draw floor
 	void drawFloor(int x, int y) {
 		gc.drawImage(imgFloor, x * gridSize, y * gridSize);
 	}
+	
+	// Draw chasm
 	void drawChasm(int x, int y) {
 		gc.drawImage(imgChasm, x * gridSize, y * gridSize);
 	}
+	
+	// Draw wall
 	void drawWall(int x, int y) {	
 		gc.drawImage(imgWall, x * gridSize, y * gridSize);
 	}
+	
+	// Draw portal in its color
 	void drawPortal(int x, int y, MissileColor color){
 		switch (color)
 		{
@@ -93,17 +106,25 @@ public class View extends Canvas {
 				break;
 		}
 	}
+	
+	// Draw portalable wall
 	void drawPortalWall(int x, int y) {
 		gc.drawImage(imgPortalWall, x * gridSize, y * gridSize);	
 	}
+	
+	// Draw boxes
 	void drawBox(int x, int y, int number) {
 		for(int i = 0; i < number; i++) {
 			gc.drawImage(imgBoxSmall, x * gridSize, y * gridSize - (i * 5));
 		}
 	}
+	
+	// Draw box
 	void drawBox(int x, int y) {	
 		gc.drawImage(imgBox, x * gridSize, y * gridSize);
 	}
+	
+	// Draw oneill with his direction
 	void drawONeill(int x, int y) {
 		switch(oneill.getDirection()){
 			case Right:
@@ -121,6 +142,8 @@ public class View extends Canvas {
 		}
 		
 	}
+	
+	// Draw jaffa with his direction
 	void drawJaffa(int x, int y) {
 		switch(jaffa.getDirection()){
 			case Right:
@@ -137,9 +160,13 @@ public class View extends Canvas {
 				break;
 		}
 	}
+	
+	// Draw opener
 	void drawOpener(int x, int y) {	
 		gc.drawImage(imgOpener, x * gridSize, y * gridSize);
 	}
+	
+	// Draw replicator with its direction
 	void drawReplicator(int x, int y, Direction dir) {	
 		switch(dir){
 		case Right:
@@ -154,8 +181,10 @@ public class View extends Canvas {
 		case Bottom:
 			gc.drawImage(imgReplicatorSouth, x * gridSize, y * gridSize);
 			break;
+		}
 	}
-	}
+	
+	// Draw missile with its color
 	void drawMissile(int x, int y, MissileColor color) {
 		switch (color){
 			case Blue:
@@ -172,19 +201,27 @@ public class View extends Canvas {
 				break;
 		}
 	}
+	
+	// Draw zpm
 	void drawZPM(int x, int y) {
 		gc.drawImage(imgZPM, x * gridSize, y * gridSize);
 	}
+	
+	// Draw opened door
 	void drawDoorOpened(int x, int y) {
 		gc.drawImage(imgDoorOpened, x * gridSize, y * gridSize);
 	}
+
+	// Draw closed door
 	void drawDoorClosed(int x, int y) {
 		gc.drawImage(imgDoorClosed, x * gridSize, y * gridSize);
 	}
 	
+	// Handle the button presses
 	private void handleKeyEvent(KeyEvent event) {
 		KeyCode key = event.getCode();
 
+		// oneills keys
 		if(oneill != null) {
 			switch(key) {
 			case A:
@@ -213,6 +250,7 @@ public class View extends Canvas {
 			}
 		}
 		
+		// jaffas keys
 		if(jaffa != null) {
 			switch (key) {
 			case R:
@@ -241,12 +279,13 @@ public class View extends Canvas {
 			}
 		}
 		
-		
+		// kills oneill, jaffa if it is necessary
 		if(oneill != null && !oneill.isAlive())
 			oneill = null;
 		if(jaffa != null && !jaffa.isAlive())
 			jaffa = null;
 		
+		// redraw level
 		level.draw();
 	}
 	
