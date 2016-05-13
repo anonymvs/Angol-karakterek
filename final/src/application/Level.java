@@ -23,24 +23,26 @@ public class Level {
     private int height = 0; // Level height
     private View view = null;
     
+    // Set the level's view
     public void setView(View v) {
     	view = v;
     }
 
-    /**
-     * 
-     */
+    // Load a level from path
     public void load(String path, Player oneill, Player jaffa) {
     	
         try{
+        	// create reader
 	        BufferedReader br = new BufferedReader( new FileReader( path ) );
 	        String tmp;
 	        
+	        // initialize
 	        int numOfLines = 0;
 	        int doorIndex = -1;
             boolean logic = false;
 	        Door door = null;
 	        
+	        // read
 	        while( (tmp = br.readLine()) != null ){
                 if(tmp.equals("|")) logic = true;
                 if(!logic) {
@@ -195,9 +197,6 @@ public class Level {
         	}
         }
         
-        // Setting Opener and Doors
-        
-        
         return;
     }
 
@@ -318,9 +317,7 @@ public class Level {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
+    // Decrease the number of zpms on level
     public void decreaseZPM() {
     	zpmCount--;
     	if(zpmCount == 0 ){    		
@@ -334,6 +331,7 @@ public class Level {
     	zpmCreaterCount++;
     }
     
+    // Creates random zpm
     public void createRandZpm() {
     	LevelEntity randEntity = null;
     	Random rand = new Random();
@@ -355,10 +353,10 @@ public class Level {
     	}
     }
 
-    /**
-     * 
-     */
+    // Defines the end of the game
     public void endOfGame() {
+    	
+    	// Send an alert 
     	Alert alert = new Alert(AlertType.INFORMATION);
     	alert.setTitle("");
     	alert.setHeaderText(null);
@@ -368,6 +366,8 @@ public class Level {
         reset();
     }
 
+    
+    // Set a wall to portalable
     public void setWallPortalable(int argx, int argy) {
         int x = argx - 1;
         int y = argy - 1;
@@ -418,10 +418,12 @@ public class Level {
         return ret;
     }
     
+    // Return with the level's width
     public int getWidth() {
     	return width;
     }
     
+    // Return with the level's height
     public int getHeight() {
     	return height;
     }
