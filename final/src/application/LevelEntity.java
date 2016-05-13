@@ -30,16 +30,10 @@ public abstract class LevelEntity implements IDrawable {
      */
     public abstract boolean boxAction(Player oneill, Box box);
 
-    /**
-     * @param missile - an instance of a Missile
-     * @return
-     */
+    // Defines what we have to do with a missile
     public abstract boolean missileAction(Missile missile);
 
-    /**
-     * @param dir - an instance of a Direction
-     * @return
-     */
+    // Returns with the neighbour object, in Direction dir
     public LevelEntity getNeighbour(Direction dir) {
     	switch (dir)
     	{

@@ -1,8 +1,12 @@
 package application;
 
+//Class represents a direction
 public enum Direction {
+	
+	// Possible type of directions
 	Right, Left, Top, Bottom;
 	
+	// Invert directions
 	public Direction inverse() {
 		switch (this)
 		{
@@ -19,6 +23,7 @@ public enum Direction {
 		}
 	}
 
+	// Return with the direction from string
 	public static Direction getDir(String arg) {
 		switch(arg) {
 			case "right":
@@ -34,6 +39,7 @@ public enum Direction {
 		}
 	}
 
+	// Return with the direction in string
 	public static String getDir(Direction d) {
 		switch (d) {
 			case Right:

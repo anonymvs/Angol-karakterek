@@ -1,48 +1,42 @@
 package application;
 
-/**
- *
- */
+//Class represents a door
 public final class Door extends Placeable {
 
+	// The doors state (first closed)
     private boolean opened;
 
     public Door() {
         opened = false;
     }
 
-    /**
-     * @param op - boolean used to open or close the door
-     */
+    // Set the door's state
     public void open(boolean op) {
         opened = op;
     }
 
+    // Return with the state of the door
     public boolean isOpened() {
         return opened;
     }
 
-    /**
-     * @param on - an instance of Player
-     * @param b - an instance of a Box
-     * @return
-     */
+    // We can't put box on a door
     public final boolean boxEvent(Player on, Box b) {
         return false;
     }
 
-    /**
-     * @param on - an instance of Player
-     */
+    // If it is opened, we can move to door
     public final boolean moveEvent(Player on) {
         return opened;
     }
 
+    // If it is opened, replicator can move to door
     public final boolean moveEvent(Replicator rep) {
         return opened;
     }
 
 	@Override
+	// Draw a door to the x, y coordinate
 	public void draw(View view, int x, int y) {
 		if(opened)
 			view.drawDoorOpened(x, y);

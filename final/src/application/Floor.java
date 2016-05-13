@@ -1,87 +1,92 @@
 package application;
 
-/**
- * 
- */
+//Class represents a floor
 public final class Floor extends LevelEntity {
 
+	// The possible objects in the floor
 	private Player player = null;
 	private Replicator repl = null;
     private Placeable placed = null;
     private ZPM zpm = null;
 	
-	public Floor(Level l, boolean z) {
+	// Create a floor to a level, and set it's zpm
+    public Floor(Level l, boolean z) {
 		if(z) {
 			zpm = new ZPM(l);
 		}
     }
-	
+
+    // Set the zpm on the floor
 	public void setZPM(Level lvl) {
 		zpm = new ZPM(lvl);
 	}
-	
+
+    // Get if there is a zpm on the floor
 	public ZPM getZPM() {
 		return zpm;
 	}
 
-    /**
-     * @param o - an instance of Player, that we use to set the Floor's reference
-     */
+    // Set the floor's player to the parameter
     public void setPlayer(Player o) {
-		if(placed != null) {
+		// If there is something on the floor, we call it's moveEvent
+    	if(placed != null) {
 			placed.moveEvent(o);
 		}
     	player = o;
     }
 
+	// Set the floor's replicator to the parameter
 	public void setRepl(Replicator rep) {
+		// If there is something on the floor, we call it's moveEvent
 		if(placed != null) {
 			placed.moveEvent(rep);
 		}
 		repl = rep;
 	}
 
-    /**
-     * @param p - an instance of Placeable class, which can be put on the Floor
-     */
+    // Set the placeable element on the floor
     public void setPlaced(Placeable p) {
         placed = p;
     }
 
-    /**
-     * @return
-     */
+    // Get the placeable element which is on the floor
     public Placeable getPlaceable() {
         return placed;
     }
 
-    /**
-     * @param o - an instance of Player
-     * @return
-     */
+    // Defines what we have to do, if someone wants to step on a floor
     public final boolean moveAction(Player o){
 
+    	// if someone on the floor, we can't step here
     	if(player != null){
     		return false;
     	}
     	
-    	// If there nothing placed on the floor then Player can move here
+    	// if there nothing placed on the floor then Player can move here
     	if(placed == null) {
 			setPlayer(o);
             o.getFloor().setPlayer(null);
+            
+            // if there is zpm on the floor, we collect it
             if(zpm != null) {
                 zpm.collect();
                 zpm = null;
             }
+            
             return true;
         }
+ 
+    	// we ask the placed object that we can step here or not
     	boolean canMove = placed.moveEvent(o);
-    	
+ 
+    	// if we can move then Player move here
     	if(canMove)
     	{
             o.getFloor().setPlayer(null);
     		o.setFloor(this);
     		player = o;
+    		
+    		// if there is zpm on the floor, we collect it
     		if(zpm != null) {
     			zpm.collect();
                 zpm = null;

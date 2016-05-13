@@ -50,6 +50,10 @@ public class Missile implements IDrawable {
     public Direction getDirection() {
     	return dir;
     }
+    
+    public void setDirection(Direction d) {
+    	dir = d;
+    }
 
     public void setTile(LevelEntity t) {
         tile = t;
