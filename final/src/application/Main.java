@@ -7,9 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-
+// Main part of the program
 public class Main extends Application {
+	
 	@Override
+	// Initialization
 	public void start(Stage primaryStage) {
 		
 		primaryStage.setTitle("Great game brah");
@@ -38,6 +40,7 @@ public class Main extends Application {
         primaryStage.show();
 	}
 	
+	// Main function
 	public static void main(String[] args) {
 		launch(args);		
 	}

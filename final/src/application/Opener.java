@@ -30,12 +30,14 @@ public final class Opener extends Placeable {
 		door = d;
 	}
 
-	//
+	// Defines what we have to do, if a player want to pick up, or drop box
 	public final boolean boxEvent(Player o, Box b) {
+		
+		// player tries to pick up box
 		if(b == null) {
-			//System.out.println("OPENER::boxEvent:\t Player doesn't have a Box");
+			
+			// get box from the box list
 			if(!boxList.isEmpty()) {
-				//System.out.println("OPENER::boxEvent:\t Player takes the Openers box.");
 				weightCount  -=  boxList.get(boxList.size()-1).getWeight();
 				o.setBox(boxList.remove(boxList.size()-1));
 				if(weightCount < weightLimit){
@@ -43,35 +45,30 @@ public final class Opener extends Placeable {
 				}
 				return false;
 			} else {
-				//System.out.println("OPENER::boxEvent:\t Neither Player neither the Opener has any Box, nothing happens :(");
 				return false;
 			}
 		}
 
-		// Player tries to put down a box
+		// player tries to put down a box
 		else {
 			boxList.add(b);
 			weightCount  +=  boxList.get(boxList.size()-1).getWeight();
 			if(weightCount >= weightLimit){
 				if(door != null) door.open(true);
 			}
-			//System.out.println("OPENER::boxEvent:\t Player tries to put down a Box to an Opener, that has no Box yet, and succeeds");
 			return true;
 		}
 
 	};
 
-	/**
-	 * @param o
-	 */
+	// Defines what we have to do, if a player step to an opener
 	public final boolean moveEvent(Player o){
-		//System.out.printf("OPENER::moveEvent: \t");
+
+		// we open it, or not
 		if( o != null ){
-			//System.out.printf("Player moved to an Opener.\n");
 			door.open(true);
 			return true;
 		} else {
-			//System.out.printf("Player has stepped off from an Opener\n");
 			if(weightCount < weightLimit){
 				door.open(false);
 			}
@@ -79,10 +76,12 @@ public final class Opener extends Placeable {
 		}
 	};
 
+	// We can step to the opener
 	public final boolean moveEvent(Replicator rep) {
 		return true;
 	}
 
+	// Return with the number of boxes
 	public int boxCount() {
 		return boxList.size();
 	}
