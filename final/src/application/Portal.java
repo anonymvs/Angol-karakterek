@@ -100,6 +100,7 @@ public class Portal {
     	LevelEntity e = wall.getNeighbour(dir);
     	e.setNeighbour(dir.inverse(), wall);
     	wall.closePortal();
+    	e.setMissileDirection(null);
     }
 
     /**
