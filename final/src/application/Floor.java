@@ -206,16 +206,16 @@ public final class Floor extends LevelEntity {
 
     public final void draw(View view, int x, int y) {
 		// First draw simple floor
-    	view.drawFloor(x, y);
-    	
-    	// Secondly draw ZPM (everything else hides it)
-    	if(zpm != null) {
-    		zpm.draw(view, x, y);
-    	}
+    	view.drawFloor(x, y);    	
     	
     	// Draw the placed object
     	if(placed != null) {
     		placed.draw(view, x, y);
+    	}
+    	
+    	// draw ZPM (everything else hides it)
+    	if(zpm != null) {
+    		zpm.draw(view, x, y);
     	}
     	
     	// Draw only replicator
@@ -231,5 +231,10 @@ public final class Floor extends LevelEntity {
     	if(missile != null) {
     		missile.draw(view, x, y);
     	}
+	}
+
+	@Override
+	public boolean canPutZPM() {
+		return true;
 	}
 }

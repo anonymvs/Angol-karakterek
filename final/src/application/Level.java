@@ -318,17 +318,17 @@ public class Level {
     }
 
     // Decrease the number of zpms on level
-    public void decreaseZPM() {
-    	zpmCount--;
-    	if(zpmCount == 0 ){    		
-    		endOfGame();
-    	}
-    	
+    public void decreaseZPM() {    	
     	if(zpmCreaterCount == 2) {
     		createRandZpm(); 
     		zpmCreaterCount = 0;
     	}
     	zpmCreaterCount++;
+    	
+    	zpmCount--;
+    	if(zpmCount == 0 ){    		
+    		endOfGame();
+    	}
     }
     
     // Creates random zpm

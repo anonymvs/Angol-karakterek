@@ -22,6 +22,9 @@ public abstract class LevelEntity implements IDrawable {
 
     // Defines what we have to do with a missile
     public abstract boolean missileAction(Missile missile);
+    
+    // Determines if we can create a zpm there
+    abstract public boolean canPutZPM();
 
     // Returns with the neighbour object, in Direction dir
     public LevelEntity getNeighbour(Direction dir) {

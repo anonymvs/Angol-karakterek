@@ -70,4 +70,9 @@ public class Wall extends LevelEntity implements IDrawable {
         }
 	}
 
+	@Override
+	public boolean canPutZPM() {
+		return false;
+	}
+
 }

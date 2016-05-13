@@ -37,4 +37,9 @@ public class Chasm extends LevelEntity {
 		if(missile != null)
 			view.drawMissile(x, y, missile.getColor());
 	}
+
+	@Override
+	public boolean canPutZPM() {
+		return false;
+	}
 }
