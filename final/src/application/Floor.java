@@ -142,14 +142,14 @@ public final class Floor extends LevelEntity {
 		return canMove;
 	}
 
+    // Defines what we have to do, if player want pick up, or drop box
     public final boolean boxAction(Player o, Box b){
-        //System.out.println("FLOOR::boxAction:\t This Floor's box action has been called.");
-    	
+        
+    	// if we added box, we drop it
     	if(b != null) {
-    		//System.out.println("FLOOR::boxAction:\t ONeil is trying to drop down a box.");
+    		// if there aren't placed, to floor
     		if(placed == null)
         	{
-        		//System.out.println("FLOOR::boxAction: ONeil successfully put down the box.");
         		placed = b;
         		return true;
         	}
@@ -159,16 +159,14 @@ public final class Floor extends LevelEntity {
         	return canBox;
     		
     	}
+    	// if we didn't add box, we try to pick up
     	else {
-            //System.out.println("FLOOR::boxAction:\t ONeil is trying to pick up a box.");            
             if (placed == null) {
-            	//System.out.println("FLOOR::boxAction:\t There is no placed object, therefore can't pick up a box.");
             	return false;
             }
             
     		boolean bool = placed.boxEvent(o, b);
             if (bool) {
-                //System.out.println("FLOOR::boxAction:\t The Box isn't on the Floor anymore.");
                 placed = null;
             }
     		return false;
