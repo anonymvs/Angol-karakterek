@@ -1,10 +1,9 @@
 package application;
 
-/**
- * 
- */
+// Abstract class represents level's one element
 public abstract class LevelEntity implements IDrawable {
 
+	// Neighbour elements, missile, and it's direction
 	protected LevelEntity north = null;
     protected LevelEntity south = null;
     protected LevelEntity west = null;
@@ -12,23 +11,13 @@ public abstract class LevelEntity implements IDrawable {
     protected Missile missile = null;
     protected Direction missileDir = null;
 
-    /**
-     * @param oneill - an instance of Player
-     * @return
-     */
+    // Defines what we have to do, if a player wants to step to the element
     public abstract boolean moveAction(Player oneill);
 
-	/**
-	 * @param rep - an instance of Replicator
-	 * @return
-	 */
+    // Defines what we have to do, if a replicator wants to step to the element
 	public abstract boolean moveAction(Replicator rep);
 
-    /**
-     * @param oneill - an instance of Player
-     * @param box - an instance of a Box
-     * @return
-     */
+	// Defines what we have to do, if a player wants to pick up or drop box
     public abstract boolean boxAction(Player oneill, Box box);
 
     // Defines what we have to do with a missile
@@ -50,7 +39,8 @@ public abstract class LevelEntity implements IDrawable {
 	    		return null;
     	}
     }
-
+    
+    // Return with the array of neighbours
 	public LevelEntity[] getNeighbourArray() {
 		LevelEntity[] list = new LevelEntity[4];
 		list[0] = east;
@@ -60,10 +50,7 @@ public abstract class LevelEntity implements IDrawable {
 		return list;
 	}
 
-    /**
-     * @param dir
-     * @param entity
-     */
+    // Set the elements neighbour in a direction
     public void setNeighbour(Direction dir, LevelEntity entity) {
     	switch (dir)
     	{
@@ -82,17 +69,17 @@ public abstract class LevelEntity implements IDrawable {
     	}
     }
 
-    /**
-     * @param m
-     */
+    // Set the missile of the element
     public void setMissile(Missile m) {
         missile = m;
     }
     
+    // Set the missiles direction on the element
     public void setMissileDirection(Direction dir) {
     	missileDir = dir;
     }
 
+    // Return true if element has missile over it
 	public boolean hasMissile() {
 		if(missile != null) {
 			return true;
