@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -36,14 +37,17 @@ public class Level {
     private void createTimer() {
     	timer = new Timer();
     	
-    	TimerTask tt = new TimerTask() {
-            @Override
-            public void run() {
-            	timeUp = true;
-            	endOfGame();
-            }
-        };
-        timer.schedule(tt, 5000);
+    	timer.schedule(new TimerTask() {
+    		@Override
+		    public void run() {
+			    Platform.runLater(new Runnable() {
+			       public void run() {
+		               	timeUp = true;
+		               	endOfGame();
+			      }
+			    });
+			}
+		}, 30*1000); // Timer expires after 30 seconds
     }
 
     // Load a level from path
