@@ -10,6 +10,7 @@ public abstract class LevelEntity implements IDrawable {
     protected LevelEntity west = null;
     protected LevelEntity east = null;
     protected Missile missile = null;
+    protected Direction missileDir = null;
 
     /**
      * @param oneill - an instance of Player
@@ -86,6 +87,10 @@ public abstract class LevelEntity implements IDrawable {
      */
     public void setMissile(Missile m) {
         missile = m;
+    }
+    
+    public void setMissileDirection(Direction dir) {
+    	missileDir = dir;
     }
 
 	public boolean hasMissile() {

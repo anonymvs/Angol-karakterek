@@ -160,8 +160,7 @@ public final class Floor extends LevelEntity {
     		
     	}
     	else {
-            //System.out.println("FLOOR::boxAction:\t ONeil is trying to pick up a box.");
-            
+            //System.out.println("FLOOR::boxAction:\t ONeil is trying to pick up a box.");            
             if (placed == null) {
             	//System.out.println("FLOOR::boxAction:\t There is no placed object, therefore can't pick up a box.");
             	return false;
@@ -184,7 +183,19 @@ public final class Floor extends LevelEntity {
     		return false;
     	}
     	
-    	return true;
+    	// Change the direction of the missile if it's near a portal
+    	if(missileDir != null) {
+    		if(mis.isTeleporting()) {
+    			mis.setDirection(missileDir);
+    			mis.setTeleporting(false);
+    		}
+    		else
+    			mis.setTeleporting(true);
+    	}
+    	
+    	if(placed == null)
+    		return true;
+    	return placed.missileEvent();
     }
 
     // Return that we have box on the floor or not

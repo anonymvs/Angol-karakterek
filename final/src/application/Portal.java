@@ -30,7 +30,9 @@ public class Portal {
 			
 			if(bluePortal != null) {
 				LevelEntity myNeighbour = wall.getNeighbour(dir);
+				myNeighbour.setMissileDirection(dir);
 				LevelEntity blueNeighbour = bluePortal.getWallNeighbour(bluePortal.getDirection());
+				blueNeighbour.setMissileDirection(bluePortal.getDirection());
 				
 				myNeighbour.setNeighbour(dir.inverse(), blueNeighbour);
 				blueNeighbour.setNeighbour(bluePortal.getDirection().inverse(), myNeighbour);
@@ -46,7 +48,9 @@ public class Portal {
     		
     		if(yellowPortal != null) {
 				LevelEntity myNeighbour = wall.getNeighbour(dir);
+				myNeighbour.setMissileDirection(dir);
 				LevelEntity yellowNeighbour = yellowPortal.getWallNeighbour(yellowPortal.getDirection());
+				yellowNeighbour.setMissileDirection(yellowPortal.getDirection());
 				
 				myNeighbour.setNeighbour(dir.inverse(), yellowNeighbour);
 				yellowNeighbour.setNeighbour(yellowPortal.getDirection().inverse(), myNeighbour);
@@ -62,10 +66,12 @@ public class Portal {
 
 			if(greenPortal != null) {
 				LevelEntity myNeighbour = wall.getNeighbour(dir);
-				LevelEntity blueNeighbour = greenPortal.getWallNeighbour(greenPortal.getDirection());
+				myNeighbour.setMissileDirection(dir);
+				LevelEntity greenNeighbour = greenPortal.getWallNeighbour(greenPortal.getDirection());
+				greenNeighbour.setMissileDirection(greenPortal.getDirection());
 
-				myNeighbour.setNeighbour(dir.inverse(), blueNeighbour);
-				blueNeighbour.setNeighbour(greenPortal.getDirection().inverse(), myNeighbour);
+				myNeighbour.setNeighbour(dir.inverse(), greenNeighbour);
+				greenNeighbour.setNeighbour(greenPortal.getDirection().inverse(), myNeighbour);
 			}
 		}
 		if(m.getColor() == MissileColor.Green) {
@@ -77,10 +83,12 @@ public class Portal {
 
 			if(redPortal != null) {
 				LevelEntity myNeighbour = wall.getNeighbour(dir);
-				LevelEntity blueNeighbour = redPortal.getWallNeighbour(redPortal.getDirection());
+				myNeighbour.setMissileDirection(dir);
+				LevelEntity redNeighbour = redPortal.getWallNeighbour(redPortal.getDirection());
+				redNeighbour.setMissileDirection(redPortal.getDirection());
 
-				myNeighbour.setNeighbour(dir.inverse(), blueNeighbour);
-				blueNeighbour.setNeighbour(redPortal.getDirection().inverse(), myNeighbour);
+				myNeighbour.setNeighbour(dir.inverse(), redNeighbour);
+				redNeighbour.setNeighbour(redPortal.getDirection().inverse(), myNeighbour);
 			}
 		}
     }

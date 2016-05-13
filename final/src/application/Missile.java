@@ -9,6 +9,7 @@ public class Missile implements IDrawable {
     private MissileTimer timer;
     private MissileColor color;
     private LevelEntity tile = null;
+    private boolean tping = false;
 
     public Missile(MissileColor c, Direction d, Level level) {
         dir = d;
@@ -18,6 +19,14 @@ public class Missile implements IDrawable {
     
     public void stop() {
     	timer.stop();
+    }
+    
+    public boolean isTeleporting() {
+    	return tping;
+    }
+    
+    public void setTeleporting(boolean t) {
+    	tping = t;
     }
 
     public boolean move() {
