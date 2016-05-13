@@ -32,7 +32,7 @@ public class MissileTimer extends java.util.Timer{
             	l.draw();
             }
         };
-        t.schedule(tt, 3000, 3000);
+        t.schedule(tt, 250, 250);
     }
     
     public void stop() {
