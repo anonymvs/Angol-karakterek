@@ -1,6 +1,6 @@
 package application;
 
-//Class represents a player
+// Class represents a player
 public class Player implements IDrawable {
 
     // Players parametes, direction, holded box, floor, type, alive, or not

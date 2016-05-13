@@ -9,14 +9,12 @@ public class ZPM implements IDrawable {
 
     // Create a zpm to a level
     public ZPM(Level l) {
-    	//System.out.println("ZPM::Zpm:\t A ZPM just occured on the map");
-        level = l;
+    	level = l;
     }
 
     // collect the zpm
     public void collect() {
-    	//System.out.println("ZPM::collect:\t The count of the ZPM-s on this level has been decreased.");
-        level.decreaseZPM();
+    	level.decreaseZPM();
     }
 
 	@Override

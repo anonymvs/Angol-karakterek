@@ -1,6 +1,6 @@
 package application;
 
-//Class represents a wall
+// Class represents a wall
 public class Wall extends LevelEntity implements IDrawable {
 
 	// We can make portal on it, or not, and it's reference
