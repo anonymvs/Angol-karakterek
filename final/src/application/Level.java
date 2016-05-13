@@ -14,7 +14,7 @@ import javafx.scene.control.Alert.AlertType;
 //Class represents a level
 public class Level {
 
-	// Levelentities, timer, zpm, width, height, view
+	// Levelentities, timer, zpm, level's  width and height, view
     public ArrayList<ArrayList<LevelEntity>> ls = new ArrayList<>();
     private Timer timer;
     private int zpmCount = 0;
@@ -22,12 +22,6 @@ public class Level {
     private int width = 0; // Level width
     private int height = 0; // Level height
     private View view = null;
-    
-    /**
-     * Default constructor
-     */
-    public Level() {
-    }
     
     public void setView(View v) {
     	view = v;
