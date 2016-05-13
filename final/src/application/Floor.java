@@ -54,7 +54,7 @@ public final class Floor extends LevelEntity {
         return placed;
     }
 
-    // Defines what we have to do, if someone wants to step on a floor
+    // Defines what we have to do, if player wants to step on a floor
     public final boolean moveAction(Player o){
 
     	// if someone on the floor, we can't step here
@@ -97,14 +97,16 @@ public final class Floor extends LevelEntity {
     	return canMove;
     };
 
-	public final boolean moveAction(Replicator rep){
-		// If there nothing placed on the floor then Player can move here
+    // Defines what we have to do, if replicator wants to step on a floor
+    public final boolean moveAction(Replicator rep){
+		
+    	// if there nothing placed on the floor then Player can move here
 		if(placed == null) {
 			rep.getFloor().setRepl(null);
             rep.setFloor(this);
             repl = rep;
             
-            // If replicator moved into a missile kill him
+            // if replicator moved into a missile kill him
             if(missile != null) {
             	repl.kill();
             	missile.stop();
@@ -114,19 +116,22 @@ public final class Floor extends LevelEntity {
 			return true;
 		}
 		
-		boolean canMove = placed.moveEvent(rep);
+		// we ask the placed object that we can step here or not
+    	boolean canMove = placed.moveEvent(rep);
+    	// we can step only if there are no player
         if(player != null) {
             return false;
         }
-
-		if(canMove)
+        
+        // if replicator can move it moves here
+    	if(canMove)
 		{
-			//Repl is free to move;
+			//repl is free to move;
 			rep.getFloor().setRepl(null);
 			rep.setFloor(this);
 			repl = rep;
 			
-			// If replicator moved into a missile kill him
+			// if replicator moved into a missile kill him
             if(missile != null) {
             	repl.kill();
             	missile.stop();
@@ -137,11 +142,6 @@ public final class Floor extends LevelEntity {
 		return canMove;
 	}
 
-    /**
-     * @param o - an instance of Player
-     * @param b - an instance of a Box
-     * @return
-     */
     public final boolean boxAction(Player o, Box b){
         //System.out.println("FLOOR::boxAction:\t This Floor's box action has been called.");
     	
@@ -176,10 +176,7 @@ public final class Floor extends LevelEntity {
     	}    	
     }
 
-    /**
-     * @param mis - an instance of a Missile
-     * @return
-     */
+    // Defines what we have to do, if missile wants to fly over a floor
     public final boolean missileAction(Missile mis) {
     	// Missile hits replicator and it dies
     	if(repl != null) {
@@ -187,11 +184,10 @@ public final class Floor extends LevelEntity {
     		return false;
     	}
     	
-    	if(placed == null)
-    		return true;
-    	return placed.missileEvent();
+    	return true;
     }
 
+    // Return that we have box on the floor or not
     public boolean hasBox() {
         if(placed != null) {
             if (placed.getClass().getSimpleName().equals("Box")) return true;
