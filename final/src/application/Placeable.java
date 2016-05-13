@@ -19,4 +19,6 @@ public abstract class Placeable implements IDrawable {
     public abstract boolean moveEvent(Player o);
 
     public abstract boolean moveEvent(Replicator rep);
+    
+    public abstract boolean missileEvent();
 }

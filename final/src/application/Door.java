@@ -44,4 +44,9 @@ public final class Door extends Placeable {
 			view.drawDoorClosed(x, y);
 	}
 
+	@Override
+	public boolean missileEvent() {
+		return opened;
+	}
+
 }

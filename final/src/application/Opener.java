@@ -100,4 +100,9 @@ public final class Opener extends Placeable {
 		view.drawBox(x, y, boxList.size());
 	}
 
+	@Override
+	public boolean missileEvent() {
+		return true;
+	}
+
 }

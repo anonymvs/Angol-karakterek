@@ -187,7 +187,9 @@ public final class Floor extends LevelEntity {
     		return false;
     	}
     	
-    	return true;
+    	if(placed == null)
+    		return true;
+    	return placed.missileEvent();
     }
 
     public boolean hasBox() {

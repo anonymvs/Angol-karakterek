@@ -40,4 +40,9 @@ public final class Box extends Placeable {
 	public void draw(View view, int x, int y) {
 		view.drawBox(x, y);		
 	}
+
+	@Override
+	public boolean missileEvent() {
+		return true;
+	}
 }
