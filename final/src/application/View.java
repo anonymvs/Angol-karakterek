@@ -73,6 +73,14 @@ public class View extends Canvas {
         });
 	}
 	
+	public void setONeill(Player o) {
+		oneill = o;
+	}
+	
+	public void setJaffa(Player j) {
+		jaffa = j;
+	}
+	
 	// Draw floor
 	void drawFloor(int x, int y) {
 		gc.drawImage(imgFloor, x * gridSize, y * gridSize);
@@ -284,6 +292,9 @@ public class View extends Canvas {
 			oneill = null;
 		if(jaffa != null && !jaffa.isAlive())
 			jaffa = null;
+		
+		if(oneill == null && jaffa == null)
+			level.endOfGame();
 		
 		// redraw level
 		level.draw();

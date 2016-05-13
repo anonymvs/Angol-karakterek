@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Timer;
+import java.util.TimerTask;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -22,14 +23,33 @@ public class Level {
     private int width = 0; // Level width
     private int height = 0; // Level height
     private View view = null;
+    private int zpmJaffa = 0;
+    private int zpmONeill = 0;
+    private String origiPath = null;
+    private boolean timeUp = false;
     
     // Set the level's view
     public void setView(View v) {
     	view = v;
     }
+    
+    private void createTimer() {
+    	timer = new Timer();
+    	
+    	TimerTask tt = new TimerTask() {
+            @Override
+            public void run() {
+            	timeUp = true;
+            	endOfGame();
+            }
+        };
+        timer.schedule(tt, 5000);
+    }
 
     // Load a level from path
     public void load(String path, Player oneill, Player jaffa) {
+    	
+    	origiPath = path;
     	
         try{
         	// create reader
@@ -156,6 +176,7 @@ public class Level {
 	        
 	        height = ls.size();
 	        width = ls.get(0).size();
+	        createTimer();
         } catch(Exception e){
 	    	e.printStackTrace();
 	    }
@@ -314,19 +335,42 @@ public class Level {
      * 
      */
     public void reset() {
-        // TODO implement here
+    	// Clear the game entity list and reload from the previous file
+    	ls.clear();
+    	// Create both players
+    	Player oneill = new Player(PlayerType.ONeill);
+        Player jaffa = new Player(PlayerType.Jaffa);
+    	load(origiPath, oneill, jaffa);
+    	// Set the necessary player references for the view
+    	view.setONeill(oneill);
+    	view.setJaffa(jaffa);
+    	// Reset level properties
+    	zpmCreaterCount = 0;
+    	zpmCount = 0;
+    	zpmONeill = 0;
+    	zpmJaffa = 0;
+    	timeUp = false;
     }
 
     // Decrease the number of zpms on level
-    public void decreaseZPM() {    	
+    public void decreaseZPM(PlayerType pt) {    
+    	// Create new zpm in a random place
     	if(zpmCreaterCount == 2) {
     		createRandZpm(); 
     		zpmCreaterCount = 0;
     	}
     	zpmCreaterCount++;
     	
+    	// Increase the zpm count for players
+    	if(pt == PlayerType.ONeill) {
+    		zpmONeill++;
+    	} else {
+    		zpmJaffa++;
+    	}
+    	
+    	// Decrease the remaining zpm count
     	zpmCount--;
-    	if(zpmCount == 0 ){    		
+    	if(zpmCount == 0) {
     		endOfGame();
     	}
     }
@@ -342,7 +386,7 @@ public class Level {
     		int x = rand.nextInt(ls.get(y).size());
     		randEntity = ls.get(y).get(x);
     		
-    		if(randEntity instanceof Floor) {
+    		if(randEntity.canPutZPM()) {
     			Floor randFloor = (Floor)randEntity;
     			if(randFloor.getZPM() == null) {
     				randFloor.setZPM(this);
@@ -356,26 +400,38 @@ public class Level {
     // Defines the end of the game
     public void endOfGame() {
     	
+    	if(timer != null)
+    		timer.cancel();
+    	
     	// Send an alert 
     	Alert alert = new Alert(AlertType.INFORMATION);
-    	alert.setTitle("");
+    	alert.setTitle("Game Over");
     	alert.setHeaderText(null);
-    	alert.setContentText("GAME OVER");
+    	
+    	// Determines who has won
+    	String playerWin = null;
+    	if(zpmONeill > zpmJaffa) {
+    		playerWin = new String("O'Neill has won!");
+    	} else if (zpmJaffa > zpmONeill) {
+    		playerWin = new String("Jaffa has won!");
+    	} else {
+    		playerWin = new String("LZ has won!");
+    	}
+    	
+    	// Determines the cause for game over
+    	if(timeUp) {
+        	alert.setContentText("Time is up!\n" + playerWin + "\nO'Neill ZPM Count: " + zpmONeill + "\nJaffa ZPM Count: " + zpmJaffa);
+    	} else if(zpmCount == 0) {
+        	alert.setContentText("All zpms have been collected!\n" + playerWin + "\nO'Neill ZPM Count: " + zpmONeill + "\nJaffa ZPM Count: " + zpmJaffa);
+    	} else {
+        	alert.setContentText("Both players have perished!\n" + playerWin + "\nO'Neill ZPM Count: " + zpmONeill + "\nJaffa ZPM Count: " + zpmJaffa);
+    	}
 
+    	// Show pop-up window
     	alert.showAndWait();
         reset();
     }
-
     
-    // Set a wall to portalable
-    public void setWallPortalable(int argx, int argy) {
-        int x = argx - 1;
-        int y = argy - 1;
-        if(ls.get(y).get(x).getClass().getSimpleName().equals("Wall")){
-            Wall tmp = new Wall(true);
-            addToLevel(tmp, x, y);
-        }
-    }
 
     public synchronized void draw() {
     	
@@ -384,38 +440,6 @@ public class Level {
     			ls.get(i).get(j).draw(view, j, i);
     		}
     	}
-        /*for(int i = 0; i < ls.size(); ++i) {
-            recursiveDraw(ls.get(i).get(0), 0);
-        }*/
-    }
-
-    /*private void recursiveDraw(LevelEntity le, int index) {
-        if(index == width - 1) {
-            System.out.print("\n");
-            return;
-        }
-        le.draw();
-        recursiveDraw(le.getNeighbour(Direction.Right), index++);
-    }*/
-
-    public String generateLists() {
-        String boxes = "";
-        String missiles = "";
-        for(int i = 0; i < ls.size(); ++i) {
-            for(int j = 0; j < ls.get(i).size(); ++j) {
-                if(ls.get(i).get(j) instanceof Floor) {
-                    Floor f = (Floor) ls.get(i).get(j);
-                    if(f.hasBox()) {
-                        boxes = boxes + "(" + Integer.toString(j + 1) + ", " + Integer.toString(i + 1) + "), ";
-                    }
-                }
-                if(ls.get(i).get(j).hasMissile()) {
-                    missiles = missiles + "(" + Integer.toString(j + 1) + ", " + Integer.toString(i + 1) + "), ";
-                }
-            }
-        }
-        String ret = "Boxes: " + boxes + "\nMissiles: " + missiles + "\n";
-        return ret;
     }
     
     // Return with the level's width

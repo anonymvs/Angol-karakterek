@@ -55,7 +55,7 @@ public final class Floor extends LevelEntity {
     }
 
     // Defines what we have to do, if player wants to step on a floor
-    public final boolean moveAction(Player o){
+    public final boolean moveAction(Player p){
 
     	// if someone on the floor, we can't step here
     	if(player != null){
@@ -64,12 +64,12 @@ public final class Floor extends LevelEntity {
     	
     	// if there nothing placed on the floor then Player can move here
     	if(placed == null) {
-			setPlayer(o);
-            o.getFloor().setPlayer(null);
+			setPlayer(p);
+            p.getFloor().setPlayer(null);
             
             // if there is zpm on the floor, we collect it
             if(zpm != null) {
-                zpm.collect();
+                zpm.collect(p.getType());
                 zpm = null;
             }
             
@@ -77,18 +77,18 @@ public final class Floor extends LevelEntity {
         }
  
     	// we ask the placed object that we can step here or not
-    	boolean canMove = placed.moveEvent(o);
+    	boolean canMove = placed.moveEvent(p);
  
     	// if we can move then Player move here
     	if(canMove)
     	{
-            o.getFloor().setPlayer(null);
-    		o.setFloor(this);
-    		player = o;
+            p.getFloor().setPlayer(null);
+    		p.setFloor(this);
+    		player = p;
     		
     		// if there is zpm on the floor, we collect it
     		if(zpm != null) {
-    			zpm.collect();
+    			zpm.collect(p.getType());
                 zpm = null;
     		}
     	}
@@ -199,7 +199,8 @@ public final class Floor extends LevelEntity {
     // Return that we have box on the floor or not
     public boolean hasBox() {
         if(placed != null) {
-            if (placed.getClass().getSimpleName().equals("Box")) return true;
+            if (placed.getClass().getSimpleName().equals("Box"))
+            	return true;
         }
         return false;
     }
@@ -213,11 +214,6 @@ public final class Floor extends LevelEntity {
     		placed.draw(view, x, y);
     	}
     	
-    	// draw ZPM (everything else hides it)
-    	if(zpm != null) {
-    		zpm.draw(view, x, y);
-    	}
-    	
     	// Draw only replicator
     	if(repl != null) {
     		repl.draw(view, x, y);
@@ -226,6 +222,11 @@ public final class Floor extends LevelEntity {
     	// Draw player
     	if(player != null) {
     		player.draw(view, x, y);
+    	}
+    	
+    	// draw ZPM (everything else hides it)
+    	if(zpm != null) {
+    		zpm.draw(view, x, y);
     	}
     	
     	if(missile != null) {

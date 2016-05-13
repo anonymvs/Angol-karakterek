@@ -13,8 +13,8 @@ public class ZPM implements IDrawable {
     }
 
     // collect the zpm
-    public void collect() {
-    	level.decreaseZPM();
+    public void collect(PlayerType pt) {
+    	level.decreaseZPM(pt);
     }
 
 	@Override
