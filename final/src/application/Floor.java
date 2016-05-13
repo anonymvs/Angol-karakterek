@@ -93,10 +93,8 @@ public final class Floor extends LevelEntity {
     };
 
 	public final boolean moveAction(Replicator rep){
-		//System.out.println("FLOOR::moveAction:\t This Floor's move action has been called.");
 		// If there nothing placed on the floor then Player can move here
 		if(placed == null) {
-			//System.out.println("FLOOR::moveAction:\t Yes, there is no object on this Floor.");
 			rep.getFloor().setRepl(null);
             rep.setFloor(this);
             repl = rep;
@@ -110,7 +108,7 @@ public final class Floor extends LevelEntity {
             
 			return true;
 		}
-		//System.out.println("FLOOR::moveAction:\t Something is on this Floor, better check that out.");
+		
 		boolean canMove = placed.moveEvent(rep);
         if(player != null) {
             return false;

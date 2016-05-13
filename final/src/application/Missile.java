@@ -17,7 +17,7 @@ public class Missile implements IDrawable {
     }
     
     public void stop() {
-    	timer.cancel();
+    	timer.stop();
     }
 
     public boolean move() {
