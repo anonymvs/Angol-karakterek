@@ -11,11 +11,10 @@ import javafx.scene.control.Alert.AlertType;
 
 
 
-/**
- * 
- */
+//Class represents a level
 public class Level {
 
+	// Levelentities, timer, zpm, width, height, view
     public ArrayList<ArrayList<LevelEntity>> ls = new ArrayList<>();
     private Timer timer;
     private int zpmCount = 0;
