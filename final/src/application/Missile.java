@@ -10,7 +10,7 @@ public class Missile implements IDrawable {
     private LevelEntity tile = null;
     private boolean tping = false;
 
-    // Create a missile, with timer
+    // Create a missile, with its own timer
     public Missile(MissileColor c, Direction d, Level level) {
         dir = d;
         color = c;

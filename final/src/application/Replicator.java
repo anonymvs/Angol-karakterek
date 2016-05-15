@@ -7,7 +7,7 @@ import java.util.TimerTask;
 //Class represents a replicator
 public class Replicator implements IDrawable {
 	
-	// Replicator parametes, direction, floor, level, timer
+	// Replicators parametes, direction, floor, level, timer
     private Direction dir;
     private Floor floor = null;
     private Level lvl;
@@ -22,7 +22,7 @@ public class Replicator implements IDrawable {
         dir = Direction.Right;
         timer = new Timer();
         
-        // create timer, it will step replicator
+        // create timer, it will move replicator
         TimerTask tt = new TimerTask() {
             @Override
             public void run() {
@@ -35,7 +35,7 @@ public class Replicator implements IDrawable {
     // Replicator's random move
     private void randMove() {
     	
-    	// creates a random number, and choose a direction
+    	// creates a random number, and chooses a direction
         Random rand = new Random();
     	int randomNum = rand.nextInt((4 - 1) + 1) + 1;
         switch (randomNum) {
@@ -54,40 +54,40 @@ public class Replicator implements IDrawable {
         }
     }
 
-    // Replicator's move (after random direction)
+    // Replicator moves (in a random direction)
     public void move(Direction dir) {
         
-    	// step end redraw level
+    	// move, and redraw level
     	LevelEntity entity = floor.getNeighbour(dir);
         this.dir = dir;
         boolean b = entity.moveAction(this);
         lvl.draw();
     }
 
-    // If replicator step into chasm create floor
+    // If replicator moves into a chasm, create floor in its place
     public void replicate(Chasm ch) {
         kill();
         
-        // call levels function to change chasm to floor
+        // call levels function, to change chasm into a floor
         lvl.replicatorReplicated(ch);
         lvl.draw();
     }
     
-    // Kill the replicator
+    // Eliminate the replicator
     public void kill() {
     	
-    	// set references null, stop timer
+    	// set references to null, stop timer
     	floor.setRepl(null);
     	floor = null;
     	timer.cancel();
     }
 
-    // Return with the floor replicator stands on
+    // Returns the floor the replicator stands on
     public Floor getFloor() {
         return floor;
     }
 
-    // Set the floor replicator stands on
+    // Sets the floor the replicator stands on
     public void setFloor(Floor f) {
         floor = f;
     }    

@@ -3,13 +3,13 @@ package application;
 //Class represents a floor
 public final class Floor extends LevelEntity {
 
-	// The possible objects in the floor
+	// The possible objects that can be on the floor
 	private Player player = null;
 	private Replicator repl = null;
     private Placeable placed = null;
     private ZPM zpm = null;
 	
-	// Create a floor to a level, and set it's zpm
+	// Create a floor on the level, and set it's zpm
     public Floor(Level l, boolean z) {
 		if(z) {
 			zpm = new ZPM(l);
@@ -21,7 +21,7 @@ public final class Floor extends LevelEntity {
 		zpm = new ZPM(lvl);
 	}
 
-    // Get if there is a zpm on the floor
+    // Returns ZPM, if there is one on the floor
 	public ZPM getZPM() {
 		return zpm;
 	}
@@ -54,7 +54,7 @@ public final class Floor extends LevelEntity {
         return placed;
     }
 
-    // Defines what we have to do, if player wants to step on a floor
+    // Defines what happens, if player wants to step on a floor
     public final boolean moveAction(Player p){
 
     	// if someone on the floor, we can't step here
@@ -62,12 +62,12 @@ public final class Floor extends LevelEntity {
     		return false;
     	}
     	
-    	// if there nothing placed on the floor then Player can move here
+    	// if there nothing placed on the floor then the Player can move there
     	if(placed == null) {
 			setPlayer(p);
             p.getFloor().setPlayer(null);
             
-            // if there is zpm on the floor, we collect it
+            // if there is zpm on the floor, the Player collects it
             if(zpm != null) {
                 zpm.collect(p.getType());
                 zpm = null;
@@ -76,17 +76,17 @@ public final class Floor extends LevelEntity {
             return true;
         }
  
-    	// we ask the placed object that we can step here or not
+    	// we ask the placed object if we can step there or not
     	boolean canMove = placed.moveEvent(p);
  
-    	// if we can move then Player move here
+    	// if it si possible, the Player moves here
     	if(canMove)
     	{
             p.getFloor().setPlayer(null);
     		p.setFloor(this);
     		player = p;
     		
-    		// if there is zpm on the floor, we collect it
+    		// if there is zpm on the floor, the Player collects it
     		if(zpm != null) {
     			zpm.collect(p.getType());
                 zpm = null;
@@ -97,16 +97,16 @@ public final class Floor extends LevelEntity {
     	return canMove;
     };
 
-    // Defines what we have to do, if replicator wants to step on a floor
+    // Defines what happens, if the replicator wants to step on a floor
     public final boolean moveAction(Replicator rep){
 		
-    	// if there nothing placed on the floor then Player can move here
+    	// if there nothing placed on the floor then the Replicator can move here
 		if(placed == null) {
 			rep.getFloor().setRepl(null);
             rep.setFloor(this);
             repl = rep;
             
-            // if replicator moved into a missile kill him
+            // if replicator moved into a missile eliminate it
             if(missile != null) {
             	repl.kill();
             	missile.stop();
@@ -116,22 +116,22 @@ public final class Floor extends LevelEntity {
 			return true;
 		}
 		
-		// we ask the placed object that we can step here or not
+		// Returns true, if the Replicator can move here
     	boolean canMove = placed.moveEvent(rep);
-    	// we can step only if there are no player
+    	// Replicator can only move here, if there is no Player on the field
         if(player != null) {
             return false;
         }
         
-        // if replicator can move it moves here
+        // Moves Replicator here, if it can
     	if(canMove)
 		{
-			//repl is free to move;
+			// Replicator is free to move;
 			rep.getFloor().setRepl(null);
 			rep.setFloor(this);
 			repl = rep;
 			
-			// if replicator moved into a missile kill him
+			// If the Replicator moves into the missile, eliminate it
             if(missile != null) {
             	repl.kill();
             	missile.stop();
@@ -142,12 +142,12 @@ public final class Floor extends LevelEntity {
 		return canMove;
 	}
 
-    // Defines what we have to do, if player want pick up, or drop box
+    // Defines what happens, if a Player wants to pick up, or drop a box
     public final boolean boxAction(Player o, Box b){
         
-    	// if we added box, we drop it
+    	// if the Player has a box, he drops it
     	if(b != null) {
-    		// if there aren't placed, to floor
+    		// if there aren't boxes placed on the floor, he places it
     		if(placed == null)
         	{
         		placed = b;
@@ -159,7 +159,7 @@ public final class Floor extends LevelEntity {
         	return canBox;
     		
     	}
-    	// if we didn't add box, we try to pick up
+    	// if the Player didn't have a box, he tries to pick one up
     	else {
             if (placed == null) {
             	return false;
@@ -173,7 +173,7 @@ public final class Floor extends LevelEntity {
     	}    	
     }
 
-    // Defines what we have to do, if missile wants to fly over a floor
+    // Defines what happens, if a missile wants to fly over a floor
     public final boolean missileAction(Missile mis) {
     	// Missile hits replicator and it dies
     	if(repl != null) {
@@ -196,7 +196,7 @@ public final class Floor extends LevelEntity {
     	return placed.missileEvent();
     }
 
-    // Return that we have box on the floor or not
+    // Return weather we have a box on the floor or not
     public boolean hasBox() {
         if(placed != null) {
             if (placed.getClass().getSimpleName().equals("Box"))
@@ -214,7 +214,7 @@ public final class Floor extends LevelEntity {
     		placed.draw(view, x, y);
     	}
     	
-    	// Draw only replicator
+    	// Draw the replicator
     	if(repl != null) {
     		repl.draw(view, x, y);
     	}
@@ -228,13 +228,15 @@ public final class Floor extends LevelEntity {
     	if(zpm != null) {
     		zpm.draw(view, x, y);
     	}
-    	
+
+		// draw the missile
     	if(missile != null) {
     		missile.draw(view, x, y);
     	}
 	}
 
 	@Override
+	// ZPM can be placed on the floor
 	public boolean canPutZPM() {
 		return true;
 	}

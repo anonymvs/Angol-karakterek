@@ -3,8 +3,9 @@ package application;
 // Class represents a wall
 public class Wall extends LevelEntity implements IDrawable {
 
-	// We can make portal on it, or not, and it's reference
+	// Show weather portal is portalable or not
     private boolean portalable;
+	// References the portal on the wall
     private Portal portal;
 
     // Creates a wall
@@ -12,44 +13,44 @@ public class Wall extends LevelEntity implements IDrawable {
 		portalable = b;
     }
     
-    // Close the portal on a wall
+    // Closes the portal on a wall
     public void closePortal() {
     	portal = null;
     }
 
 	@Override
-	// We can't step on wall with player
+	// The Player can't step on a wall
 	public final boolean moveAction(Player oneill) {
 		return false;
 	}
 
 	@Override
-	// We can't step on wall with replicator
+	// The replicators can't step on a wall
 	public final boolean moveAction(Replicator rep) {
 		return false;
 	}
 
 	@Override
-	// We can't put box to the wall
+	// The Player can't put a box on a wall
 	public final boolean boxAction(Player oneill, Box box) {
 		return false;
 	}
 
 	@Override
-	// We do it, if a missile arrives
+	// Defines what happens if a missile hits a wall
 	public final boolean missileAction(Missile missile) {
 		
-		// if portalable, we create portal, and stop missile
+		// if its portalable, stop the missile, and create a portal
 		if(portalable) {
 			portal = new Portal(missile, this);
 			missile.stop();
 		}
 		
-		// we can't shoot through wall
+		// missile can't travel through walls
 		return false;
 	}
 
-	// Set to wall's portalable option
+	// Set the wall's portalable option
 	public void setPortalable(boolean b) {
 		portalable = b;
 	}
@@ -71,6 +72,7 @@ public class Wall extends LevelEntity implements IDrawable {
 	}
 
 	@Override
+	// ZPM can't be placed on walls
 	public boolean canPutZPM() {
 		return false;
 	}

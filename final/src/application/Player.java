@@ -3,7 +3,7 @@ package application;
 // Class represents a player
 public class Player implements IDrawable {
 
-    // Players parametes, direction, holded box, floor, type, alive, or not
+    // the Players parametes, direction, holded box, floor, type, alive, or not
     private Direction dir = Direction.Right;
     private Box box;
     private Floor floor;
@@ -15,7 +15,7 @@ public class Player implements IDrawable {
         type = t;
     }
     
-    //  Creates a player to a floor, with a direction
+    //  Creates a player on a floor, with a direction
     public Player(Floor f, Direction dir) {
         floor = f;
         this.dir = dir;
@@ -30,7 +30,7 @@ public class Player implements IDrawable {
     // Move the player in the parameters direction
     public void move(Direction dir) {
        
-        // if we see, and want to walk different direction, rotate the player, else walk
+        // If the Player is looking in the parameters direction, move in that direction, otherwise turn player to that direction
     	if(this.dir != dir){
         	this.dir = dir;
         } else {
@@ -55,18 +55,18 @@ public class Player implements IDrawable {
     	box = b;
     }
 
-    // Kill the player
+    // Eliminate the player
     public void kill() {
     	floor.setPlayer(null);
         alive = false;
     }
     
-    // Return with the state of Player's life
+    // Return the state of Player's life
     public boolean isAlive() {
     	return alive;
     }
     
-    // Return with the Player's floor
+    // Return the Player's floor
     public Floor getFloor() {
     	return floor;
     }
@@ -76,7 +76,7 @@ public class Player implements IDrawable {
     	floor = f;
     }
 
-    // Shoot a missile with the player
+    // Shoot a missile with the players direction
     public void shoot(MissileColor c, Level level) {
     	// only shoot in a valid direction
     	if(dir == null)
@@ -96,7 +96,7 @@ public class Player implements IDrawable {
     	return this.dir;
     }
 
-    // Return that player has box, or not
+    // Return weather player has box, or not
     public boolean hasBox() {
         return box != null;
     }

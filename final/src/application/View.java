@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-// The view will manage the images
+// The view that manages the images
 public class View extends Canvas {
 	
 	// Players, and level
@@ -56,7 +56,7 @@ public class View extends Canvas {
 	// Construct the view object 
 	View(Level level, Player oneill, Player jaffa) {
 		
-		// set the width, and height and sets the players, and level
+		// sets the width, and height and sets the players, and level
 		super(gridSize * level.getWidth(), gridSize * level.getHeight());
 		this.level = level;
 		this.oneill = oneill;
@@ -229,7 +229,7 @@ public class View extends Canvas {
 	private void handleKeyEvent(KeyEvent event) {
 		KeyCode key = event.getCode();
 
-		// oneills keys
+		// O'Neills keys
 		if(oneill != null) {
 			switch(key) {
 			case A:
@@ -258,7 +258,7 @@ public class View extends Canvas {
 			}
 		}
 		
-		// jaffas keys
+		// Jaffas keys
 		if(jaffa != null) {
 			switch (key) {
 			case R:
@@ -287,7 +287,7 @@ public class View extends Canvas {
 			}
 		}
 		
-		// kills oneill, jaffa if it is necessary
+		// Eliminates oneill or jaffa if it is necessary
 		if(oneill != null && !oneill.isAlive())
 			oneill = null;
 		if(jaffa != null && !jaffa.isAlive())

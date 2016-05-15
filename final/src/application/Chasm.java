@@ -4,21 +4,21 @@ package application;
 public class Chasm extends LevelEntity {
     
 	@Override
-	// The chasm kill us, if we step on it
+	// The Player is eliminated, if he steps on a chasm
 	public final boolean moveAction(Player oneill) {
 		oneill.kill();
 		return false;
 	}
 
 	@Override
-	// The chasm change to a floor if replicator step on it
+	// The chasm changes into a floor, if the replicator steps on it
 	public final boolean moveAction(Replicator rep) {
 		rep.replicate(this);
 		return false;
 	}
 
 	@Override
-	// We can put box into the chasm
+	// The Player can put a box into a chasm
 	public final boolean boxAction(Player oneill, Box box) {
 		return true;
 	}
@@ -31,7 +31,7 @@ public class Chasm extends LevelEntity {
 		return true;
 	}
 
-	// Draw a chasm to the x, y coordinate
+	// Draws a chasm to the x, y coordinate
 	public void draw(View view, int x, int y) {
 		view.drawChasm(x, y);
 		if(missile != null)
@@ -39,6 +39,7 @@ public class Chasm extends LevelEntity {
 	}
 
 	@Override
+	// ZPM can not be placed on Floor the contains a box
 	public boolean canPutZPM() {
 		return false;
 	}

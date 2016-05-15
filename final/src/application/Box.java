@@ -2,8 +2,9 @@ package application;
 
 // Class represents a box
 public final class Box extends Placeable {
-    // Weight of box, constructor with weight
+    // The weight of the box
 	private int weight;
+    // Constructor, sets the weight of the box
     public Box(int w) {
         weight = w;
     }
@@ -20,17 +21,17 @@ public final class Box extends Placeable {
         return false;
     };
 
-    // We can step to any box
+    // The Player can step to any box, returns true
     public final boolean moveEvent(Player on) {
         return true;
     };
 
-    // We can step to any box by replicator too
+    // The Player can step on to any box, even with a replicator on it
     public final boolean moveEvent(Replicator rep) {
         return true;
     }
 
-    // Returns with the box weight
+    // Returns the weight of the box
     public int getWeight() {
         return weight;
     }
@@ -42,6 +43,7 @@ public final class Box extends Placeable {
 	}
 
 	@Override
+    // Missiles can travel over boxes
 	public boolean missileEvent() {
 		return true;
 	}

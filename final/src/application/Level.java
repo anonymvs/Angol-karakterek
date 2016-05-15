@@ -33,7 +33,8 @@ public class Level {
     public void setView(View v) {
     	view = v;
     }
-    
+
+	// Creates the timer, which ends the game, if it goes on too long
     private void createTimer() {
     	timer = new Timer();
     	
@@ -47,7 +48,7 @@ public class Level {
 			      }
 			    });
 			}
-		}, 30*1000); // Timer expires after 30 seconds
+		}, 180*1000); // Timer expires after 180 seconds
     }
 
     // Load a level from path
@@ -225,9 +226,11 @@ public class Level {
         return;
     }
 
+	// Add an element to the level
     public void setElement(Player pl, Placeable entity, Replicator replicator, ZPM zpm, int argx, int argy) {
         int x = argx - 1;
         int y = argy - 1;
+		// If there is a player on the field, and it as well
         if(pl != null) {
             Floor tmp = new Floor(this, false);
             tmp.setPlayer(pl);
@@ -235,17 +238,21 @@ public class Level {
             pl.setFloor(tmp);
             addToLevel(tmp, x, y);
         }
+		// Add entitiy to the level
         if(entity != null) {
             Floor tmp = new Floor(this, false);
             tmp.setPlaced(entity);
             addToLevel(tmp, x, y);
         }
+		// Add Replciator to the level
         if(replicator != null) {
             Floor tmp = new Floor(this, false);
             tmp.setRepl(replicator);
             replicator.setFloor(tmp);
             addToLevel(tmp, x, y);
         }
+
+		// Place ZPM on the floor
         if(zpm != null) {
             zpmCount++;
             Floor tmp = new Floor(this, true);
@@ -253,23 +260,30 @@ public class Level {
         }
     }
 
+	// Remove element from the level
     public void removeElement(Player pl, Placeable entity, Replicator replicator, ZPM zpm, int argx, int argy) {
         int x = argx - 1;
         int y = argy - 1;
+		//Remove Player
         if(pl != null) {
             Floor tmp = new Floor(this, false);
             pl.setFloor(null);
             addToLevel(tmp, x, y);
         }
+		// Remove entitiy
         if(entity != null) {
             Floor tmp = new Floor(this, false);
             addToLevel(tmp, x, y);
         }
+
+		// Remove Replicator
         if(replicator != null) {
             Floor tmp = new Floor(this, false);
             replicator.setFloor(null);
             addToLevel(tmp, x, y);
         }
+
+		// Remove ZPM
         if(zpm != null) {
             zpmCount--;
             Floor tmp = new Floor(this, false);
@@ -277,6 +291,7 @@ public class Level {
         }
     }
 
+	// Add field to leve, and set is neighbours
     private void addToLevel(LevelEntity tmp, int x, int y) {
         LevelEntity[] list = ls.get(y).get(x).getNeighbourArray();
         if(list[0] != null) {
@@ -306,6 +321,7 @@ public class Level {
         ls.get(y).set(x, tmp);
     }
 
+	// If the Replicator moves into a chasm, change it into a floor
     public void replicatorReplicated(Chasm c) {
         Floor f = new Floor(this, false);
         LevelEntity[] le = c.getNeighbourArray();
@@ -335,9 +351,7 @@ public class Level {
         }
     }
 
-    /**
-     * 
-     */
+    // Reset the level
     public void reset() {
     	// Clear the game entity list and reload from the previous file
     	ls.clear();
@@ -436,7 +450,7 @@ public class Level {
         reset();
     }
     
-
+	// Draw the level
     public synchronized void draw() {
     	
     	for(int i = 0; i < height; ++i) {

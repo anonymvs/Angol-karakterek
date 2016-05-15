@@ -19,21 +19,21 @@ public final class Opener extends Placeable {
 		weightCount = 0;
 	}
 
-	// Put box on the opener
+	// Place box on the opener
 	public void setBox(Box b) {
 		boxList.add(b);
 		weightCount += b.getWeight();
 	}
 
-	// Set the opener's door
+	// Set the opener's door reference
 	public void setDoor(Door d) {
 		door = d;
 	}
 
-	// Defines what we have to do, if a player want to pick up, or drop box
+	// Defines what happens, if a player wants to pick up, or drop box
 	public final boolean boxEvent(Player o, Box b) {
 		
-		// player tries to pick up box
+		// player tries to pick up a box
 		if(b == null) {
 			
 			// get box from the box list
@@ -61,7 +61,7 @@ public final class Opener extends Placeable {
 
 	};
 
-	// Defines what we have to do, if a player step to an opener
+	// Defines what happens, if a player steps on to an opener
 	public final boolean moveEvent(Player o){
 
 		// we open it, or not
@@ -76,18 +76,18 @@ public final class Opener extends Placeable {
 		}
 	};
 
-	// We can step to the opener
+	// The Player can step on to the opener
 	public final boolean moveEvent(Replicator rep) {
 		return true;
 	}
 
-	// Return with the number of boxes
+	// Return the number of boxes on the opener
 	public int boxCount() {
 		return boxList.size();
 	}
 
 	@Override
-	// We can shoot over opener
+	// The Player can shoot over opener
 	public boolean missileEvent() {
 		return true;
 	}

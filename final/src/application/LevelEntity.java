@@ -1,6 +1,6 @@
 package application;
 
-// Abstract class represents level's one element
+// Abstract class represents one element of the level
 public abstract class LevelEntity implements IDrawable {
 
 	// Neighbour elements, missile, and it's direction
@@ -11,22 +11,22 @@ public abstract class LevelEntity implements IDrawable {
     protected Missile missile = null;
     protected Direction missileDir = null;
 
-    // Defines what we have to do, if a player wants to step to the element
+    // Defines what happens, if a player wants to step on to the element
     public abstract boolean moveAction(Player oneill);
 
-    // Defines what we have to do, if a replicator wants to step to the element
+    // Defines what happens, if a replicator wants to step to the element
 	public abstract boolean moveAction(Replicator rep);
 
-	// Defines what we have to do, if a player wants to pick up or drop box
+	// Defines what happens, if a player wants to pick up or drop box
     public abstract boolean boxAction(Player oneill, Box box);
 
-    // Defines what we have to do with a missile
+    // Defines what happens with a missile
     public abstract boolean missileAction(Missile missile);
     
     // Determines if we can create a zpm there
     abstract public boolean canPutZPM();
 
-    // Returns with the neighbour object, in Direction dir
+    // Returns the neighbour object, in Direction dir
     public LevelEntity getNeighbour(Direction dir) {
     	switch (dir)
     	{

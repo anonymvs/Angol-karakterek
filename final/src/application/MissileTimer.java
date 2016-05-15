@@ -4,7 +4,7 @@ package application;
 import java.util.Timer;
 import java.util.TimerTask;
 
-// Class represents missile's timer
+// Class represents a missile's timer
 public class MissileTimer extends java.util.Timer{
 	
 	// The timer, it's missile, and level

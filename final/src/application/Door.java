@@ -3,7 +3,7 @@ package application;
 //Class represents a door
 public final class Door extends Placeable {
 
-	// The doors state (first closed)
+	// The doors state (default closed)
     private boolean opened;
 
     public Door() {
@@ -20,17 +20,17 @@ public final class Door extends Placeable {
         return opened;
     }
 
-    // We can't put box on a door
+    // The Player can't put box on a door
     public final boolean boxEvent(Player on, Box b) {
         return false;
     }
 
-    // If it is opened, we can move to door
+    // If it is opened, we can move onto a door
     public final boolean moveEvent(Player on) {
         return opened;
     }
 
-    // If it is opened, replicator can move to door
+    // If it is opened, replicator can move onto door
     public final boolean moveEvent(Replicator rep) {
         return opened;
     }
@@ -45,6 +45,7 @@ public final class Door extends Placeable {
 	}
 
 	@Override
+    // If the door is opened, the missile can travel through it
 	public boolean missileEvent() {
 		return opened;
 	}
