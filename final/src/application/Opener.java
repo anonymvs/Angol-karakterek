@@ -47,7 +47,7 @@ public final class Opener extends Placeable {
 			} else {
 				return false;
 			}
-		};
+		}
 
 		// player tries to put down a box
 		else {

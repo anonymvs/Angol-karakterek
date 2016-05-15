@@ -268,24 +268,31 @@ public class View extends Canvas {
 		// O'Neills keys
 		if(oneill != null) {
 			switch(key) {
+				// Moves o'Neill left, if 'a' key is pushed
 			case A:
 				oneill.move(Direction.Left);
 				break;
+				// Moves o'Neill right, if 'as key is pushed
 			case S:
 				oneill.move(Direction.Bottom);
 				break;
+				// Moves o'Neill down, if 'd' key is pushed
 			case D:
 				oneill.move(Direction.Right);
 				break;
+				// Moves o'Neill up, if 'w' key is pushed
 			case W:
 				oneill.move(Direction.Top);
 				break;
+				// Shoots yellow portal if 'y' key is pushed
 			case Y:
 				oneill.shoot(MissileColor.Yellow, level);
 				break;
+				// Shoots blue portal if 'b' key is pushed
 			case B:
 				oneill.shoot(MissileColor.Blue, level);
 				break;
+				// O'Neill attemps to pick up, or put down box if ' ' key is pushed
 			case SPACE:
 				oneill.boxing();
 				break;
@@ -297,24 +304,31 @@ public class View extends Canvas {
 		// Jaffas keys
 		if(jaffa != null) {
 			switch (key) {
+				// Jaffa Shoots red portal if 'r' key is pushed
 			case R:
 				jaffa.shoot(MissileColor.Red, level);
 				break;
+				// Jaffa Shoots green portal if 'g' key is pushed
 			case G:
 				jaffa.shoot(MissileColor.Green, level);
 				break;
+				// Jaffa moves left if 'left' arrow key is pushed
 			case LEFT:
 				jaffa.move(Direction.Left);
 				break;
+				// Jaffa moves down if 'down' arrow key is pushed
 			case DOWN:
 				jaffa.move(Direction.Bottom);
 				break;
+				// Jaffa moves right if 'right' arrow key is pushed
 			case RIGHT:
 				jaffa.move(Direction.Right);
 				break;
+				// Jaffa moves up if 'up' arrow key is pushed
 			case UP:
 				jaffa.move(Direction.Top);
 				break;
+				// Jaffa attempts to pick up or put down box if 'back_space' key is pushed
 			case BACK_SPACE:
 				jaffa.boxing();
 				break;
