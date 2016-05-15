@@ -15,14 +15,15 @@ public class Main extends Application {
 	@Override
 	// Initialization
 	public void start(Stage primaryStage) {
-		
+		// Set the title of the window
 		primaryStage.setTitle("Great game brah");
 
-        // Creating and initializng game elements
+        // Creating and initializing game elements
         Player oneill = new Player(PlayerType.ONeill);
         Player jaffa = new Player(PlayerType.Jaffa);
         Level level = new Level();
-
+        
+        // Loads the level
 	    String path = new File("bin/levels/level.txt").getAbsolutePath();		
         level.load(path, oneill, jaffa);
 
@@ -35,6 +36,7 @@ public class Main extends Application {
         view.setFocusTraversable(true);
         level.setView(view);
         
+        // Draws the level
         level.draw();
         
         g.getChildren().add(view);
