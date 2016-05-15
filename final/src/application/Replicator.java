@@ -60,7 +60,7 @@ public class Replicator implements IDrawable {
     	// move, and redraw level
     	LevelEntity entity = floor.getNeighbour(dir);
         this.dir = dir;
-        boolean b = entity.moveAction(this);
+        entity.moveAction(this);
         lvl.draw();
     }
 

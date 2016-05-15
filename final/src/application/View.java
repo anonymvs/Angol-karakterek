@@ -1,5 +1,7 @@
 package application;
 
+import java.io.File;
+
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -17,41 +19,41 @@ public class View extends Canvas {
 	
 	// Determines the size of each cell
 	final static int gridSize = 50;
+	final String rltvPath = new String("bin/graphics/");
 	
 	GraphicsContext gc;
 
 	// Load all the images
-	Image imgFloor = new Image("graphics/floor.gif", gridSize, gridSize, false, false);
-	Image imgBox = new Image("graphics/box.gif", gridSize, gridSize, false, false);
-	Image imgBoxSmall = new Image("graphics/boxSmall.gif", gridSize, gridSize, false, false);
-	Image imgChasm = new Image("graphics/chasm.gif", gridSize, gridSize, false, false);
-	Image imgWall = new Image("graphics/wall.gif", gridSize, gridSize, false, false);
-	Image imgPortalWall= new Image("graphics/portalwall.gif", gridSize, gridSize, false, false);
-	Image imgMissile = new Image("graphics/fireball.png", gridSize, gridSize, false, false);
-	Image imgOpener = new Image("graphics/libre.gif", gridSize, gridSize, false, false);
-	Image imgDoorOpened = new Image("graphics/doorOpened.gif", gridSize, gridSize, false, false);
-	Image imgDoorClosed = new Image("graphics/doorClosed.gif", gridSize, gridSize, false, false);
-	Image imgONeillNorth = new Image("graphics/oneillNorth.png", gridSize, gridSize, false, false);
-	Image imgONeillSouth = new Image("graphics/oneillSouth.png", gridSize, gridSize, false, false);
-	Image imgONeillEast = new Image("graphics/oneillEast.png", gridSize, gridSize, false, false);
-	Image imgONeillWest = new Image("graphics/oneillWest.png", gridSize, gridSize, false, false);
-	Image imgJaffaNorth = new Image("graphics/jaffaNorth.png", gridSize, gridSize, false, false);
-	Image imgJaffaSouth = new Image("graphics/jaffaSouth.png", gridSize, gridSize, false, false);
-	Image imgJaffaEast = new Image("graphics/jaffaEast.png", gridSize, gridSize, false, false);
-	Image imgJaffaWest = new Image("graphics/jaffaWest.png", gridSize, gridSize, false, false);
-	Image imgReplicatorNorth = new Image("graphics/replNorth.png", gridSize, gridSize, false, false);
-	Image imgReplicatorSouth = new Image("graphics/replSouth.png", gridSize, gridSize, false, false);
-	Image imgReplicatorEast = new Image("graphics/replEast.png", gridSize, gridSize, false, false);
-	Image imgReplicatorWest = new Image("graphics/replWest.png", gridSize, gridSize, false, false);
-	Image imgZPM = new Image("graphics/ZPM_insize.gif", gridSize, gridSize, false, false);
-	Image imgPortalBlue = new Image("graphics/portalblue.gif", gridSize, gridSize, false, false);
-	Image imgPortalYellow = new Image("graphics/portalyellow.gif", gridSize, gridSize, false, false);
-	Image imgPortalRed = new Image("graphics/portalred.gif", gridSize, gridSize, false, false);
-	Image imgPortalGreen = new Image("graphics/portalgreen.gif", gridSize, gridSize, false, false);
-	Image imgMissileGreen = new Image("graphics/fbgreen.png", gridSize, gridSize, false, false);
-	Image imgMissileRed = new Image("graphics/fbred.png", gridSize, gridSize, false, false);
-	Image imgMissileYellow = new Image("graphics/fbyellow.png", gridSize, gridSize, false, false);
-	Image imgMissileBlue = new Image("graphics/fbblue.png", gridSize, gridSize, false, false);
+	Image imgFloor = new Image(new File(rltvPath + "floor.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgBox = new Image(new File(rltvPath + "box.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgBoxSmall = new Image(new File(rltvPath + "boxSmall.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgChasm = new Image(new File(rltvPath + "chasm.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgWall = new Image(new File(rltvPath + "wall.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgPortalWall= new Image(new File(rltvPath + "portalwall.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgOpener = new Image(new File(rltvPath + "libre.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgDoorOpened = new Image(new File(rltvPath + "doorOpened.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgDoorClosed = new Image(new File(rltvPath + "doorClosed.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgONeillNorth = new Image(new File(rltvPath + "oneillNorth.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgONeillSouth = new Image(new File(rltvPath + "oneillSouth.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgONeillEast = new Image(new File(rltvPath + "oneillEast.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgONeillWest = new Image(new File(rltvPath + "oneillWest.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgJaffaNorth = new Image(new File(rltvPath + "jaffaNorth.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgJaffaSouth = new Image(new File(rltvPath + "jaffaSouth.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgJaffaEast = new Image(new File(rltvPath + "jaffaEast.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgJaffaWest = new Image(new File(rltvPath + "jaffaWest.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgReplicatorNorth = new Image(new File(rltvPath + "replNorth.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgReplicatorSouth = new Image(new File(rltvPath + "replSouth.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgReplicatorEast = new Image(new File(rltvPath + "replEast.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgReplicatorWest = new Image(new File(rltvPath + "replWest.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgZPM = new Image(new File(rltvPath + "ZPM_insize.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgPortalBlue = new Image(new File(rltvPath + "portalblue.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgPortalYellow = new Image(new File(rltvPath + "portalyellow.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgPortalRed = new Image(new File(rltvPath + "portalred.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgPortalGreen = new Image(new File(rltvPath + "portalgreen.gif").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgMissileGreen = new Image(new File(rltvPath + "fbgreen.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgMissileRed = new Image(new File(rltvPath + "fbred.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgMissileYellow = new Image(new File(rltvPath + "fbyellow.png").toURI().toString(), gridSize, gridSize, false, false);
+	Image imgMissileBlue = new Image(new File(rltvPath + "fbblue.png").toURI().toString(), gridSize, gridSize, false, false);
 	
 	// Construct the view object 
 	View(Level level, Player oneill, Player jaffa) {

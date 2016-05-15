@@ -1,6 +1,8 @@
 package application;
 	
 
+import java.io.File;
+
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -20,7 +22,9 @@ public class Main extends Application {
         Player oneill = new Player(PlayerType.ONeill);
         Player jaffa = new Player(PlayerType.Jaffa);
         Level level = new Level();
-        level.load(getClass().getResource("/levels/level.txt").getFile(), oneill, jaffa);
+
+	    String path = new File("bin/levels/level.txt").getAbsolutePath();		
+        level.load(path, oneill, jaffa);
 
         Group g = new Group();
         Scene scene = new Scene(g, View.gridSize * level.getWidth(), View.gridSize * level.getHeight(), Color.web("0xFFFFFF", 1.0));
