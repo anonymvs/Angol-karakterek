@@ -18,6 +18,34 @@ public class Portal {
     	wall = w;    	
     	dir = m.getDirection().inverse();
     	
+    	// close yellow portal if it is on the wall
+    	if(yellowPortal != null){
+        	if(m.getColor() != MissileColor.Yellow && yellowPortal.wall == wall){
+        		yellowPortal.close();
+        	}
+        }
+    	
+    	// close blue portal if it is on the wall
+    	if(bluePortal != null){
+        	if(m.getColor() != MissileColor.Blue && bluePortal.wall == wall){
+        		bluePortal.close();
+        	}
+    	}
+        
+    	// close red portal if it is on the wall
+    	if(redPortal != null){
+            if(m.getColor() != MissileColor.Red && redPortal.wall == wall){
+            	redPortal.close();
+            }
+        }
+         	
+    	// close green portal if it is on the wall
+    	if(greenPortal != null){
+    		if(m.getColor() != MissileColor.Green && greenPortal.wall == wall){
+    			greenPortal.close();
+    		}
+        }
+    	
     	// open yellow portal
     	if(m.getColor() == MissileColor.Yellow) {
     		
