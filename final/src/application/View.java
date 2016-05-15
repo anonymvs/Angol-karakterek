@@ -27,7 +27,6 @@ public class View extends Canvas {
 	Image imgChasm = new Image("graphics/chasm.gif", gridSize, gridSize, false, false);
 	Image imgWall = new Image("graphics/wall.gif", gridSize, gridSize, false, false);
 	Image imgPortalWall= new Image("graphics/portalwall.gif", gridSize, gridSize, false, false);
-	Image imgMissile = new Image("graphics/fireball.png", gridSize, gridSize, false, false);
 	Image imgOpener = new Image("graphics/libre.gif", gridSize, gridSize, false, false);
 	Image imgDoorOpened = new Image("graphics/doorOpened.gif", gridSize, gridSize, false, false);
 	Image imgDoorClosed = new Image("graphics/doorClosed.gif", gridSize, gridSize, false, false);
