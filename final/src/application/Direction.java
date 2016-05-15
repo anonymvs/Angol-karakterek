@@ -23,7 +23,7 @@ public enum Direction {
 		}
 	}
 
-	// Return with the direction from string
+	// Returns the direction from string
 	public static Direction getDir(String arg) {
 		switch(arg) {
 			case "right":
@@ -39,7 +39,7 @@ public enum Direction {
 		}
 	}
 
-	// Return with the direction in string
+	// Returns the direction in string
 	public static String getDir(Direction d) {
 		switch (d) {
 			case Right:

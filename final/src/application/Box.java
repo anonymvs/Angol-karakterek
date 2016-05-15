@@ -19,12 +19,12 @@ public final class Box extends Placeable {
     	
     	// else not
         return false;
-    };
+    }
 
     // The Player can step to any box, returns true
     public final boolean moveEvent(Player on) {
         return true;
-    };
+    }
 
     // The Player can step on to any box, even with a replicator on it
     public final boolean moveEvent(Replicator rep) {

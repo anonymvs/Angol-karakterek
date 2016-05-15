@@ -428,10 +428,13 @@ public class Level {
     	
     	// Determines who has won
     	String playerWin = null;
+		// If O'Neill collected more ZPMs
     	if(zpmONeill > zpmJaffa) {
     		playerWin = new String("O'Neill has won!");
+			// If Jaffa collected more ZPMs
     	} else if (zpmJaffa > zpmONeill) {
     		playerWin = new String("Jaffa has won!");
+			//Ultimate winner
     	} else {
     		playerWin = new String("LZ has won!");
     	}
@@ -452,7 +455,6 @@ public class Level {
     
 	// Draw the level
     public synchronized void draw() {
-    	
     	for(int i = 0; i < height; ++i) {
     		for(int j = 0; j < width; ++j) {
     			ls.get(i).get(j).draw(view, j, i);

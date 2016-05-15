@@ -43,7 +43,7 @@ public abstract class LevelEntity implements IDrawable {
     	}
     }
     
-    // Return with the array of neighbours
+    // Returns the array of neighbours
 	public LevelEntity[] getNeighbourArray() {
 		LevelEntity[] list = new LevelEntity[4];
 		list[0] = east;
@@ -82,7 +82,7 @@ public abstract class LevelEntity implements IDrawable {
     	missileDir = dir;
     }
 
-    // Return true if element has missile over it
+    // Returns true if element has missile over it
 	public boolean hasMissile() {
 		if(missile != null) {
 			return true;

@@ -34,6 +34,7 @@ public class Chasm extends LevelEntity {
 	// Draws a chasm to the x, y coordinate
 	public void draw(View view, int x, int y) {
 		view.drawChasm(x, y);
+		// If there is a missile above the chasm, draw it as well
 		if(missile != null)
 			view.drawMissile(x, y, missile.getColor());
 	}

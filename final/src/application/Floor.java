@@ -95,7 +95,7 @@ public final class Floor extends LevelEntity {
 
     	
     	return canMove;
-    };
+    }
 
     // Defines what happens, if the replicator wants to step on a floor
     public final boolean moveAction(Replicator rep){

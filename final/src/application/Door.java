@@ -15,7 +15,7 @@ public final class Door extends Placeable {
         opened = op;
     }
 
-    // Return with the state of the door
+    // Returns the state of the door
     public boolean isOpened() {
         return opened;
     }
@@ -25,7 +25,7 @@ public final class Door extends Placeable {
         return false;
     }
 
-    // If it is opened, we can move onto a door
+    // If it is opened, The Player can move onto a door
     public final boolean moveEvent(Player on) {
         return opened;
     }
