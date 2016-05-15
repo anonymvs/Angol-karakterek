@@ -12,54 +12,88 @@ import javafx.scene.input.KeyEvent;
 // The view that manages the images
 public class View extends Canvas {
 	
-	// Players, and level
+	// Reference for Jaffa
 	private Player jaffa = null;
+	// Reference for O'Neill
 	private Player oneill = null;
+	// Reference for the level
 	private Level level = null;
 	
 	// Determines the size of each cell
 	final static int gridSize = 50;
+	// Set the relative path
 	final String rltvPath = new String("bin/graphics/");
 	
 	GraphicsContext gc;
 
-	// Load all the images
+	// Loads all the images
+	// Loads the image of a floor element
 	Image imgFloor = new Image(new File(rltvPath + "floor.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a simple box
 	Image imgBox = new Image(new File(rltvPath + "box.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a small box
 	Image imgBoxSmall = new Image(new File(rltvPath + "boxSmall.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a chasm element
 	Image imgChasm = new Image(new File(rltvPath + "chasm.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a wall element
 	Image imgWall = new Image(new File(rltvPath + "wall.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a wall element that a portal can be created on
 	Image imgPortalWall= new Image(new File(rltvPath + "portalwall.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of an opener
 	Image imgOpener = new Image(new File(rltvPath + "libre.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of an open door
 	Image imgDoorOpened = new Image(new File(rltvPath + "doorOpened.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a closed door
 	Image imgDoorClosed = new Image(new File(rltvPath + "doorClosed.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of O'Neill looking up
 	Image imgONeillNorth = new Image(new File(rltvPath + "oneillNorth.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of O'Neill looking down
 	Image imgONeillSouth = new Image(new File(rltvPath + "oneillSouth.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of O'Neill looking right
 	Image imgONeillEast = new Image(new File(rltvPath + "oneillEast.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of O'Neill looking left
 	Image imgONeillWest = new Image(new File(rltvPath + "oneillWest.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of Jaffa looking up
 	Image imgJaffaNorth = new Image(new File(rltvPath + "jaffaNorth.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of Jaffa looking down
 	Image imgJaffaSouth = new Image(new File(rltvPath + "jaffaSouth.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of Jaffa looking right
 	Image imgJaffaEast = new Image(new File(rltvPath + "jaffaEast.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of Jaffa looking left
 	Image imgJaffaWest = new Image(new File(rltvPath + "jaffaWest.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of the Replicator looking up
 	Image imgReplicatorNorth = new Image(new File(rltvPath + "replNorth.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of the Replicator looking down
 	Image imgReplicatorSouth = new Image(new File(rltvPath + "replSouth.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of the Replicator looking right
 	Image imgReplicatorEast = new Image(new File(rltvPath + "replEast.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of the Replicator looking left
 	Image imgReplicatorWest = new Image(new File(rltvPath + "replWest.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a ZPM
 	Image imgZPM = new Image(new File(rltvPath + "ZPM_insize.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a blue portal
 	Image imgPortalBlue = new Image(new File(rltvPath + "portalblue.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a yellow portal
 	Image imgPortalYellow = new Image(new File(rltvPath + "portalyellow.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a red portal
 	Image imgPortalRed = new Image(new File(rltvPath + "portalred.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a green portal
 	Image imgPortalGreen = new Image(new File(rltvPath + "portalgreen.gif").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a green missile
 	Image imgMissileGreen = new Image(new File(rltvPath + "fbgreen.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a red missile
 	Image imgMissileRed = new Image(new File(rltvPath + "fbred.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a yellow missile
 	Image imgMissileYellow = new Image(new File(rltvPath + "fbyellow.png").toURI().toString(), gridSize, gridSize, false, false);
+	// Loads the image of a blue missile
 	Image imgMissileBlue = new Image(new File(rltvPath + "fbblue.png").toURI().toString(), gridSize, gridSize, false, false);
 	
 	// Construct the view object 
 	View(Level level, Player oneill, Player jaffa) {
 		
-		// sets the width, and height and sets the players, and level
+		// sets the width, height
 		super(gridSize * level.getWidth(), gridSize * level.getHeight());
+		// sets the players, and level
 		this.level = level;
 		this.oneill = oneill;
 		this.jaffa = jaffa;		
